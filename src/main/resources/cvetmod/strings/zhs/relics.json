@@ -1,0 +1,7 @@
+{
+  "cvetmod:RhineLabEmployeeCard": {
+    "NAME": "莱茵生命员工证",
+    "FLAVOR": "持此卡可进入莱茵生命总部及对应科室实验区域。",
+    "DESCRIPTIONS": ["每当你从卡组中移除1张卡牌，进入下一个房间时随机升级一张卡牌至随机倾向。"]
+  }
+}

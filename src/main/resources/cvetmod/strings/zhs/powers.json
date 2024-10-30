@@ -1,0 +1,6 @@
+{
+  "cvetmod:AIODPower": {
+    "NAME": "以攻代守",
+    "DESCRIPTIONS": ["每当造成小于等于 #b", " 点 未被格挡的 #y攻击 伤害时，将伤害提升为 #b", " 。"]
+  }
+}
