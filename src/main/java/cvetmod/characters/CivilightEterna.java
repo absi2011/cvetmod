@@ -1,6 +1,7 @@
 package cvetmod.characters;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
@@ -16,6 +17,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -30,6 +32,8 @@ import cvetmod.events.*;
 import cvetmod.patches.*;
 import cvetmod.powers.*;
 import cvetmod.relics.*;
+import cvetmod.util.CostReserves;
+import cvetmod.util.CvetEnergyManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +43,7 @@ import static cvetmod.CvetMod.CvetPink;
 
 public class CivilightEterna extends CustomPlayer {
 
-    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("cvetmod:CvetCharacter");
+    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("cvetmod:CivilightEterna");
     public static final String NAME = characterStrings.NAMES[0];
     public static final String[] TEXT = characterStrings.TEXT;
     public static final String IDLE = "cvetmod/images/char/idle.png";
@@ -66,7 +70,7 @@ public class CivilightEterna extends CustomPlayer {
         dialogY = this.drawY + 200.0F * Settings.scale;
 
         // 参数列表：静态贴图路径，越肩视角2贴图路径，越肩视角贴图路径，失败时贴图路径，角色选择界面信息，碰撞箱XY宽高，初始能量数
-        initializeClass(IDLE, SHOULDER, SHOULDER, DIE, getLoadout(), 20.0F, -10.0F, 320.0F, 290.0F, new EnergyManager(3));
+        initializeClass(IDLE, SHOULDER, SHOULDER, DIE, getLoadout(), 20.0F, -10.0F, 320.0F, 290.0F, new CvetEnergyManager(2, 2));
 
 //        spines.put("M", new AbstractCharacterSpine(this, -170.0F * Settings.scale, "cvetmod/images/char/char_249_mlyss_1/char_249_mlyss.atlas", "cvetmod/images/char/char_249_mlyss_1/char_249_mlyss.json", 1.5F, "Skill_3_Idle", "Skill_3_loop"));
     }
@@ -228,6 +232,48 @@ public class CivilightEterna extends CustomPlayer {
             for (AbstractPower p : powers) p.onCardDraw(c);
             for (AbstractRelic r : relics) r.onCardDraw(c);
             hand.refreshHandLayout();
+        }
+    }
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        if (c.type == AbstractCard.CardType.ATTACK) {
+            // TODO:attack animation
+        }
+        c.calculateCardDamage(monster);
+        if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
+            c.energyOnUse = EnergyPanel.totalCount;
+        }
+        if (c instanceof AbstractCvetCard) {
+            if (c.cost == -1) {
+                c.energyOnUse = EnergyPanel.totalCount;
+            }
+            if (((AbstractCvetCard) c).secondCost == -1) {
+                ((AbstractCvetCard) c).secondEnergyOnUse = CostReserves.reserveCount();
+            }
+        }
+        if (c.isInAutoplay && (c.cost == -1 || (c instanceof AbstractCvetCard && ((AbstractCvetCard) c).secondCost == -1))) {
+            c.freeToPlayOnce = true;
+        }
+        c.use(this, monster);
+        AbstractDungeon.actionManager.addToBottom(new UseCardAction(c, monster));
+        if (!c.dontTriggerOnUseCard) {
+            hand.triggerOnOtherCardPlayed(c);
+        }
+        hand.removeCard(c);
+        cardInUse = c;
+        c.target_x = Settings.WIDTH / 2.0F;
+        c.target_y = Settings.HEIGHT / 2.0F;
+
+        if (!c.freeToPlay() && !c.isInAutoplay && (!hasPower("Corruption") || c.type != AbstractCard.CardType.SKILL)) {
+            energy.use(c.costForTurn);
+            if (c instanceof AbstractCvetCard) {
+                CostReserves.useReserves(((AbstractCvetCard) c).secondCostForTurn);
+            }
+        }
+
+        if (!this.hand.canUseAnyCard() && !this.endTurnQueued) {
+            AbstractDungeon.overlayMenu.endTurnButton.isGlowing = true;
         }
     }
 }

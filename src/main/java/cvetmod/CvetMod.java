@@ -51,7 +51,6 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     private static final String charButton = "cvetmod/images/charSelect/button.png";
     private static final String charPortrait = "cvetmod/images/charSelect/portrait.png";
     private static final String miniManaSymbol = "cvetmod/images/ManaAmiya.png";
-    private static final String miniSecondManaSymbol = "cvetmod/images/ManaTheresa.png";
     private static final Logger logger = LogManager.getLogger(cvetmod.CvetMod.class.getName());
 
     public static float newMonsterMulti = 1.0F;
@@ -81,7 +80,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     }
 
     public void initializeMonsters() {
-        String[] names = CardCrawlGame.languagePack.getUIString("cvetmod:RunHistoryMonsterNames").TEXT;
+//        String[] names = CardCrawlGame.languagePack.getUIString("cvetmod:RunHistoryMonsterNames").TEXT;
 //        addMonster("Single ArcCommando", names[0], () -> new MonsterGroup(new AbstractMonster[] {new ArclightCommando(0.0F, 0.0F)}));
 //        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo("Single ArcCommando", 2.0F * newMonsterMulti));
         // Add a name.

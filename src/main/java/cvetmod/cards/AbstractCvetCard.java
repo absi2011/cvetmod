@@ -4,11 +4,10 @@ import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
+import cvetmod.patches.AbstractCardEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,11 +17,21 @@ public abstract class AbstractCvetCard extends CustomCard {
     public int secondMagicNumber;
     public boolean isSecondMagicNumberModified;
     public boolean upgradedSecondMagicNumber;
+    public int secondCost;
+    public int secondCostForTurn;
+    public boolean upgradedSecondCost;
+    public boolean isSecondCostModified;
+    public boolean isSecondCostModifiedForTurn;
+    public int secondEnergyOnUse;
 
-    public AbstractCvetCard(String id, String name, String img, int cost, String rawDescription,
-                             AbstractCard.CardType type, AbstractCard.CardColor color,
-                             AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
-        super(id, name, img, cost, rawDescription, type, color, rarity, target);
+    public AbstractCvetCard(String id, String name, String img, int cost, int secondCost,
+                            String rawDescription, AbstractCard.CardType type,
+                            AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
+        super(id, name, img, cost, rawDescription, type, AbstractCardEnum.CVET_PINK, rarity, target);
+        this.secondCost = this.secondCostForTurn = secondCost;
+        upgradedSecondCost = false;
+        isSecondCostModified = false;
+        isSecondCostModifiedForTurn = false;
     }
 
     @Override
@@ -78,10 +87,20 @@ public abstract class AbstractCvetCard extends CustomCard {
         t.block = s.block;
         t.magicNumber = s.magicNumber;
         t.secondMagicNumber = s.secondMagicNumber;
+        t.upgradedDamage = s.upgradedDamage;
+        t.upgradedBlock = s.upgradedBlock;
+        t.upgradedMagicNumber = s.upgradedMagicNumber;
+        t.upgradedSecondMagicNumber = s.upgradedSecondMagicNumber;
         t.cost = s.cost;
         t.costForTurn = s.costForTurn;
+        t.upgradedCost = s.upgradedCost;
         t.isCostModified = s.isCostModified;
         t.isCostModifiedForTurn = s.isCostModifiedForTurn;
+        t.secondCost = s.secondCost;
+        t.secondCostForTurn = s.secondCostForTurn;
+        t.upgradedSecondCost = s.upgradedSecondCost;
+        t.isSecondCostModified = s.isSecondCostModified;
+        t.isSecondCostModifiedForTurn = s.isSecondCostModifiedForTurn;
         t.inBottleLightning = s.inBottleLightning;
         t.inBottleFlame = s.inBottleFlame;
         t.inBottleTornado = s.inBottleTornado;
@@ -163,6 +182,45 @@ public abstract class AbstractCvetCard extends CustomCard {
                 return ((AbstractCvetCard) card).upgradedSecondMagicNumber;
             } else {
                 return false;
+            }
+        }
+    }
+
+    @Override
+    public void displayUpgrades() {
+        super.displayUpgrades();
+        if (upgradedSecondCost) {
+            isSecondCostModified = true;
+        }
+    }
+
+    protected void upgradeBaseSecondCost(int newBaseCost) {
+        int diff = secondCostForTurn - secondCost;
+        secondCost = newBaseCost;
+        if (secondCostForTurn > 0) {
+            secondCostForTurn = secondCost + diff;
+        }
+        if (secondCostForTurn < 0) {
+            secondCostForTurn = 0;
+        }
+        upgradedSecondCost = true;
+    }
+
+    @Override
+    public void resetAttributes() {
+        super.resetAttributes();
+        secondCostForTurn = secondCost;
+        isSecondCostModifiedForTurn = false;
+    }
+    
+    public void setSecondCostFortTurn(int amt) {
+        if (secondCostForTurn >= 0) {
+            secondCostForTurn = amt;
+            if (secondCostForTurn < 0) {
+                secondCostForTurn = 0;
+            }
+            if (secondCostForTurn != secondCost) {
+                isSecondCostModifiedForTurn = true;
             }
         }
     }
