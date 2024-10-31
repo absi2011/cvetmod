@@ -50,7 +50,8 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     private static final String energyOrbPortrait = "cvetmod/images/1024/card_cvet_orb.png";
     private static final String charButton = "cvetmod/images/charSelect/button.png";
     private static final String charPortrait = "cvetmod/images/charSelect/portrait.png";
-    private static final String miniManaSymbol = "cvetmod/images/manaSymbol.png";
+    private static final String miniManaSymbol = "cvetmod/images/ManaAmiya.png";
+    private static final String miniSecondManaSymbol = "cvetmod/images/ManaTheresa.png";
     private static final Logger logger = LogManager.getLogger(cvetmod.CvetMod.class.getName());
 
     public static float newMonsterMulti = 1.0F;
@@ -61,7 +62,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
 
         logger.info("addColor CVET_PINK");
         BaseMod.addColor(CVET_PINK,
-                CvetPink, CvetPink, CvetPink, CvetPink, CvetPink, CvetPink, CvetPink,   //Background color, back color, frame color, frame outline color, description box color, glow color
+                CvetPink, CvetPink, CvetPink, CvetPink, CvetPink, CvetPink, CvetPink,          //Background color, back color, frame color, frame outline color, description box color, glow color
                 attackCard, skillCard, powerCard, energyOrb,                                   //attack background image, skill background image, power background image, energy orb image
                 attackCardPortrait, skillCardPortrait, powerCardPortrait, energyOrbPortrait,   //as above, but for card inspect view
                 miniManaSymbol);
