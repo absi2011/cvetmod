@@ -1,5 +1,15 @@
 {
-    "cvetmod:CvetStrike": {
+    "cvetmod:CvetStrikeA": {
+        "NAME": "打击",
+        "DESCRIPTION": "造成 !D! 点伤害。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:CvetStrikeT": {
+        "NAME": "打击",
+        "DESCRIPTION": "造成 !D! 点伤害。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:CvetStrikeB": {
         "NAME": "打击",
         "DESCRIPTION": "造成 !D! 点伤害。",
         "UPGRADE_DESCRIPTION": ""

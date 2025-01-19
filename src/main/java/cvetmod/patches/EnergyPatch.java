@@ -62,7 +62,7 @@ public class EnergyPatch {
     @SpirePatch(clz = FontHelper.class, method = "identifyOrb")
     public static class IdentifyOrbPatch {
         @SpirePrefixPatch
-        public static SpireReturn<?> Prefix(FontHelper _inst, String word) {
+        public static SpireReturn<?> Prefix(String word) {
             if (word.equals("[cvetmod:E2]")) {
                 return SpireReturn.Return(secondOrb);
             } else {
@@ -75,7 +75,7 @@ public class EnergyPatch {
     public static class RenderBoxPatch {
         private static final Color BASE_COLOR = new Color(1.0F, 0.9725F, 0.8745F, 1.0F);
         @SpireInsertPatch(locator = Locator.class)
-        public static SpireReturn<?> Insert(TipHelper _inst, SpriteBatch sb, String word, float x, float y) {
+        public static SpireReturn<?> Insert(SpriteBatch sb, String word, float x, float y) {
             if (word.equals("[cvetmod:E2]")) {
                 TipHelper.renderTipEnergy(sb, secondOrb, x + 22.0F * Settings.scale, y - 8.0F * Settings.scale);
                 FontHelper.renderFontLeftTopAligned(sb, FontHelper.tipHeaderFont, TipHelper.capitalize(SecondCostEnergyOrb.TEXT[0]), x + 22.0F * Settings.scale * 2.5F, y + 12.0F * Settings.scale, Settings.GOLD_COLOR);

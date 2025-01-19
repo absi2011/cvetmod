@@ -128,7 +128,9 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         ArrayList<AbstractCard> cards = new ArrayList<>();
 
         // Basic.
-//        cards.add(new CvetStrike()); // 打击
+        cards.add(new CvetStrikeA()); // 打击A
+        cards.add(new CvetStrikeT()); // 打击T
+        cards.add(new CvetStrikeB()); // 打击B
 //        cards.add(new CvetDefend()); // 防御
 
         // Common.

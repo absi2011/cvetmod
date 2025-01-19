@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
@@ -169,7 +168,10 @@ public class CivilightEterna extends CustomPlayer {
 
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> ret = new ArrayList<>();
-//        ret.add(CvetStrike.ID);
+        ret.add(CvetStrikeA.ID);
+        ret.add(CvetStrikeT.ID);
+        ret.add(CvetStrikeB.ID);
+        ret.add(CvetStrikeB.ID);
         return ret;
     }
 
