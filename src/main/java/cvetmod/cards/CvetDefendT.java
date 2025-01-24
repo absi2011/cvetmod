@@ -1,40 +1,38 @@
 package cvetmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class CvetStrikeT extends AbstractCvetCard {
-    public static final String ID = "cvetmod:CvetStrikeT";
+public class CvetDefendT extends AbstractCvetCard {
+    public static final String ID = "cvetmod:CvetDefendT";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/CvetStrikeT.png";
     public static final int COST = 0;
     public static final int SECOND_COST = 1;
-    public static final int DAMAGE_AMT = 5;
-    public static final int UPGRADE_PLUS_DMG = 2;
+    public static final int BLOCK_AMT = 4;
+    public static final int UPGRADE_PLUS_DEF = 2;
 
-    public CvetStrikeT() {
-        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        damage = baseDamage = DAMAGE_AMT;
-        tags.add(CardTags.STRIKE);
-        tags.add(CardTags.STARTER_STRIKE);
+    public CvetDefendT() {
+        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
+        block = baseBlock = BLOCK_AMT;
+        tags.add(CardTags.STARTER_DEFEND);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage)));
+        addToBot(new GainBlockAction(p, block));
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeDamage(UPGRADE_PLUS_DEF);
             initializeDescription();
         }
     }

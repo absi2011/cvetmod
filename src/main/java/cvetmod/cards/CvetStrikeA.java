@@ -22,6 +22,7 @@ public class CvetStrikeA extends AbstractCvetCard {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         damage = baseDamage = DAMAGE_AMT;
         tags.add(CardTags.STRIKE);
+        tags.add(CardTags.STARTER_STRIKE);
     }
 
     @Override

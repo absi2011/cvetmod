@@ -172,6 +172,10 @@ public class CivilightEterna extends CustomPlayer {
         ret.add(CvetStrikeT.ID);
         ret.add(CvetStrikeB.ID);
         ret.add(CvetStrikeB.ID);
+        ret.add(CvetDefendA.ID);
+        ret.add(CvetDefendT.ID);
+        ret.add(CvetDefendB.ID);
+        ret.add(CvetDefendB.ID);
         return ret;
     }
 
