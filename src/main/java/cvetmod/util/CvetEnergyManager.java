@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 public class CvetEnergyManager extends EnergyManager {
     public int secondEnergy;
     public int secondEnergyMaster;
-    public CvetEnergyManager(int e, int e2) {
+    public CvetEnergyManager(int e,int e2) {
         super(e);
         secondEnergyMaster = e2;
     }

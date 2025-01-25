@@ -14,9 +14,24 @@
         "DESCRIPTION": "造成 !D! 点伤害。",
         "UPGRADE_DESCRIPTION": ""
     },
-    "cvetmod:CvetDefend": {
+    "cvetmod:CvetDefendA": {
         "NAME": "防御",
         "DESCRIPTION": "获得 !B! 点 格挡 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:CvetDefendT": {
+        "NAME": "防御",
+        "DESCRIPTION": "获得 !B! 点 格挡 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:CvetDefendB": {
+        "NAME": "防御",
+        "DESCRIPTION": "获得 !B! 点 格挡 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:TacticalChant": {
+        "NAME": "战术咏唱",
+        "DESCRIPTION": "获得 [cvetmod:E2] 。 NL 在本回合中获得 !M! 点力量。",
         "UPGRADE_DESCRIPTION": ""
     }
 }

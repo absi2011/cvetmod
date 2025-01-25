@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -18,6 +20,8 @@ import cvetmod.util.CostReserves;
 import cvetmod.util.CvetEnergyManager;
 import cvetmod.util.SecondCostEnergyOrb;
 import javassist.CtBehavior;
+
+import static com.megacrit.cardcrawl.core.CardCrawlGame.saveFile;
 
 public class EnergyPatch {
     private static final Texture orbTexture = new Texture("cvetmod/images/ManaTheresa.png");
@@ -55,6 +59,16 @@ public class EnergyPatch {
                 String toShow = CostReserves.reserveCount() + "/" + ((CvetEnergyManager) AbstractDungeon.player.energy).secondEnergy;
                 AbstractDungeon.player.getEnergyNumFont().getData().setScale(SecondCostEnergyOrb.fontScale);
                 FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), toShow, __instance.current_x + SecondCostEnergyOrb.X_OFFSET, __instance.current_y + SecondCostEnergyOrb.Y_OFFSET, Color.WHITE);
+            }
+        }
+    }
+
+    @SpirePatch(clz = CardCrawlGame.class, method = "loadPlayerSave")
+    public static class EnergyManagerPatch {
+        @SpirePostfixPatch
+        public static void Postfix(CardCrawlGame __instance, AbstractPlayer p) {
+            if (p instanceof CivilightEterna) {
+                p.energy = new CvetEnergyManager(saveFile.red, saveFile.red);
             }
         }
     }
