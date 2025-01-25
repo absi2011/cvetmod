@@ -135,7 +135,8 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new CvetDefendT()); // 防御·特蕾西娅
         cards.add(new CvetDefendB()); // 防御·Both
         cards.add(new TacticalChant()); // 战术咏唱
-//        cards.add(new CvetDefend()); // 防御
+        cards.add(new Originium()); // 源石
+        cards.add(new Inhibitor()); // 抑制剂
 
         // Common.
 

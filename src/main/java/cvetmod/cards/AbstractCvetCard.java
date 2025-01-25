@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import cvetmod.patches.AbstractCardEnum;
+import cvetmod.powers.Shatter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,18 @@ public abstract class AbstractCvetCard extends CustomCard {
     }
 
     public boolean extraTriggered() {
+        return false;
+    }
+
+    public boolean OriginiumArts() {
+        if (AbstractDungeon.player.hasPower(Shatter.POWER_ID)) {
+            return true;
+        }
+        for (AbstractCard c: AbstractDungeon.player.hand.group) {
+            if (c instanceof Originium) {
+                return true;
+            }
+        }
         return false;
     }
 
