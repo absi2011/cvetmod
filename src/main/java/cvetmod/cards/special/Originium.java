@@ -1,4 +1,4 @@
-package cvetmod.cards;
+package cvetmod.cards.special;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;

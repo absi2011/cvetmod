@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
+import cvetmod.cards.special.Originium;
 import cvetmod.patches.AbstractCardEnum;
 import cvetmod.powers.Shatter;
 

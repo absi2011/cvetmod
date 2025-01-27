@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -21,15 +20,12 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import cvetmod.cards.special.Originium;
+import cvetmod.cards.special.TheRealityOfEnd;
 import cvetmod.patches.CvetEnum;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cvetmod.cards.*;
-import cvetmod.events.*;
-import cvetmod.monsters.*;
-import cvetmod.potions.*;
-import cvetmod.relics.*;
-import sun.security.provider.ConfigFile;
 
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -147,8 +143,10 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Saving()); // 拯救
 
         // Rare.
+        cards.add(new Terminate()); // 停止
 
         // Special.
+        cards.add(new TheRealityOfEnd()); //终结的实相
 
         // Colourless
 

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import cvetmod.cards.special.Originium;
 
 public class Inhibitor extends AbstractCvetCard {
     public static final String ID = "cvetmod:Inhibitor";

@@ -53,6 +53,7 @@ public class Desperate extends AbstractCvetCard {
             upgradeName();
             upgradeBlock(UPG_AMT);
             rawDescription = UPGRADE_DESCRIPTION;
+            cardsToPreview.upgrade();
             initializeDescription();
         }
     }

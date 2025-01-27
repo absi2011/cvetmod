@@ -25,12 +25,9 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import cvetmod.cards.*;
-import cvetmod.events.*;
+import cvetmod.cards.special.Originium;
 import cvetmod.patches.*;
-import cvetmod.powers.*;
-import cvetmod.relics.*;
 import cvetmod.util.CostReserves;
 import cvetmod.util.CvetEnergyManager;
 
