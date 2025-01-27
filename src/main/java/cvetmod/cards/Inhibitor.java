@@ -30,7 +30,7 @@ public class Inhibitor extends AbstractCvetCard {
                 addToBot(new DiscardSpecificCardAction(c));
             }
         }
-        addToBot(new MakeTempCardInDiscardAction(this.makeCopy(), 1));
+        addToBot(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(), 1));
     }
 
     @Override

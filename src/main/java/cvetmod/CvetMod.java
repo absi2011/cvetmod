@@ -29,6 +29,7 @@ import cvetmod.events.*;
 import cvetmod.monsters.*;
 import cvetmod.potions.*;
 import cvetmod.relics.*;
+import sun.security.provider.ConfigFile;
 
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -139,8 +140,11 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Inhibitor()); // 抑制剂
 
         // Common.
+        cards.add(new Desperate()); // 绝望
 
         // Uncommon.
+        cards.add(new SpiritBurst()); // 精神爆发
+        cards.add(new Saving()); // 拯救
 
         // Rare.
 

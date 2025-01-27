@@ -1,11 +1,10 @@
 {
-  "CALCIUM": {
-    "PROPER_NAME": "钙质粒子",
+  "ORIGINIUMART": {
+    "PROPER_NAME": "源石技艺",
     "NAMES": [
-      "Calcium",
-      "calcium",
-      "钙质粒子"
+      "Originium Art",
+      "源石技艺"
     ],
-    "DESCRIPTION": "每回合结束时减少1点，可以为塞雷娅倾向的卡牌提供数值加成。"
+    "DESCRIPTION": "如果源石在你的手牌中则额外触发对应效果。"
   }
 }

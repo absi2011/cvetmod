@@ -42,7 +42,24 @@
     "cvetmod:Inhibitor": {
         "NAME": "抑制剂",
         "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。",
-        "UPGRADE_DESCRIPTION": "固有 ， 保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。"
+        "UPGRADE_DESCRIPTION": "固有 ， 保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂+ 加入你的弃牌堆。"
+    },
+    "cvetmod:Desperate": {
+        "NAME": "绝望",
+        "DESCRIPTION": "获得 !B! 点格挡。 NL cvetmoed:源石技艺 ：将一张 *拯救 置入手牌。",
+        "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL cvetmoed:源石技艺 ：将一张 *拯救+ 置入手牌。"
+    },
+
+
+    "cvetmod:SpiritBurst": {
+        "NAME": "精神爆发",
+        "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 下回合你不能使用 [E] 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Saving": {
+        "NAME": "拯救",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL cvetmoed:源石技艺 ：将一张 *停止 置入手牌。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL cvetmoed:源石技艺 ：将一张 *停止+ 置入手牌。"
     }
 
 }

@@ -32,7 +32,7 @@ public class CvetDefendT extends AbstractCvetCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DEF);
+            upgradeBlock(UPGRADE_PLUS_DEF);
             initializeDescription();
         }
     }
