@@ -25,7 +25,7 @@ import static com.megacrit.cardcrawl.core.CardCrawlGame.saveFile;
 
 public class EnergyPatch {
     private static final Texture orbTexture = new Texture("cvetmod/images/ManaTheresa.png");
-    private static final TextureAtlas.AtlasRegion secondOrb = new TextureAtlas.AtlasRegion(orbTexture, 0, 0, orbTexture.getWidth(), orbTexture.getHeight());
+    public static final TextureAtlas.AtlasRegion secondOrb = new TextureAtlas.AtlasRegion(orbTexture, 0, 0, orbTexture.getWidth(), orbTexture.getHeight());
     @SpirePatch(clz = AbstractCard.class, method = "hasEnoughEnergy")
     public static class HasEnoughEnergyPatch {
         @SpireInsertPatch(locator = Locator.class)
@@ -73,6 +73,7 @@ public class EnergyPatch {
         }
     }
 
+    /*
     @SpirePatch(clz = FontHelper.class, method = "identifyOrb")
     public static class IdentifyOrbPatch {
         @SpirePrefixPatch
@@ -84,6 +85,7 @@ public class EnergyPatch {
             }
         }
     }
+    */
 
     @SpirePatch(clz = TipHelper.class, method = "renderBox")
     public static class RenderBoxPatch {

@@ -31,7 +31,7 @@
     },
     "cvetmod:TacticalChant": {
         "NAME": "战术咏唱",
-        "DESCRIPTION": "获得 [cvetmod:E2] 。 NL 在本回合中获得 !M! 点力量。",
+        "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL 在本回合中获得 !M! 点力量。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Originium": {
@@ -44,17 +44,27 @@
         "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。",
         "UPGRADE_DESCRIPTION": "固有 ， 保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂+ 加入你的弃牌堆。"
     },
+
     "cvetmod:Desperate": {
         "NAME": "绝望",
         "DESCRIPTION": "获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *拯救 置入手牌。",
         "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *拯救+ 置入手牌。"
     },
-
+    "cvetmod:ExternalCombustionEngine": {
+        "NAME": "外燃机",
+        "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL cvetmod:源石技艺 ：获得 [E] 。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL cvetmod:源石技艺 ：获得 [E] 。"
+    },
 
     "cvetmod:SpiritBurst": {
         "NAME": "精神爆发",
         "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 下回合你不能使用 [E] 。",
         "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Struggle": {
+        "NAME": "抗争",
+        "DESCRIPTION": "造成 !D! 点伤害，你每打出过一张抗争伤害提高 !M! 点。 cvetmod:源石技艺 ：向抽牌堆和弃牌堆各洗入一张 *抗争 。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，你每打出过一张抗争伤害提高 !M! 点。 cvetmod:源石技艺 ：向抽牌堆和弃牌堆各洗入一张 *抗争+ 。"
     },
     "cvetmod:Saving": {
         "NAME": "拯救",
@@ -66,6 +76,11 @@
         "NAME": "停止",
         "DESCRIPTION": "你的 源石 中每有一张卡牌，对所有敌人造成 !D! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌装入 *源石 ，并将一张 *终结的实相 置入手牌。",
         "UPGRADE_DESCRIPTION": "你的 源石 中每有一张卡牌，对所有敌人造成 !D! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌装入 *源石 ，并将一张 *终结的实相+ 置入手牌。"
+    },
+    "cvetmod:BreakRing": {
+        "NAME": "碎戒",
+        "DESCRIPTION": "失去 !M! 点生命， NL 获得 !cvetmod:M2! 点力量， NL 将 *源石抽到手中。",
+        "UPGRADE_DESCRIPTION": ""
     },
 
     "cvetmod:TheRealityOfEnd": {

@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -23,6 +24,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import cvetmod.cards.special.Originium;
 import cvetmod.cards.special.TheRealityOfEnd;
 import cvetmod.patches.CvetEnum;
+import cvetmod.util.SecondEnergyIcon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import cvetmod.cards.*;
@@ -121,7 +123,8 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     @Override
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new AbstractCvetCard.SecondMagicNumber());
-        
+        CustomIconHelper.addCustomIcon(SecondEnergyIcon.get());
+
         ArrayList<AbstractCard> cards = new ArrayList<>();
 
         // Basic.
@@ -137,10 +140,12 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
 
         // Common.
         cards.add(new Desperate()); // 绝望
+        cards.add(new ExternalCombustionEngine()); // 外燃机
 
         // Uncommon.
         cards.add(new SpiritBurst()); // 精神爆发
         cards.add(new Saving()); // 拯救
+        cards.add(new Struggle()); // 抗争
 
         // Rare.
         cards.add(new Terminate()); // 停止
