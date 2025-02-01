@@ -2,5 +2,9 @@
   "cvetmod:AIODPower": {
     "NAME": "以攻代守",
     "DESCRIPTIONS": ["每当造成小于等于 #b", " 点 未被格挡的 #y攻击 伤害时，将伤害提升为 #b", " 。"]
+  },
+  "cvetmod:ChimeraPower": {
+    "NAME": "急性源石反应",
+    "DESCRIPTIONS": ["#r", " 回合后，失去 #r", " 点 生命值（可以用 #y抑制剂 或 #临时抑制剂 延长一回合，但再次打出 #y奇美拉 时将变为 #r1 回合。）"]
   }
 }

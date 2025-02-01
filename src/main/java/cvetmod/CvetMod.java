@@ -127,6 +127,9 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
 
         ArrayList<AbstractCard> cards = new ArrayList<>();
 
+        // Curse.
+        cards.add(new Originium()); // 源石
+
         // Basic.
         cards.add(new CvetStrikeA()); // 打击·阿米娅
         cards.add(new CvetStrikeT()); // 打击·特蕾西娅
@@ -135,12 +138,12 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new CvetDefendT()); // 防御·特蕾西娅
         cards.add(new CvetDefendB()); // 防御·Both
         cards.add(new TacticalChant()); // 战术咏唱
-        cards.add(new Originium()); // 源石
         cards.add(new Inhibitor()); // 抑制剂
 
         // Common.
         cards.add(new Desperate()); // 绝望
         cards.add(new ExternalCombustionEngine()); // 外燃机
+        cards.add(new EmergencyMedicineChest()); // 应急药箱
 
         // Uncommon.
         cards.add(new SpiritBurst()); // 精神爆发
@@ -150,6 +153,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         // Rare.
         cards.add(new Terminate()); // 停止
         cards.add(new BreakRing()); // 碎戒
+        cards.add(new Chimera()); // 奇美拉
 
         // Special.
         cards.add(new TheRealityOfEnd()); //终结的实相

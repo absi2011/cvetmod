@@ -1,20 +1,17 @@
-package cvetmod.cards;
+package cvetmod.cards.special;
 
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAndDeckAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import cvetmod.actions.GainSecondEnergyAction;
-import cvetmod.actions.StruggleAction;
-import cvetmod.patches.CvetTags;
+import cvetmod.cards.AbstractCvetCard;
+import cvetmod.cards.special.Originium;
 
-public class ExternalCombustionEngine extends AbstractCvetCard {
-    public static final String ID = "cvetmod:ExternalCombustionEngine";
+public class TempInhibitor extends AbstractCvetCard {
+    public static final String ID = "cvetmod:TempInhibitor";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -22,22 +19,19 @@ public class ExternalCombustionEngine extends AbstractCvetCard {
     public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
     public static final int COST = 0;
     public static final int SECOND_COST = 0;
-    public ExternalCombustionEngine() {
-        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+    public TempInhibitor() {
+        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        color = CardColor.COLORLESS;
+        selfRetain = true;
         exhaust = true;
-        tags.add(CvetTags.IS_ORIGINIUM_ARTS);
-    }
-
-    @Override
-    public boolean extraTriggered() {
-        return OriginiumArts();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainSecondEnergyAction(1));
-        if (extraTriggered()) {
-            addToBot(new GainEnergyAction(1));
+        for (AbstractCard c: p.hand.group) {
+            if (c instanceof Originium) {
+                addToBot(new DiscardSpecificCardAction(c));
+            }
         }
     }
 

@@ -1,4 +1,10 @@
 {
+    "cvetmod:Originium": {
+        "NAME": "源石",
+        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [E] 。 NL 当这张牌在你手里时，打出的其他卡牌将被装入 *源石 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+
     "cvetmod:CvetStrikeA": {
         "NAME": "打击",
         "DESCRIPTION": "造成 !D! 点伤害。",
@@ -34,11 +40,6 @@
         "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL 在本回合中获得 !M! 点力量。",
         "UPGRADE_DESCRIPTION": ""
     },
-    "cvetmod:Originium": {
-        "NAME": "源石",
-        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [E] 。 NL 当这张牌在你手里时，打出的其他卡牌将被装入 *源石 。",
-        "UPGRADE_DESCRIPTION": ""
-    },
     "cvetmod:Inhibitor": {
         "NAME": "抑制剂",
         "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。",
@@ -54,6 +55,11 @@
         "NAME": "外燃机",
         "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL cvetmod:源石技艺 ：获得 [E] 。 NL 消耗 。",
         "UPGRADE_DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL cvetmod:源石技艺 ：获得 [E] 。"
+    },
+    "cvetmod:EmergencyMedicineChest": {
+        "NAME": "应急药箱",
+        "DESCRIPTION": "将 !M! 张临时抑制剂加入的手牌。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": ""
     },
 
     "cvetmod:SpiritBurst": {
@@ -79,7 +85,12 @@
     },
     "cvetmod:BreakRing": {
         "NAME": "碎戒",
-        "DESCRIPTION": "失去 !M! 点生命， NL 获得 !cvetmod:M2! 点力量， NL 将 *源石抽到手中。",
+        "DESCRIPTION": "失去 !M! 点生命， NL 获得 !cvetmod:M2! 点力量， NL 将 *源石 抽到手中。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Chimera": {
+        "NAME": "奇美拉",
+        "DESCRIPTION": "造成 !D! 点伤害，下回合失去 !M! 点生命（可用 *抑制剂 延后一回合，但再次打出此牌会缩短回一回合）。",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -87,5 +98,10 @@
         "NAME": "终结的实相",
         "DESCRIPTION": "流失 !M! 点生命， NL 消灭所有敌人。",
         "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:TempInhibitor": {
+        "NAME": "临时抑制剂",
+        "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 ",
+        "UPGRADE_DESCRIPTION": "保留 。 NL 弃置 你手中的 *源石 。 "
     }
 }

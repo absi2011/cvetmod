@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import cvetmod.actions.OriginiumAction;
 import cvetmod.vfx.OriginiumEffect;
 
 public class Originium extends AbstractCard {
@@ -39,7 +40,7 @@ public class Originium extends AbstractCard {
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if ((c.type != CardType.POWER) && (!c.exhaust)) {
-            // TODO: originium.addToBottom(c);
+            // addToBot(new OriginiumAction(c));
         }
     }
 
