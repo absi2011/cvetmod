@@ -40,6 +40,11 @@
         "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL 在本回合中获得 !M! 点力量。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Analyse": {
+        "NAME": "解构",
+        "DESCRIPTION": "从 *源石 中取出 !M! 张卡牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
     "cvetmod:Inhibitor": {
         "NAME": "抑制剂",
         "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。",
