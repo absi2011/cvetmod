@@ -23,7 +23,7 @@ public class Analyse extends AbstractCvetCard {
     public static final int CARDS = 3;
     public Analyse() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-        magicNumber = secondMagicNumber = CARDS;
+        magicNumber = baseMagicNumber = CARDS;
     }
 
     @Override
