@@ -30,6 +30,7 @@ public class Terminate extends AbstractCvetCard {
     public Terminate() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
         magicNumber = baseMagicNumber = DAMAGE_AMT;
+        damage = baseDamage = 0;
         tags.add(CvetTags.IS_ORIGINIUM_ARTS);
         cardsToPreview = new TheRealityOfEnd();
         isMultiDamage = true;
