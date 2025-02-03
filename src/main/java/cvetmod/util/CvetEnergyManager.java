@@ -15,6 +15,7 @@ public class CvetEnergyManager extends EnergyManager {
         super.prep();
         secondEnergy = secondEnergyMaster;
         CostReserves.resetReserves();
+        CostReserves.setReserves(secondEnergy);
     }
 
     @Override

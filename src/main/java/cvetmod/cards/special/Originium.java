@@ -1,17 +1,29 @@
 package cvetmod.cards.special;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.HandCheckAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.Hitbox;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import cvetmod.actions.OriginiumAction;
 import cvetmod.vfx.OriginiumEffect;
+
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Originium extends AbstractCard {
     public static final String ID = "cvetmod:Originium";
@@ -21,6 +33,7 @@ public class Originium extends AbstractCard {
     public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
     public static final int COST = -2;
     public static CardGroup originium = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+
     public Originium() {
         super(ID, NAME, IMG, COST, DESCRIPTION, CardType.CURSE, CardColor.CURSE, CardRarity.SPECIAL, CardTarget.NONE);
     }
@@ -38,13 +51,6 @@ public class Originium extends AbstractCard {
     }
 
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if ((c.type != CardType.POWER) && (!c.exhaust)) {
-            // addToBot(new OriginiumAction(c));
-        }
-    }
-
-    @Override
     public void triggerWhenDrawn() {
         addToBot(new GainEnergyAction(1));
     }
@@ -56,5 +62,51 @@ public class Originium extends AbstractCard {
 
     @Override
     public void upgrade() {
+    }
+
+    @SpirePatch(clz = UseCardAction.class, method = "update")
+    public static class UseCardActionPatch {
+        @SpireInsertPatch(rloc = 50)
+        public static SpireReturn<?> Insert(UseCardAction _inst) {
+            if (originiumInHand()) {
+                try {
+                    Field field = UseCardAction.class.getDeclaredField("targetCard");
+                    field.setAccessible(true);
+                    AbstractCard card = (AbstractCard)(field.get(_inst));
+                    CardGroup hand = AbstractDungeon.player.hand;
+                    if (AbstractDungeon.player.hoveredCard == card) {
+                        AbstractDungeon.player.releaseCard();
+                    }
+
+                    AbstractDungeon.actionManager.removeFromQueue(card);
+                    card.unhover();
+                    card.untip();
+                    card.stopGlowing();
+                    hand.group.remove(card);
+                    card.shrink();
+                    //TODO: 来个源石吃掉它的特效，souls特效不合适
+                    AbstractDungeon.getCurrRoom().souls.discard(card,true);
+                    originium.addToBottom(card);
+                    card.exhaustOnUseOnce = false;
+                    card.dontTriggerOnUseCard = false;
+                    AbstractDungeon.actionManager.addToBottom(new HandCheckAction());
+                    return SpireReturn.Return();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            else {
+                return SpireReturn.Continue();
+            }
+        }
+    }
+
+    public static boolean originiumInHand() {
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (c instanceof Originium) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import cvetmod.cards.special.Originium;
 import cvetmod.cards.special.TheRealityOfEnd;
 import cvetmod.patches.CvetEnum;
@@ -112,7 +113,9 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     }
 
     @Override
-    public void receiveOnBattleStart(AbstractRoom room) {}
+    public void receiveOnBattleStart(AbstractRoom room) {
+        Originium.originium.clear();
+    }
 
     @Override
     public void receivePostBattle(final AbstractRoom p0) {}
