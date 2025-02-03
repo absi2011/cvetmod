@@ -1,8 +1,10 @@
 package cvetmod.cards.special;
 
+import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.HandCheckAction;
@@ -22,6 +24,7 @@ import cvetmod.actions.OriginiumAction;
 import cvetmod.vfx.OriginiumEffect;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -66,7 +69,7 @@ public class Originium extends AbstractCard {
 
     @SpirePatch(clz = UseCardAction.class, method = "update")
     public static class UseCardActionPatch {
-        @SpireInsertPatch(rloc = 50)
+        @SpireInsertPatch(rloc = 52)
         public static SpireReturn<?> Insert(UseCardAction _inst) {
             if (originiumInHand()) {
                 try {
@@ -82,14 +85,13 @@ public class Originium extends AbstractCard {
                     card.unhover();
                     card.untip();
                     card.stopGlowing();
-                    hand.group.remove(card);
-                    card.shrink();
-                    //TODO: 来个源石吃掉它的特效，souls特效不合适
-                    AbstractDungeon.getCurrRoom().souls.discard(card,true);
-                    originium.addToBottom(card);
+                    addToOriginium(hand, card);
                     card.exhaustOnUseOnce = false;
                     card.dontTriggerOnUseCard = false;
                     AbstractDungeon.actionManager.addToBottom(new HandCheckAction());
+                    Method method = AbstractGameAction.class.getDeclaredMethod("tickDuration");
+                    method.setAccessible(true);
+                    method.invoke(_inst);
                     return SpireReturn.Return();
                 } catch (Exception e) {
                     throw new RuntimeException(e);
@@ -108,5 +110,15 @@ public class Originium extends AbstractCard {
             }
         }
         return false;
+    }
+
+    public static void addToOriginium(CardGroup group, AbstractCard card) {
+        group.removeCard(card);
+        //TODO: 来个源石吃掉它的特效，souls特效不合适
+        if (group.type == CardGroup.CardGroupType.HAND) {
+            card.shrink();
+        }
+        AbstractDungeon.getCurrRoom().souls.discard(card,true);
+        originium.addToBottom(card);
     }
 }

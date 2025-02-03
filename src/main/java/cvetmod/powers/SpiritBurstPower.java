@@ -1,6 +1,7 @@
 package cvetmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,8 +29,9 @@ public class SpiritBurstPower extends AbstractCvetPower {
 
     @Override
     public void stackPower(int stackAmount) {
-        nextTurn = true;
         super.stackPower(stackAmount);
+        nextTurn = true;
+        updateDescription();
     }
 
     @Override
@@ -44,10 +46,25 @@ public class SpiritBurstPower extends AbstractCvetPower {
     public void atEndOfTurn(boolean isPlayer) {
         thisTurn = nextTurn;
         nextTurn = false;
+        updateDescription();
+        if (!thisTurn) {
+            addToBot(new RemoveSpecificPowerAction(owner, owner,this));
+        }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        if (thisTurn && nextTurn) {
+            description = DESCRIPTIONS[2];
+        }
+        else if (thisTurn) {
+            description = DESCRIPTIONS[0];
+        }
+        else if (nextTurn) {
+            description = DESCRIPTIONS[1];
+        }
+        else {
+            description = DESCRIPTIONS[0];
+        }
     }
 }
