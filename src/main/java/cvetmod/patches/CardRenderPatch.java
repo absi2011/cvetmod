@@ -32,7 +32,7 @@ public class CardRenderPatch {
                 String text = ((AbstractCvetCard) _inst).secondCost == -1? "X" : (_inst.freeToPlay()? "0" : Integer.toString(((AbstractCvetCard) _inst).secondCostForTurn));
                 FontHelper.cardEnergyFont_L.getData().setScale(_inst.drawScale);
                 BitmapFont font = FontHelper.cardEnergyFont_L;
-                FontHelper.renderRotatedText(sb, font, text, _inst.current_x, _inst.current_y, 132.0F * _inst.drawScale * Settings.scale, 192.0F * _inst.drawScale * Settings.scale, _inst.angle, false, costColor);
+                FontHelper.renderRotatedText(sb, font, text, _inst.current_x, _inst.current_y, -132.0F * _inst.drawScale * Settings.scale, 117.0F * _inst.drawScale * Settings.scale, _inst.angle, false, costColor);
             }
         }
     }
@@ -61,6 +61,7 @@ public class CardRenderPatch {
                         break;
                     case 1:
                         FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(___card.cost), (float)Settings.WIDTH / 2.0F - 284.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale, c);
+                        break;
                     default:
                         FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(___card.cost), (float)Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale, c);
                         break;
@@ -75,12 +76,13 @@ public class CardRenderPatch {
                     case -2:
                         break;
                     case -1:
-                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, "X", (float)Settings.WIDTH / 2.0F + 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale, c);
+                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, "X", (float)Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
                         break;
                     case 1:
-                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(___card.cost), (float)Settings.WIDTH / 2.0F + 300.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale, c);
+                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(((AbstractCvetCard) ___card).secondCost), (float)Settings.WIDTH / 2.0F - 284.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
+                        break;
                     default:
-                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(___card.cost), (float)Settings.WIDTH / 2.0F + 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 404.0F * Settings.scale, c);
+                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(((AbstractCvetCard) ___card).secondCost), (float)Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
                         break;
                 }
                 return SpireReturn.Return();

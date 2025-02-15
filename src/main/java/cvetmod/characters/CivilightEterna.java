@@ -26,10 +26,7 @@ import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import cvetmod.cards.*;
-<<<<<<< Updated upstream
 import cvetmod.cards.special.Originium;
-=======
->>>>>>> Stashed changes
 import cvetmod.patches.*;
 import cvetmod.util.CostReserves;
 import cvetmod.util.CvetEnergyManager;
