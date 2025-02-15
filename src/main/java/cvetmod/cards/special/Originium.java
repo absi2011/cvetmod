@@ -35,7 +35,7 @@ public class Originium extends AbstractCard {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
     public static final int COST = -2;
-    public static CardGroup originium = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+    public static CardGroup originiumPile = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     public Originium() {
         super(ID, NAME, IMG, COST, DESCRIPTION, CardType.CURSE, CardColor.CURSE, CardRarity.SPECIAL, CardTarget.NONE);
@@ -119,6 +119,6 @@ public class Originium extends AbstractCard {
             card.shrink();
         }
         AbstractDungeon.getCurrRoom().souls.discard(card,true);
-        originium.addToBottom(card);
+        originiumPile.addToBottom(card);
     }
 }

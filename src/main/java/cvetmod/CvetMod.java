@@ -21,7 +21,6 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import cvetmod.cards.special.Originium;
 import cvetmod.cards.special.TheRealityOfEnd;
 import cvetmod.patches.CvetEnum;
@@ -53,8 +52,11 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     private static final String miniManaSymbol = "cvetmod/images/ManaAmiya.png";
     private static final Logger logger = LogManager.getLogger(cvetmod.CvetMod.class.getName());
 
-    public static float newMonsterMulti = 1.0F;
-    public boolean isDemo = true;
+    public static UIStrings originiumViewStrings;
+    public static String[] ORIGINIUM_VIEW_TEXT;
+    public static TutorialStrings originiumTipStrings;
+    public static String[] ORIGINIUM_TIP_TEXT;
+    public static String[] ORIGINIUM_TIP_LABEL;
 
     public CvetMod() {
         BaseMod.subscribe(this);
@@ -77,6 +79,15 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         initializeEvents();
         initializePotions();
         initializeMonsters();
+        initializeText();
+    }
+
+    public void initializeText() {
+        originiumViewStrings = CardCrawlGame.languagePack.getUIString("cvetmod:OriginiumViewScreen");
+        ORIGINIUM_VIEW_TEXT = originiumViewStrings.TEXT;
+        originiumTipStrings = CardCrawlGame.languagePack.getTutorialString("cvetmod:OriginiumTip");
+        ORIGINIUM_TIP_TEXT = originiumTipStrings.TEXT;
+        ORIGINIUM_TIP_LABEL = originiumTipStrings.LABEL;
     }
 
     public void initializeMonsters() {
@@ -114,7 +125,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
 
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
-        Originium.originium.clear();
+        Originium.originiumPile.clear();
     }
 
     @Override
@@ -231,6 +242,8 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
         String scoreBonusesStrings = Gdx.files.internal("cvetmod/strings/" + lang + "/score_bonuses.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(ScoreBonusStrings.class, scoreBonusesStrings);
+        String tutorialStrings = Gdx.files.internal("cvetmod/strings/" + lang + "/tutorials.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(TutorialStrings.class, tutorialStrings);
     }
 
     private String getLang() {

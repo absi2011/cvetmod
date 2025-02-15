@@ -23,7 +23,7 @@ public class OriginiumAction extends AbstractGameAction {
             AbstractDungeon.player.drawPile.removeCard(card);
             AbstractDungeon.player.hand.removeCard(card);
             AbstractDungeon.player.discardPile.removeCard(card);
-            Originium.originium.addToTop(card);
+            Originium.originiumPile.addToTop(card);
         }
         tickDuration();
     }

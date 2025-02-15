@@ -22,12 +22,12 @@ public class GetRandomCardFromOriginium extends AbstractGameAction {
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            if (count > Originium.originium.size()) {
-                count = Originium.originium.size();
+            if (count > Originium.originiumPile.size()) {
+                count = Originium.originiumPile.size();
             }
             for (int i = 0; i < count; i++) {
-                AbstractCard card = Originium.originium.getRandomCard(true);
-                Originium.originium.removeCard(card);
+                AbstractCard card = Originium.originiumPile.getRandomCard(true);
+                Originium.originiumPile.removeCard(card);
                 addToTop(new MakeTempCardInHandAction(card));
             }
         }

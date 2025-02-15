@@ -71,7 +71,7 @@ public class Terminate extends AbstractCvetCard {
 
     @Override
     public void applyPowers() {
-        baseDamage = magicNumber * Originium.originium.size();
+        baseDamage = magicNumber * Originium.originiumPile.size();
         if (extraTriggered()) {
             baseDamage += magicNumber * cardsCount();
         }
@@ -81,7 +81,7 @@ public class Terminate extends AbstractCvetCard {
 
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
-        baseDamage = magicNumber * Originium.originium.size();
+        baseDamage = magicNumber * Originium.originiumPile.size();
         if (extraTriggered()) {
             baseDamage += magicNumber * cardsCount();
         }

@@ -6,8 +6,6 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.sun.org.apache.xpath.internal.operations.Or;
-import cvetmod.cards.Struggle;
 import cvetmod.cards.special.Originium;
 
 import java.util.ArrayList;
