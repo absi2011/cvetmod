@@ -1,7 +1,7 @@
 {
-  "cvetmod:ArclightCommando": {
-    "NAME": "弧光突击队",
-    "MOVES": ["助跑","起飞"],
+  "cvetmod:Theresis": {
+    "NAME": "特雷西斯",
+    "MOVES": [],
     "DIALOG": []
   }
 }
