@@ -14,8 +14,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -23,6 +25,7 @@ import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import cvetmod.cards.special.Originium;
 import cvetmod.cards.special.TheRealityOfEnd;
+import cvetmod.monsters.Theresis;
 import cvetmod.patches.CvetEnum;
 import cvetmod.util.SecondEnergyIcon;
 import org.apache.logging.log4j.LogManager;
@@ -33,6 +36,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import static basemod.BaseMod.addMonster;
 import static cvetmod.patches.AbstractCardEnum.CVET_PINK;
 
 @SpireInitializer
@@ -91,11 +95,13 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     }
 
     public void initializeMonsters() {
-//        String[] names = CardCrawlGame.languagePack.getUIString("cvetmod:RunHistoryMonsterNames").TEXT;
+        String[] names = CardCrawlGame.languagePack.getUIString("cvetmod:RunHistoryMonsterNames").TEXT;
 //        addMonster("Single ArcCommando", names[0], () -> new MonsterGroup(new AbstractMonster[] {new ArclightCommando(0.0F, 0.0F)}));
 //        BaseMod.addMonsterEncounter(Exordium.ID, new MonsterInfo("Single ArcCommando", 2.0F * newMonsterMulti));
         // Add a name.
-//        addMonster("Awaken", names[12], () -> new MonsterGroup(new Awaken_Monster(180.0F, 0.0F)));
+        addMonster("Theresis", names[0], () -> new MonsterGroup(new Theresis(0.0F, 0.0F)));
+        BaseMod.addBoss(TheBeyond.ID, "Theresis", "images/ui/map/boss/heart.png","images/ui/map/bossOutline/heart.png");
+
 
     }
 

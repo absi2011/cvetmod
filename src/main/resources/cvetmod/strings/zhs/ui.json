@@ -11,5 +11,10 @@
             "在这场战斗中被装入 源石 的牌。",
             "返回"
         ]
+    },
+    "cvetmod:RunHistoryMonsterNames": {
+        "TEXT": [
+            "特雷西斯"
+        ]
     }
 }
