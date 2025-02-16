@@ -1,6 +1,7 @@
 package cvetmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -30,7 +31,8 @@ public class ChessPower extends AbstractCvetPower {
     }
 
     @Override
-    public void onAfterCardPlayed(AbstractCard usedCard) {
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         ((AbstractMonster)owner).takeTurn();
+        ((AbstractMonster)owner).createIntent();
     }
 }

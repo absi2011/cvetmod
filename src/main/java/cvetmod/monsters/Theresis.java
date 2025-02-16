@@ -20,11 +20,11 @@ public class Theresis extends AbstractCvetMonster {
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String NAME = monsterStrings.NAME;
     public boolean isUpgrade = false;
-    public int blockGain;
-    public int strGain;
+    public final int blockGain;
+    public final int strGain;
 
     public Theresis(float x, float y) {
-        super(NAME, ID, 400, 0, 0, 150.0F, 320.0F, null, x, y);
+        super(NAME, ID, 400, 0, 0, 150.0F, 320.0F, "cvetmod/images/monsters/armorlessassassin.png", x, y);
         type = EnemyType.BOSS;
         if (AbstractDungeon.ascensionLevel >= 9) {
             blockGain = 5;
@@ -46,10 +46,13 @@ public class Theresis extends AbstractCvetMonster {
             damage.add(new DamageInfo(this, 1));
             strGain = 1;
         }
-//        loadAnimation("cvetmod/images/monsters/enemy_1327_cbrokt/enemy_1327_cbrokt33.atlas", "cvetmod/images/monsters/enemy_1327_cbrokt/enemy_1327_cbrokt33.json", 1.5F);
-//        state.setAnimation(0, "Idle_1", true);
-        isUpgrade = false;
+        /*
+        loadAnimation("resources/cvetmod/images/monsters/enemy_1044_zomstr_2/enemy_1044_zomstr_233.atlas", "resources/cvetmod/images/monsters/enemy_1044_zomstr_2/enemy_1044_zomstr_233.json", 1.5F);
         flipHorizontal = true;
+        stateData.setMix("Idle", "Die", 0.1F);
+        state.setAnimation(0, "Idle", true);
+        */
+        isUpgrade = false;
     }
 
     @Override
