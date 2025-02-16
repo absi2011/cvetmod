@@ -1,7 +1,7 @@
 {
     "cvetmod:Originium": {
         "NAME": "源石",
-        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [E] 。 NL 当这张牌在你手里时，打出的其他卡牌将被装入 *源石 。",
+        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [cvetmod:E1] 。 NL 当这张牌在你手里时，打出的其他卡牌将被装入 *源石 。",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -37,7 +37,7 @@
     },
     "cvetmod:TacticalChant": {
         "NAME": "战术咏唱",
-        "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL 在本回合中获得 !M! 点力量。",
+        "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL 在本回合中获得 !M! 点 力量 。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Analyse": {

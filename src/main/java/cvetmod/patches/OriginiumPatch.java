@@ -1,148 +1,128 @@
 package cvetmod.patches;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.core.OverlayMenu;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.screens.CardRewardScreen;
-import com.megacrit.cardcrawl.screens.select.HandCardSelectScreen;
-import cvetmod.util.OriginiumPanel;
-import cvetmod.util.OriginiumPileViewScreen;
-import javassist.CtBehavior;
+import com.megacrit.cardcrawl.events.AbstractEvent;
+import com.megacrit.cardcrawl.events.shrines.FountainOfCurseRemoval;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.random.Random;
+import com.megacrit.cardcrawl.vfx.cardManip.PurgeCardEffect;
+import javassist.CannotCompileException;
+import javassist.expr.ExprEditor;
+import javassist.expr.MethodCall;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OriginiumPatch {
-    @SpirePatch(clz = OverlayMenu.class, method = SpirePatch.CLASS)
-    public static class OverlayMenuFields {
-        public static SpireField<OriginiumPanel> originiumPanel = new SpireField<>(OriginiumPanel::new);
-    }
-
-    @SpirePatch(clz = OverlayMenu.class, method = "update")
-    public static class UpdateOverlayMenuPatch {
-        @SpirePrefixPatch
-        public static void Prefix(OverlayMenu _inst) {
-            OverlayMenuFields.originiumPanel.get(_inst).updatePositions();
-        }
-    }
-
-    @SpirePatch(clz = OverlayMenu.class, method = "showCombatPanels")
-    public static class ShowCombatPanelsPatch {
-        @SpirePrefixPatch
-        public static void Prefix(OverlayMenu _inst) {
-            OverlayMenuFields.originiumPanel.get(_inst).show();
-        }
-    }
-
-    @SpirePatch(clz = OverlayMenu.class, method = "hideCombatPanels")
-    public static class HideCombatPanelsPatch {
-        @SpirePrefixPatch
-        public static void Prefix(OverlayMenu _inst) {
-            OverlayMenuFields.originiumPanel.get(_inst).hide();
-        }
-    }
-
-    private static class RenderLocator extends SpireInsertLocator {
-        @Override
-        public int[] Locate(CtBehavior ctBehavior) throws Exception {
-            Matcher.FieldAccessMatcher fieldAccessMatcher = new Matcher.FieldAccessMatcher(OverlayMenu.class, "exhaustPanel");
-            return LineFinder.findInOrder(ctBehavior, fieldAccessMatcher);
-        }
-    }
-
-    @SpirePatch(clz = OverlayMenu.class, method = "render")
-    public static class RenderOverlayMenuPatch {
-        @SpireInsertPatch(locator = RenderLocator.class)
-        public static void Insert(OverlayMenu _inst, SpriteBatch sb) {
-            OverlayMenuFields.originiumPanel.get(_inst).render(sb);
-        }
-    }
-
-    @SpirePatch(clz = CardRewardScreen.class, method = "render")
-    public static class RenderCardRewardScreenPatch {
-        @SpireInsertPatch(locator = RenderLocator.class)
-        public static void Insert(CardRewardScreen _inst, SpriteBatch sb) {
-            OverlayMenuFields.originiumPanel.get(_inst).render(sb);
-        }
-    }
-
-    @SpirePatch(clz = HandCardSelectScreen.class, method = "render")
-    public static class RenderHandCardSelectScreenPatch {
-        @SpireInsertPatch(locator = RenderLocator.class)
-        public static void Insert(HandCardSelectScreen _inst, SpriteBatch sb) {
-            OverlayMenuFields.originiumPanel.get(_inst).render(sb);
-        }
-    }
-
-    private static class SwitchScreenLocator extends SpireInsertLocator {
-        @Override
-        public int[] Locate(CtBehavior ctBehavior) throws Exception {
-            Matcher.FieldAccessMatcher fieldAccessMatcher = new Matcher.FieldAccessMatcher(AbstractDungeon.class, "screen");
-            return LineFinder.findInOrder(ctBehavior, fieldAccessMatcher);
-        }
-    }
-
-    @SpirePatch(clz = AbstractDungeon.class, method = "update")
-    public static class AbstractDungeonUpdatePatch {
-        @SpireInsertPatch(locator = SwitchScreenLocator.class)
-        public static void Insert(AbstractDungeon _inst) {
-            if (AbstractDungeon.screen == OriginiumPileViewScreen.ORIGINIUM_VIEW) {
-                OriginiumPanel.originiumPileViewScreen.update();
+    public static ExprEditor originiumEditor() { // cardID.equals("") version
+        return new ExprEditor() {
+            @Override
+            public void edit(MethodCall m) throws CannotCompileException {
+                if (m.getClassName().equals(String.class.getName()) && m.getMethodName().equals("equals")) {
+                    m.replace("$_ = (!$0.equals(\"cvetmod:Originium\") && $proceed($$));");
+                }
             }
-        }
+        };
     }
 
-    @SpirePatch(clz = AbstractDungeon.class, method = "render")
-    public static class AbstractDungeonRenderPatch {
-        @SpireInsertPatch(locator = SwitchScreenLocator.class)
-        public static void Insert(AbstractDungeon _inst, SpriteBatch sb) {
-            if (AbstractDungeon.screen == OriginiumPileViewScreen.ORIGINIUM_VIEW) {
-                OriginiumPanel.originiumPileViewScreen.render(sb);
+    public static ExprEditor originiumEditor2() { // Object.equals(cardID, "") version
+        return new ExprEditor() {
+            @Override
+            public void edit(MethodCall m) throws CannotCompileException {
+                if (m.getClassName().equals(Object.class.getName()) && m.getMethodName().equals("equals")) {
+                    m.replace("$_ = (!$1.equals(\"cvetmod:Originium\") && $proceed($$));");
+                }
             }
+        };
+    }
+
+    @SpirePatch(clz = CardGroup.class, method = "getPurgeableCards")
+    public static class CardGroupGetPurgeableCardsPatch {
+        @SpireInstrumentPatch
+        public static ExprEditor Instrument() {
+            return originiumEditor();
         }
     }
 
-    @SpirePatch(clz = AbstractDungeon.class, method = "openPreviousScreen")
-    public static class OpenPreviousScreenPatch {
+    @SpirePatch(clz = AbstractPlayer.class, method = "isCursed")
+    public static class AbstractPlayerIsCursedPatch {
         @SpirePrefixPatch
-        public static SpireReturn<?> Prefix(AbstractDungeon.CurrentScreen s) {
-            if (s == OriginiumPileViewScreen.ORIGINIUM_VIEW) {
-                OriginiumPanel.originiumPileViewScreen.reopen();
+        public static SpireReturn<?> Prefix(AbstractPlayer _inst) {
+            boolean cursed = false;
+            for (AbstractCard c : _inst.masterDeck.group) {
+                if (c.type == AbstractCard.CardType.CURSE && !c.cardID.equals("cvetmod:Originium") && !c.cardID.equals("Necronomicurse") && !c.cardID.equals("CurseOfTheBell") && !c.cardID.equals("AscendersBane")) {
+                    cursed = true;
+                    break;
+                }
+            }
+            return SpireReturn.Return(cursed);
+        }
+    }
+
+    @SpirePatch(clz = FountainOfCurseRemoval.class, method = "buttonEffect")
+    public static class FountainOfCurseRemovalButtonEffectPatch {
+        static EventStrings eventStrings = CardCrawlGame.languagePack.getEventString("Fountain of Cleansing");
+        static String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
+        static String[] OPTIONS = eventStrings.OPTIONS;
+        static String DIALOG_2 = DESCRIPTIONS[1];
+
+        @SpirePrefixPatch
+        public static SpireReturn<?> Prefix(FountainOfCurseRemoval _inst, int buttonPressed, @ByRef int[] ___screenNum) {
+            if (___screenNum[0] == 0 && buttonPressed == 0) {
+                _inst.imageEventText.updateBodyText(DIALOG_2);
+                List<String> curses = new ArrayList<>();
+                ___screenNum[0] = 1;
+
+                for (int i = AbstractDungeon.player.masterDeck.group.size() - 1; i >= 0; --i) {
+                    if ((AbstractDungeon.player.masterDeck.group.get(i)).type == AbstractCard.CardType.CURSE &&
+                            !(AbstractDungeon.player.masterDeck.group.get(i)).inBottleFlame &&
+                            !(AbstractDungeon.player.masterDeck.group.get(i)).inBottleLightning &&
+                            !(AbstractDungeon.player.masterDeck.group.get(i)).cardID.equals("cvetmod:Originium") &&
+                            !(AbstractDungeon.player.masterDeck.group.get(i)).cardID.equals("AscendersBane") &&
+                            !(AbstractDungeon.player.masterDeck.group.get(i)).cardID.equals("CurseOfTheBell") &&
+                            !(AbstractDungeon.player.masterDeck.group.get(i)).cardID.equals("Necronomicurse")) {
+                        AbstractDungeon.effectList.add(new PurgeCardEffect(AbstractDungeon.player.masterDeck.group.get(i)));
+                        curses.add((AbstractDungeon.player.masterDeck.group.get(i)).cardID);
+                        AbstractDungeon.player.masterDeck.removeCard(AbstractDungeon.player.masterDeck.group.get(i));
+                    }
+                }
+
+                AbstractEvent.logMetricRemoveCards("Fountain of Cleansing", "Removed Curses", curses);
+                _inst.imageEventText.updateDialogOption(0, OPTIONS[1]);
+                _inst.imageEventText.clearRemainingOptions();
                 return SpireReturn.Return();
             }
             return SpireReturn.Continue();
         }
     }
 
-    @SpirePatch(clz = AbstractDungeon.class, method = "closeCurrentScreen")
-    public static class CloseCurrentScreenPatch {
-        @SpirePrefixPatch
-        public static void Prefix() {
-            if (AbstractDungeon.screen == OriginiumPileViewScreen.ORIGINIUM_VIEW) {
-                AbstractDungeon.overlayMenu.cancelButton.hide();
-
-                // AbstractDungeon.genericScreenOverlayReset
-                if (AbstractDungeon.previousScreen == null) {
-                    if (AbstractDungeon.player.isDead) {
-                        AbstractDungeon.previousScreen = AbstractDungeon.CurrentScreen.DEATH;
-                    } else {
-                        AbstractDungeon.isScreenUp = false;
-                        AbstractDungeon.overlayMenu.hideBlackScreen();
-                    }
-                }
-
-                if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.player.isDead) {
-                    AbstractDungeon.overlayMenu.showCombatPanels();
-                }
-            }
+    @SpirePatch(clz = CardLibrary.class, method = "getCurse", paramtypez = {})
+    public static class CardLibraryGetCursePatch {
+        @SpireInstrumentPatch
+        public static ExprEditor Instrument() {
+            return originiumEditor();
         }
+    }
 
-        private static class Locator extends SpireInsertLocator {
-            @Override
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher.FieldAccessMatcher fieldAccessMatcher = new Matcher.FieldAccessMatcher(AbstractDungeon.class, "screen");
-                int[] pos = LineFinder.findAllInOrder(ctBehavior, fieldAccessMatcher);
-                return new int[]{pos[1]};
-            }
+    @SpirePatch(clz = CardLibrary.class, method = "getCurse", paramtypez = {AbstractCard.class, Random.class})
+    public static class CardLibraryGetCursePatch2 {
+        @SpireInstrumentPatch
+        public static ExprEditor Instrument() {
+            return originiumEditor2();
+        }
+    }
+
+    @SpirePatch(clz = AbstractDungeon.class, method = "addCurseCards")
+    public static class AddCurseCardsPatch {
+        @SpireInstrumentPatch
+        public static ExprEditor Instrument() {
+            return originiumEditor2();
         }
     }
 }
