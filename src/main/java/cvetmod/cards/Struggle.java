@@ -43,8 +43,7 @@ public class Struggle extends AbstractCvetCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage)));
         addToBot(new StruggleAction(this));
         if (extraTriggered()) {
-            AbstractCard c = new Struggle();
-            if (upgraded) c.upgrade();
+            AbstractCard c = makeStatEquivalentCopy();
             addToBot(new MakeTempCardInDiscardAndDeckAction(c));
         }
     }
