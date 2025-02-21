@@ -6,5 +6,13 @@
       "源石技艺"
     ],
     "DESCRIPTION": "如果源石在你的手牌中则额外触发对应效果。"
+  },
+  "ORIGINIUMAREA": {
+    "PROPER_NAME": "源石区",
+    "NAMES": [
+      "Originium Area",
+      "源石区"
+    ],
+    "DESCRIPTION": "一个单独的区域，当源石在手牌中时打出的其他牌（消耗、能力牌除外）将不会进入弃牌堆，而是进入源石区。"
   }
 }

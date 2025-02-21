@@ -1,5 +1,6 @@
 package cvetmod.monsters;
 
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -80,7 +81,12 @@ public class Theresis extends AbstractCvetMonster {
             }
         }
         else if (nextMove == 4) {
-            addToBot(new ApplyPowerAction(p, this, new WeakPower(p, 1, false)));
+            if (!AbstractDungeon.actionManager.turnHasEnded) {
+                addToBot(new ApplyPowerAction(p, this, new WeakPower(p, 1, false)));
+            }
+            else {
+                addToBot(new ApplyPowerAction(p, this, new WeakPower(p, 1, true)));
+            }
         }
         else {
             addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strGain)));

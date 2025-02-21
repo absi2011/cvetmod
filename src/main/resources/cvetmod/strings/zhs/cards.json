@@ -1,7 +1,7 @@
 {
     "cvetmod:Originium": {
         "NAME": "源石",
-        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [cvetmod:E1] 。 NL 当这张牌在你手里时，打出的其他卡牌将被装入 *源石 。",
+        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [cvetmod:E1] 。 NL 当这张牌在你手里时，打出的其他卡牌将被装入 cvetmod:源石区 。",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -42,7 +42,7 @@
     },
     "cvetmod:Analyse": {
         "NAME": "解构",
-        "DESCRIPTION": "从 *源石 中取出 !M! 张卡牌。",
+        "DESCRIPTION": "从 cvetmod:源石区 中取出 !M! 张卡牌。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Inhibitor": {
@@ -66,6 +66,21 @@
         "DESCRIPTION": "将 !M! 张临时抑制剂加入的手牌。 NL 消耗 。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Crack": {
+        "NAME": "破译",
+        "DESCRIPTION": "从 cvetmod:源石区 中选择一张牌，获得它的两张带有 消耗 的复制。",
+        "UPGRADE_DESCRIPTION": "从 cvetmod:源石区 中选择一张牌，获得它的两张带有 消耗 的复制，且它们的耗能减少 [cvetmod:E2Icon] 。"
+    },
+    "cvetmod:Wave": {
+        "NAME": "编织",
+        "DESCRIPTION": "获得 !B! 点 格挡 ， NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Cropping": {
+        "NAME": "裁剪",
+        "DESCRIPTION": "造成 !D! 点伤害 ， NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:SpiritBurst": {
         "NAME": "精神爆发",
@@ -85,8 +100,8 @@
 
     "cvetmod:Terminate": {
         "NAME": "停止",
-        "DESCRIPTION": "你的 源石 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 *源石 ，并将一张 *终结的实相 置入手牌。",
-        "UPGRADE_DESCRIPTION": "你的 源石 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 *源石 ，并将一张 *终结的实相+ 置入手牌。"
+        "DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
+        "UPGRADE_DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。"
     },
     "cvetmod:BreakRing": {
         "NAME": "碎戒",

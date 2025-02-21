@@ -47,6 +47,20 @@ public abstract class AbstractCvetCard extends CustomCard {
         upgradedSecondMagicNumber = true;
     }
 
+    public void reduceSecondCost(int amount) {
+        if ((this.secondCost == -1) || (this.secondCost == -2)) {
+            return;
+        }
+        this.secondCost -= amount;
+        if (secondCost < 0) {
+            secondCost = 0;
+        }
+        secondCostForTurn -= amount;
+        if (secondCostForTurn < 0) {
+            secondCostForTurn = 0;
+        }
+    }
+
     public boolean extraTriggered() {
         return false;
     }

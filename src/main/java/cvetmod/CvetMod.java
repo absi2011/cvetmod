@@ -11,9 +11,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
@@ -25,6 +27,7 @@ import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import cvetmod.cards.special.Originium;
 import cvetmod.cards.special.TheRealityOfEnd;
+import cvetmod.characters.CivilightEterna;
 import cvetmod.monsters.Theresis;
 import cvetmod.patches.CvetEnum;
 import cvetmod.util.SecondEnergyIcon;
@@ -35,6 +38,7 @@ import cvetmod.cards.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.concurrent.locks.Condition;
 
 import static basemod.BaseMod.addMonster;
 import static cvetmod.patches.AbstractCardEnum.CVET_PINK;
@@ -165,6 +169,9 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Desperate()); // 绝望
         cards.add(new ExternalCombustionEngine()); // 外燃机
         cards.add(new EmergencyMedicineChest()); // 应急药箱
+        cards.add(new Crack()); // 破译
+        cards.add(new Wave()); // 编织
+        cards.add(new Cropping()); // 裁剪
 
         // Uncommon.
         cards.add(new SpiritBurst()); // 精神爆发
@@ -280,5 +287,38 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         if (info.base != info.output) {
             info.isModified = true;
         }
+    }
+
+    public static AbstractCard getRandomCard(AbstractCard.CardTags tags) {
+        ArrayList<AbstractCard> list = new ArrayList<AbstractCard>();
+        for (AbstractCard c : AbstractDungeon.srcCommonCardPool.group) {
+            if (c.hasTag(tags)) {
+                list.add(c);
+                UnlockTracker.markCardAsSeen(c.cardID);
+            }
+        }
+        for (AbstractCard c : AbstractDungeon.srcUncommonCardPool.group) {
+            if (c.hasTag(tags)) {
+                list.add(c);
+                UnlockTracker.markCardAsSeen(c.cardID);
+            }
+        }
+        for (AbstractCard c : AbstractDungeon.srcRareCardPool.group) {
+            if (c.hasTag(tags)) {
+                list.add(c);
+                UnlockTracker.markCardAsSeen(c.cardID);
+            }
+        }
+        if (list.isEmpty()) {
+            // 保底选项
+            for (AbstractCard c : CardLibrary.cards.values()) {
+                if (c.hasTag(tags)) {
+                    list.add(c);
+                    UnlockTracker.markCardAsSeen(c.cardID);
+                }
+            }
+        }
+
+        return list.get(AbstractDungeon.cardRandomRng.random(list.size() - 1)).makeCopy();
     }
 }
