@@ -1,7 +1,7 @@
 {
   "cvetmod:Theresis": {
     "NAME": "特雷西斯",
-    "MOVES": [],
+    "MOVES": ["蓄力斩","/"],
     "DIALOG": []
   }
 }

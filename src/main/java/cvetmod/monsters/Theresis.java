@@ -23,6 +23,8 @@ public class Theresis extends AbstractCvetMonster {
     public boolean isUpgrade = false;
     public final int blockGain;
     public final int strGain;
+    public int turn;
+    public final int maxTurn;
 
     public Theresis(float x, float y) {
         super(NAME, ID, 400, 0, 0, 150.0F, 320.0F, "cvetmod/images/monsters/armorlessassassin.png", x, y);
@@ -37,14 +39,20 @@ public class Theresis extends AbstractCvetMonster {
         if (AbstractDungeon.ascensionLevel >= 19) {
             damage.add(new DamageInfo(this, 3));
             damage.add(new DamageInfo(this, 2));
+            damage.add(new DamageInfo(this, 30));
+            maxTurn = 5;
             strGain = 2;
         } else if (AbstractDungeon.ascensionLevel >= 4) {
             damage.add(new DamageInfo(this, 2));
             damage.add(new DamageInfo(this, 1));
+            damage.add(new DamageInfo(this, 24));
+            maxTurn = 6;
             strGain = 2;
         } else {
             damage.add(new DamageInfo(this, 2));
             damage.add(new DamageInfo(this, 1));
+            damage.add(new DamageInfo(this, 16));
+            maxTurn = 6;
             strGain = 1;
         }
         /*
@@ -66,7 +74,7 @@ public class Theresis extends AbstractCvetMonster {
         AbstractPlayer p = AbstractDungeon.player;
         if (nextMove == 1) {
             addToBot(new DamageAction(p, new DamageInfo(this, damage.get(0).output)));
-            if (damage.get(0).output <= damage.get(0).base) {
+            if (damage.get(0).output < damage.get(0).base) {
                 isUpgrade = true;
             }
         }
@@ -76,7 +84,7 @@ public class Theresis extends AbstractCvetMonster {
         else if (nextMove == 3) {
             addToBot(new DamageAction(p, new DamageInfo(this, damage.get(1).output)));
             addToBot(new DamageAction(p, new DamageInfo(this, damage.get(1).output)));
-            if (damage.get(1).output <= damage.get(1).base) {
+            if (damage.get(1).output < damage.get(1).base) {
                 isUpgrade = true;
             }
         }
@@ -88,8 +96,17 @@ public class Theresis extends AbstractCvetMonster {
                 addToBot(new ApplyPowerAction(p, this, new WeakPower(p, 1, true)));
             }
         }
-        else {
+        else if (nextMove == 5) {
             addToBot(new ApplyPowerAction(this, this, new StrengthPower(this, strGain)));
+        }
+        else if (nextMove == 7) {
+            addToBot(new DamageAction(p, new DamageInfo(this, damage.get(2).output)));
+            if (damage.get(2).output < damage.get(2).base) {
+                isUpgrade = true;
+            }
+        }
+        else if (nextMove == 6) {
+            // 可以考虑来点对话，蓄力的时候说点废话很正常吧！
         }
         getMove(0);
         isUpgrade = false;
@@ -97,11 +114,12 @@ public class Theresis extends AbstractCvetMonster {
 
     @Override
     protected void getMove(int i) {
-        ArrayList<Integer> possibleMoves = new ArrayList<>();
+        int move;
         if (isUpgrade) {
-            possibleMoves.add(5);
+            move = 5;
         }
-        else {
+        else if (nextMove != 6) {
+            ArrayList<Integer> possibleMoves = new ArrayList<>();
             if (nextMove != 1) {
                 possibleMoves.add(1);
             }
@@ -117,8 +135,23 @@ public class Theresis extends AbstractCvetMonster {
             if (nextMove != 5) {
                 possibleMoves.add(5);
             }
+            if (nextMove != 7) {
+                possibleMoves.add(6);
+            }
+            move = possibleMoves.get(AbstractDungeon.aiRng.random(possibleMoves.size() - 1));
+            if (move == 6) {
+                turn = maxTurn - 1;
+            }
         }
-        int move = possibleMoves.get(AbstractDungeon.aiRng.random(possibleMoves.size() - 1));
+        else {
+            turn --;
+            if (turn == 0) {
+                move = 7;
+            }
+            else {
+                move = 6;
+            }
+        }
         if (move == 1) {
             setMove((byte)1, Intent.ATTACK, damage.get(0).base);
         }
@@ -133,6 +166,12 @@ public class Theresis extends AbstractCvetMonster {
         }
         else if (move == 5) {
             setMove((byte)5, Intent.BUFF);
+        }
+        else if (move == 6) {
+            setMove(MOVES[0] + (maxTurn - turn) + MOVES[1] + maxTurn, (byte)6, Intent.UNKNOWN);
+        }
+        else {
+            setMove(MOVES[0] + maxTurn + MOVES[1] + maxTurn, (byte)7, Intent.ATTACK, damage.get(2).base);
         }
     }
 }
