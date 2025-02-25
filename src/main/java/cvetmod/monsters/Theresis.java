@@ -1,6 +1,5 @@
 package cvetmod.monsters;
 
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -27,7 +26,7 @@ public class Theresis extends AbstractCvetMonster {
     public final int maxTurn;
 
     public Theresis(float x, float y) {
-        super(NAME, ID, 400, 0, 0, 150.0F, 320.0F, "cvetmod/images/monsters/armorlessassassin.png", x, y);
+        super(NAME, ID, 400, 0, 0, 150.0F, 320.0F, "cvetmod/images/monsters/enemy_1276_telex.png", x, y);
         type = EnemyType.BOSS;
         if (AbstractDungeon.ascensionLevel >= 9) {
             blockGain = 5;
@@ -55,12 +54,9 @@ public class Theresis extends AbstractCvetMonster {
             maxTurn = 6;
             strGain = 1;
         }
-        /*
-        loadAnimation("resources/cvetmod/images/monsters/enemy_1044_zomstr_2/enemy_1044_zomstr_233.atlas", "resources/cvetmod/images/monsters/enemy_1044_zomstr_2/enemy_1044_zomstr_233.json", 1.5F);
+        loadAnimation("cvetmod/images/monsters/enemy_1276_telex/enemy_1276_telex33.atlas", "cvetmod/images/monsters/enemy_1276_telex/enemy_1276_telex33.json", 1.5F);
         flipHorizontal = true;
-        stateData.setMix("Idle", "Die", 0.1F);
         state.setAnimation(0, "Idle", true);
-        */
         isUpgrade = false;
     }
 
@@ -101,6 +97,8 @@ public class Theresis extends AbstractCvetMonster {
         }
         else if (nextMove == 7) {
             addToBot(new DamageAction(p, new DamageInfo(this, damage.get(2).output)));
+            state.setAnimation(0, "Attack", false);
+            state.addAnimation(0, "Idle", true, 0);
             if (damage.get(2).output < damage.get(2).base) {
                 isUpgrade = true;
             }
