@@ -22,7 +22,7 @@ public class Terminate extends AbstractCvetCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/Terminate.png";
     public static final int COST = 3;
     public static final int SECOND_COST = 0;
     public static final int DAMAGE_AMT = 3;
