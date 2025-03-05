@@ -177,6 +177,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new SpiritBurst()); // 精神爆发
         cards.add(new Saving()); // 拯救
         cards.add(new Struggle()); // 抗争
+        cards.add(new AriseTreadingThroughFlames()); // 昂首，足践烈焰
 
         // Rare.
         cards.add(new Terminate()); // 停止

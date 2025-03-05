@@ -97,6 +97,11 @@
         "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *停止 置入手牌。",
         "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *停止+ 置入手牌。"
     },
+    "cvetmod:AriseTreadingThroughFlames": {
+        "NAME": "昂首，足践烈焰",
+        "DESCRIPTION": "当你受到攻击时，对伤害来源造成等量伤害。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",

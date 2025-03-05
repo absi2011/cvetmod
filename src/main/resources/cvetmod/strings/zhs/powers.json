@@ -10,5 +10,9 @@
   "cvetmod:ChessPower": {
     "NAME": "棋逢对手",
     "DESCRIPTIONS": ["每当你打出一张牌，这名敌人 #y立即 行动一次。"]
+  },
+  "cvetmod:ATTFPower": {
+    "NAME": "昂首，足践烈焰",
+    "DESCRIPTIONS": ["当你受到攻击时，对伤害来源造成 #y"," 倍伤害。","当你受到攻击时，对伤害来源造成等量伤害。"]
   }
 }
