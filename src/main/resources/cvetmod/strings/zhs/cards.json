@@ -118,6 +118,11 @@
         "DESCRIPTION": "造成 !D! 点伤害，下回合失去 !M! 点生命（可用 *抑制剂 延后一回合，但再次打出此牌会缩短回一回合）。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:ThePastLingering": {
+        "NAME": "往昔萦绕身旁",
+        "DESCRIPTION": "每当你打出一张攻击牌，如果该牌在本场战斗中不是首次被打出，则它会被打出两次。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:TheRealityOfEnd": {
         "NAME": "终结的实相",

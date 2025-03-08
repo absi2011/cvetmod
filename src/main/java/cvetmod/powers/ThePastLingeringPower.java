@@ -1,5 +1,6 @@
 package cvetmod.powers;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -37,17 +38,19 @@ public class ThePastLingeringPower extends AbstractCvetPower {
         description = DESCRIPTIONS[0];
     }
 
+    boolean usedBefore(AbstractCard card, int isPlaying) {
+        boolean usedBefore = false;
+        for (int i = 0; i < AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - isPlaying; i++) {
+            AbstractCard c = AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i);
+            if (c.uuid.equals(card.uuid)) {
+                usedBefore = true;
+            }
+        }
+        return usedBefore;
+    }
+
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!card.purgeOnUse && card.type == AbstractCard.CardType.ATTACK) {
-            boolean usedBefore = false;
-            for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat) {
-                if (c.uuid.equals(card.uuid)) {
-                    usedBefore = true;
-                }
-            }
-            if (!usedBefore) {
-                return;
-            }
+        if (!card.purgeOnUse && card.type == AbstractCard.CardType.ATTACK && usedBefore(card, 1)) {
             // Copied from Double Tap Power
             this.flash();
             AbstractMonster m = null;
@@ -68,6 +71,15 @@ public class ThePastLingeringPower extends AbstractCvetPower {
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
         }
+    }
 
+    @Override
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (usedBefore(c, 0)) {
+                c.isGlowing = true;
+                c.glowColor = Color.PINK;
+            }
+        }
     }
 }

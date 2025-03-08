@@ -28,7 +28,7 @@ public class GetRandomCardFromOriginium extends AbstractGameAction {
             for (int i = 0; i < count; i++) {
                 AbstractCard card = Originium.originiumPile.getRandomCard(true);
                 Originium.originiumPile.removeCard(card);
-                addToTop(new MakeTempCardInHandAction(card));
+                addToTop(new MakeTempCardInHandAction(card, true, true));
             }
         }
         this.tickDuration();

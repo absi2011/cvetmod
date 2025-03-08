@@ -183,6 +183,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Terminate()); // 停止
         cards.add(new BreakRing()); // 碎戒
         cards.add(new Chimera()); // 奇美拉
+        cards.add(new ThePastLingering()); // 往昔萦绕身旁
 
         // Special.
         cards.add(new TheRealityOfEnd()); //终结的实相
