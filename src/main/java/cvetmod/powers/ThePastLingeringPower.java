@@ -73,13 +73,4 @@ public class ThePastLingeringPower extends AbstractCvetPower {
         }
     }
 
-    @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (usedBefore(c, 0)) {
-                c.isGlowing = true;
-                c.glowColor = Color.PINK;
-            }
-        }
-    }
 }

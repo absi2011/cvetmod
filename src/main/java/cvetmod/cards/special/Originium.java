@@ -1,9 +1,12 @@
 package cvetmod.cards.special;
 
+import basemod.abstracts.CustomCard;
+import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
@@ -21,6 +24,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import cvetmod.actions.OriginiumAction;
+import cvetmod.cards.AbstractCvetCard;
 import cvetmod.vfx.OriginiumEffect;
 
 import java.lang.reflect.Field;
@@ -28,12 +32,12 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Originium extends AbstractCard {
+public class Originium extends CustomCard implements CustomSavable<String[]> {
     public static final String ID = "cvetmod:Originium";
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/Originium.png";
     public static final int COST = -2;
     public static CardGroup originiumPile = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
@@ -62,7 +66,40 @@ public class Originium extends AbstractCard {
     public AbstractCard makeCopy() {
         return new Originium();
     }
+    @Override
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractCard card = super.makeStatEquivalentCopy();
+        card.selfRetain = selfRetain;
+        card.isInnate = isInnate;
+        card.rawDescription = rawDescription;
+        card.initializeDescription();
+        return card;
+    }
 
+    public String[] onSave() {
+        String[] save = new String[3];
+        save[0] = rawDescription;
+        save[1] = "False";
+        save[2] = "False";
+        if (isInnate) {
+            save[1] = "True";
+        }
+        if (selfRetain) {
+            save[2] = "True";
+        }
+        return save;
+    }
+
+    public void onLoad(String[] info)
+    {
+        rawDescription = info[0];
+        if (info[1].equals("True")) {
+            isInnate = true;
+        }
+        if (info[2].equals("True")) {
+            selfRetain = true;
+        }
+    }
     @Override
     public void upgrade() {
     }

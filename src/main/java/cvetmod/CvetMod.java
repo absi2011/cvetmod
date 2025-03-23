@@ -178,12 +178,14 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Saving()); // 拯救
         cards.add(new Struggle()); // 抗争
         cards.add(new AriseTreadingThroughFlames()); // 昂首，足践烈焰
+        cards.add(new WrathfulCeruleanFlame()); // 青色怒火
 
         // Rare.
         cards.add(new Terminate()); // 停止
         cards.add(new BreakRing()); // 碎戒
         cards.add(new Chimera()); // 奇美拉
         cards.add(new ThePastLingering()); // 往昔萦绕身旁
+        cards.add(new MemoryLock()); // 记忆锁定
 
         // Special.
         cards.add(new TheRealityOfEnd()); //终结的实相

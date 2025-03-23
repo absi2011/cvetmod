@@ -53,8 +53,8 @@
 
     "cvetmod:Desperate": {
         "NAME": "绝望",
-        "DESCRIPTION": "获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *拯救 置入手牌。",
-        "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *拯救+ 置入手牌。"
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：将一张 *拯救 置入手牌。",
+        "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：将一张 *拯救+ 置入手牌。"
     },
     "cvetmod:ExternalCombustionEngine": {
         "NAME": "外燃机",
@@ -73,12 +73,12 @@
     },
     "cvetmod:Wave": {
         "NAME": "编织",
-        "DESCRIPTION": "获得 !B! 点 格挡 ， NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Cropping": {
         "NAME": "裁剪",
-        "DESCRIPTION": "造成 !D! 点伤害 ， NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
+        "DESCRIPTION": "造成 !D! 点伤害 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -94,12 +94,17 @@
     },
     "cvetmod:Saving": {
         "NAME": "拯救",
-        "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *停止 置入手牌。",
-        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点格挡。 NL cvetmod:源石技艺 ：将一张 *停止+ 置入手牌。"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：将一张 *停止 置入手牌。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：将一张 *停止+ 置入手牌。"
     },
     "cvetmod:AriseTreadingThroughFlames": {
         "NAME": "昂首，足践烈焰",
         "DESCRIPTION": "当你受到攻击时，对伤害来源造成等量伤害。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:WrathfulCeruleanFlame": {
+        "NAME": "青色怒火",
+        "DESCRIPTION": "每当你使用一张技能牌后，对随机敌人造成 !M! 点伤害。",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -122,6 +127,12 @@
         "NAME": "往昔萦绕身旁",
         "DESCRIPTION": "每当你打出一张攻击牌，如果该牌在本场战斗中不是首次被打出，则它会被打出两次。",
         "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:MemoryLock": {
+        "NAME": "记忆锁定",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 拾取时， *源石 获得 保留 。",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": ["保留 ， "]
     },
 
     "cvetmod:TheRealityOfEnd": {
