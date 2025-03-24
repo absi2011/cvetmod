@@ -11,7 +11,7 @@ import cvetmod.CvetMod;
 import cvetmod.cards.special.Originium;
 import cvetmod.patches.AbstractCardEnum;
 import cvetmod.patches.CvetTags;
-import cvetmod.powers.Shatter;
+import cvetmod.powers.ShatterPower;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +25,7 @@ public abstract class AbstractCvetCard extends CustomCard {
     public boolean upgradedSecondCost;
     public boolean isSecondCostModified;
     public int secondEnergyOnUse;
+    public boolean originiumAfterPlay;
 
     public AbstractCvetCard(String id, String name, String img, int cost, int secondCost,
                             String rawDescription, AbstractCard.CardType type,
@@ -61,7 +62,7 @@ public abstract class AbstractCvetCard extends CustomCard {
     }
 
     public boolean OriginiumArts() {
-        if (AbstractDungeon.player.hasPower(Shatter.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(ShatterPower.POWER_ID)) {
             return true;
         }
         for (AbstractCard c: AbstractDungeon.player.hand.group) {

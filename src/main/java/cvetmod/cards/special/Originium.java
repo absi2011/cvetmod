@@ -108,11 +108,11 @@ public class Originium extends CustomCard implements CustomSavable<String[]> {
     public static class UseCardActionPatch {
         @SpireInsertPatch(rloc = 52)
         public static SpireReturn<?> Insert(UseCardAction _inst) {
-            if (originiumInHand()) {
-                try {
-                    Field field = UseCardAction.class.getDeclaredField("targetCard");
-                    field.setAccessible(true);
-                    AbstractCard card = (AbstractCard)(field.get(_inst));
+            try {
+                Field field = UseCardAction.class.getDeclaredField("targetCard");
+                field.setAccessible(true);
+                AbstractCard card = (AbstractCard)(field.get(_inst));
+                if (originiumInHand() || ((card instanceof AbstractCvetCard) && ((AbstractCvetCard)card).originiumAfterPlay)) {
                     CardGroup hand = AbstractDungeon.player.hand;
                     if (AbstractDungeon.player.hoveredCard == card) {
                         AbstractDungeon.player.releaseCard();
@@ -130,12 +130,12 @@ public class Originium extends CustomCard implements CustomSavable<String[]> {
                     method.setAccessible(true);
                     method.invoke(_inst);
                     return SpireReturn.Return();
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
                 }
-            }
-            else {
-                return SpireReturn.Continue();
+                else {
+                    return SpireReturn.Continue();
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }

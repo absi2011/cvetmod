@@ -134,6 +134,11 @@
         "UPGRADE_DESCRIPTION": "",
         "EXTENDED_DESCRIPTION": ["保留 ， "]
     },
+    "cvetmod:Shatter": {
+        "NAME": "破碎",
+        "DESCRIPTION": " cvetmod:丝线 。 NL 在本场对战中，移除 *源石 及 *抑制剂 。 NL 所有 cvetmod:源石技艺 视为满足。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:TheRealityOfEnd": {
         "NAME": "终结的实相",

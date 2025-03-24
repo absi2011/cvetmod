@@ -50,6 +50,7 @@ public class Terminate extends AbstractCvetCard {
             }
             addToBot(new TerminateAction(this));
             addToBot(new MakeTempCardInHandAction(c));
+            originiumAfterPlay = true;
         }
         addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
     }

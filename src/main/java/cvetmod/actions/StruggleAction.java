@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import cvetmod.cards.Struggle;
+import cvetmod.cards.special.Originium;
 import cvetmod.characters.CivilightEterna;
 import cvetmod.util.CostReserves;
 
@@ -25,6 +26,8 @@ public class StruggleAction extends AbstractGameAction {
             checkDeck(p.discardPile);
             checkDeck(p.hand);
             checkDeck(p.drawPile);
+            checkDeck(Originium.originiumPile);
+            checkDeck(p.exhaustPile);
             card.baseDamage += card.magicNumber;
         }
         this.tickDuration();
