@@ -93,10 +93,10 @@ public class Originium extends CustomCard implements CustomSavable<String[]> {
     public void onLoad(String[] info)
     {
         rawDescription = info[0];
-        if (info[1].equals("True")) {
+        if ((info.length >= 2) && (info[1].equals("True"))) {
             isInnate = true;
         }
-        if (info[2].equals("True")) {
+        if ((info.length >= 3) && (info[2].equals("True"))) {
             selfRetain = true;
         }
     }

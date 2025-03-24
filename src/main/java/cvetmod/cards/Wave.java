@@ -29,6 +29,7 @@ public class Wave extends AbstractCvetCard {
     public Wave() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         block = baseBlock = BLOCK_AMT;
+        tags.add(CvetTags.IS_STRING);
         tags.add(CvetTags.IS_ORIGINIUM_ARTS);
     }
 

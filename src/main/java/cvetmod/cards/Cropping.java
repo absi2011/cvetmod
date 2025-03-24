@@ -26,6 +26,7 @@ public class Cropping extends AbstractCvetCard {
     public Cropping() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         damage = baseDamage = DAMAGE_AMT;
+        tags.add(CvetTags.IS_STRING);
         tags.add(CvetTags.IS_ORIGINIUM_ARTS);
     }
 

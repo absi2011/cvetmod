@@ -275,7 +275,7 @@ public class CivilightEterna extends CustomPlayer {
         if (!c.freeToPlay() && !c.isInAutoplay && (!hasPower("Corruption") || c.type != AbstractCard.CardType.SKILL)) {
             energy.use(c.costForTurn);
             if (c instanceof AbstractCvetCard) {
-                CostReserves.useReserves(((AbstractCvetCard) c).secondCostForTurn);
+                CostReserves.useReserves(((AbstractCvetCard) c).getSecondCost());
             }
         }
 

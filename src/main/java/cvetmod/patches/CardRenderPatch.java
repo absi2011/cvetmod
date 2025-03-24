@@ -20,16 +20,16 @@ public class CardRenderPatch {
     public static class RenderPatch {
         @SpirePostfixPatch
         public static void Postfix(AbstractCard _inst, SpriteBatch sb, boolean ___darken, Color ___renderColor) {
-            if (!___darken && !_inst.isLocked && _inst.isSeen && _inst instanceof AbstractCvetCard && ((AbstractCvetCard) _inst).secondCostForTurn != -2) {
+            if (!___darken && !_inst.isLocked && _inst.isSeen && _inst instanceof AbstractCvetCard && ((AbstractCvetCard) _inst).getSecondCost() != -2) {
                 Color costColor = Color.WHITE.cpy();
                 if (AbstractDungeon.player != null && AbstractDungeon.player.hand.contains(_inst) && !_inst.hasEnoughEnergy()) {
                     costColor = ENERGY_COST_RESTRICTED_COLOR;
-                } else if (((AbstractCvetCard) _inst).isSecondCostModified || ((AbstractCvetCard) _inst).isSecondCostModifiedForTurn || _inst.freeToPlay()) {
+                } else if (((AbstractCvetCard) _inst).isSecondCostModified  || _inst.freeToPlay()) {
                     costColor = ENERGY_COST_MODIFIED_COLOR;
                 }
 
                 costColor.a = _inst.transparency;
-                String text = ((AbstractCvetCard) _inst).secondCost == -1? "X" : (_inst.freeToPlay()? "0" : Integer.toString(((AbstractCvetCard) _inst).secondCostForTurn));
+                String text = ((AbstractCvetCard) _inst).getSecondCost() == -1? "X" : (_inst.freeToPlay()? "0" : Integer.toString(((AbstractCvetCard) _inst).getSecondCost()));
                 FontHelper.cardEnergyFont_L.getData().setScale(_inst.drawScale);
                 BitmapFont font = FontHelper.cardEnergyFont_L;
                 FontHelper.renderRotatedText(sb, font, text, _inst.current_x, _inst.current_y, -132.0F * _inst.drawScale * Settings.scale, 117.0F * _inst.drawScale * Settings.scale, _inst.angle, false, costColor);
@@ -72,17 +72,17 @@ public class CardRenderPatch {
                 } else {
                     c = Settings.CREAM_COLOR;
                 }
-                switch (((AbstractCvetCard) ___card).secondCost) {
+                switch (((AbstractCvetCard) ___card).getSecondCost()) {
                     case -2:
                         break;
                     case -1:
                         FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, "X", (float)Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
                         break;
                     case 1:
-                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(((AbstractCvetCard) ___card).secondCost), (float)Settings.WIDTH / 2.0F - 284.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
+                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(((AbstractCvetCard) ___card).getSecondCost()), (float)Settings.WIDTH / 2.0F - 284.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
                         break;
                     default:
-                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(((AbstractCvetCard) ___card).secondCost), (float)Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
+                        FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(((AbstractCvetCard) ___card).getSecondCost()), (float)Settings.WIDTH / 2.0F - 292.0F * Settings.scale, (float)Settings.HEIGHT / 2.0F + 254.0F * Settings.scale, c);
                         break;
                 }
                 return SpireReturn.Return();

@@ -30,6 +30,7 @@ import cvetmod.cards.special.TheRealityOfEnd;
 import cvetmod.characters.CivilightEterna;
 import cvetmod.monsters.Theresis;
 import cvetmod.patches.CvetEnum;
+import cvetmod.patches.CvetTags;
 import cvetmod.util.SecondEnergyIcon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,7 +45,7 @@ import static basemod.BaseMod.addMonster;
 import static cvetmod.patches.AbstractCardEnum.CVET_PINK;
 
 @SpireInitializer
-public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber, RelicGetSubscriber {
+public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber, RelicGetSubscriber, OnCardUseSubscriber {
 
     public static final Color CvetPink = CardHelper.getColor(249, 218, 212);
     private static final String attackCard = "cvetmod/images/512/bg_attack_cvet.png";
@@ -65,6 +66,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     public static TutorialStrings originiumTipStrings;
     public static String[] ORIGINIUM_TIP_TEXT;
     public static String[] ORIGINIUM_TIP_LABEL;
+    public static int stringCount = 0;
 
     public CvetMod() {
         BaseMod.subscribe(this);
@@ -136,6 +138,17 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     @Override
     public void receiveOnBattleStart(AbstractRoom room) {
         Originium.originiumPile.clear();
+        stringCount = 0;
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard card) {
+        if (card.hasTag(CvetTags.IS_STRING)) {
+            stringCount ++;
+        }
+        else {
+            stringCount = 0;
+        }
     }
 
     @Override

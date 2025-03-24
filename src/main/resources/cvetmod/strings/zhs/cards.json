@@ -73,12 +73,12 @@
     },
     "cvetmod:Wave": {
         "NAME": "编织",
-        "DESCRIPTION": "获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
+        "DESCRIPTION": "cvetmod:丝线 。 NL 获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Cropping": {
         "NAME": "裁剪",
-        "DESCRIPTION": "造成 !D! 点伤害 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
+        "DESCRIPTION": "cvetmod:丝线 。 NL 造成 !D! 点伤害 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
         "UPGRADE_DESCRIPTION": ""
     },
 

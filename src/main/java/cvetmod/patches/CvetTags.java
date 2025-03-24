@@ -5,4 +5,5 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class CvetTags {
     @SpireEnum public static AbstractCard.CardTags IS_ORIGINIUM_ARTS;
+    @SpireEnum public static AbstractCard.CardTags IS_STRING;
 }

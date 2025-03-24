@@ -39,7 +39,7 @@ public class EnergyPatch {
         @SpireInsertPatch(locator = Locator.class)
         public static SpireReturn<?> Insert(AbstractCard _inst) {
             if (_inst instanceof AbstractCvetCard) {
-                if ((EnergyPanel.getCurrentEnergy() >= _inst.costForTurn && CostReserves.reserveCount() >= ((AbstractCvetCard) _inst).secondCostForTurn) ||
+                if ((EnergyPanel.getCurrentEnergy() >= _inst.costForTurn && CostReserves.reserveCount() >= ((AbstractCvetCard) _inst).getSecondCost()) ||
                         _inst.freeToPlay() || _inst.isInAutoplay) {
                     return SpireReturn.Return(true);
                 }

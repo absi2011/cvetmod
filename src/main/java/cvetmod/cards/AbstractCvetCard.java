@@ -7,8 +7,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
+import cvetmod.CvetMod;
 import cvetmod.cards.special.Originium;
 import cvetmod.patches.AbstractCardEnum;
+import cvetmod.patches.CvetTags;
 import cvetmod.powers.Shatter;
 
 import java.util.ArrayList;
@@ -20,20 +22,17 @@ public abstract class AbstractCvetCard extends CustomCard {
     public boolean isSecondMagicNumberModified;
     public boolean upgradedSecondMagicNumber;
     public int secondCost;
-    public int secondCostForTurn;
     public boolean upgradedSecondCost;
     public boolean isSecondCostModified;
-    public boolean isSecondCostModifiedForTurn;
     public int secondEnergyOnUse;
 
     public AbstractCvetCard(String id, String name, String img, int cost, int secondCost,
                             String rawDescription, AbstractCard.CardType type,
                             AbstractCard.CardRarity rarity, AbstractCard.CardTarget target) {
         super(id, name, img, cost, rawDescription, type, AbstractCardEnum.CVET_PINK, rarity, target);
-        this.secondCost = this.secondCostForTurn = secondCost;
+        this.secondCost = secondCost;
         upgradedSecondCost = false;
         isSecondCostModified = false;
-        isSecondCostModifiedForTurn = false;
     }
 
     @Override
@@ -54,10 +53,6 @@ public abstract class AbstractCvetCard extends CustomCard {
         this.secondCost -= amount;
         if (secondCost < 0) {
             secondCost = 0;
-        }
-        secondCostForTurn -= amount;
-        if (secondCostForTurn < 0) {
-            secondCostForTurn = 0;
         }
     }
 
@@ -125,10 +120,8 @@ public abstract class AbstractCvetCard extends CustomCard {
         t.isCostModified = s.isCostModified;
         t.isCostModifiedForTurn = s.isCostModifiedForTurn;
         t.secondCost = s.secondCost;
-        t.secondCostForTurn = s.secondCostForTurn;
         t.upgradedSecondCost = s.upgradedSecondCost;
         t.isSecondCostModified = s.isSecondCostModified;
-        t.isSecondCostModifiedForTurn = s.isSecondCostModifiedForTurn;
         t.inBottleLightning = s.inBottleLightning;
         t.inBottleFlame = s.inBottleFlame;
         t.inBottleTornado = s.inBottleTornado;
@@ -162,6 +155,21 @@ public abstract class AbstractCvetCard extends CustomCard {
         AbstractCvetCard card = (AbstractCvetCard) this.makeCopy();
         copyStat(this, card);
         return card;
+    }
+
+    public int getSecondCost() {
+        if ((secondCost == -1) || (secondCost == -2)) {
+            return secondCost;
+        }
+        int realCost = secondCost;
+        if (hasTag(CvetTags.IS_STRING)) {
+            realCost -= CvetMod.stringCount;
+        }
+        if (realCost < 0) {
+            realCost = 0;
+        }
+        isSecondCostModified = (realCost != secondCost);
+        return realCost;
     }
 
     public static class SecondMagicNumber extends DynamicVariable {
@@ -223,33 +231,13 @@ public abstract class AbstractCvetCard extends CustomCard {
     }
 
     protected void upgradeBaseSecondCost(int newBaseCost) {
-        int diff = secondCostForTurn - secondCost;
         secondCost = newBaseCost;
-        if (secondCostForTurn > 0) {
-            secondCostForTurn = secondCost + diff;
-        }
-        if (secondCostForTurn < 0) {
-            secondCostForTurn = 0;
-        }
         upgradedSecondCost = true;
     }
 
     @Override
     public void resetAttributes() {
         super.resetAttributes();
-        secondCostForTurn = secondCost;
-        isSecondCostModifiedForTurn = false;
     }
-    
-    public void setSecondCostFortTurn(int amt) {
-        if (secondCostForTurn >= 0) {
-            secondCostForTurn = amt;
-            if (secondCostForTurn < 0) {
-                secondCostForTurn = 0;
-            }
-            if (secondCostForTurn != secondCost) {
-                isSecondCostModifiedForTurn = true;
-            }
-        }
-    }
+
 }
