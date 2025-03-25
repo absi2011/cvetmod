@@ -185,6 +185,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Crack()); // 破译
         cards.add(new Wave()); // 编织
         cards.add(new Cropping()); // 裁剪
+        cards.add(new Seal()); // 封存
 
         // Uncommon.
         cards.add(new SpiritBurst()); // 精神爆发

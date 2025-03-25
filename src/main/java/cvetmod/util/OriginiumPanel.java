@@ -98,7 +98,7 @@ public class OriginiumPanel extends AbstractPanel {
 
         hb.render(sb);
         if (hb.hovered && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.isScreenUp) {
-            TipHelper.renderGenericTip(1550.0F * Settings.scale, 450.0F * Settings.scale, CvetMod.ORIGINIUM_TIP_TEXT[0], CvetMod.ORIGINIUM_TIP_LABEL[0]);
+            TipHelper.renderGenericTip(1550.0F * Settings.scale, 450.0F * Settings.scale, CvetMod.ORIGINIUM_TIP_LABEL[0], CvetMod.ORIGINIUM_TIP_TEXT[0]);
         }
     }
 }

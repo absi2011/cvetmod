@@ -20,7 +20,6 @@ public class Seal extends AbstractCvetCard {
     public static final int UPG_CARDS_SEAL = 1;
     public Seal() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        exhaust = true;
         magicNumber = baseMagicNumber = CARDS_SEAL;
     }
 

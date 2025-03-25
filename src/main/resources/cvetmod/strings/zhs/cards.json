@@ -78,7 +78,12 @@
     },
     "cvetmod:Cropping": {
         "NAME": "裁剪",
-        "DESCRIPTION": "cvetmod:丝线 。 NL 造成 !D! 点伤害 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌",
+        "DESCRIPTION": "cvetmod:丝线 。 NL 造成 !D! 点伤害 。 NL cvetmod:源石技艺 ：将一张随机的 cvetmod:源石技艺 牌加入你的手牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Seal": {
+        "NAME": "封存",
+        "DESCRIPTION": "将 !M! 张牌从消耗堆移动至 *源石区 。",
         "UPGRADE_DESCRIPTION": ""
     },
 

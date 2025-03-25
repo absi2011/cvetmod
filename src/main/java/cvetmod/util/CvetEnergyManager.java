@@ -7,13 +7,13 @@ public class CvetEnergyManager extends EnergyManager {
     public int secondEnergyMaster;
     public CvetEnergyManager(int e,int e2) {
         super(e);
-        secondEnergyMaster = e2;
+        secondEnergyMaster = e2;    // Not used now.
     }
 
     @Override
     public void prep() {
         super.prep();
-        secondEnergy = secondEnergyMaster;
+        secondEnergy = energyMaster;
         CostReserves.resetReserves();
         CostReserves.setReserves(secondEnergy);
     }

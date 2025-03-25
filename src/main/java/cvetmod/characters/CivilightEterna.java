@@ -3,6 +3,7 @@ package cvetmod.characters;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.purple.TalkToTheHand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import basemod.abstracts.CustomPlayer;
@@ -124,7 +125,7 @@ public class CivilightEterna extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return null; // TODO:补全卡牌
+        return new TacticalChant();
     }
 
     @Override
