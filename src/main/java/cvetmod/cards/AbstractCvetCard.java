@@ -165,6 +165,7 @@ public abstract class AbstractCvetCard extends CustomCard {
         int realCost = secondCost;
         if (hasTag(CvetTags.IS_STRING)) {
             realCost -= CvetMod.stringCount;
+            realCost ++;    // 抵消这张卡自己的stringCount
         }
         if (realCost < 0) {
             realCost = 0;

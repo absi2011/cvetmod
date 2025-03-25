@@ -23,8 +23,12 @@
     "NAME": "往昔萦绕身旁",
     "DESCRIPTIONS": ["每当你打出一张攻击牌，如果该牌在本场战斗中不是首次被打出，则它会被打出两次。"]
   },
-  "cvetmod:Shatter": {
+  "cvetmod:ShatterPower": {
     "NAME": "破碎",
     "DESCRIPTIONS": ["源石技艺视为满足。"]
+  },
+  "cvetmod:HalfDamagePower": {
+    "NAME": "法术闪避",
+    "DESCRIPTIONS": ["受到的伤害减少 #y50% ，持续 #y", " 回合。"]
   }
 }
