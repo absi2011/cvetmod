@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
+import com.evacipated.cardcrawl.mod.stslib.patches.relicInterfaces.OnAfterUseCardPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -45,7 +46,7 @@ import static basemod.BaseMod.addMonster;
 import static cvetmod.patches.AbstractCardEnum.CVET_PINK;
 
 @SpireInitializer
-public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber, RelicGetSubscriber, OnCardUseSubscriber {
+public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber, EditStringsSubscriber, PostBattleSubscriber, PostInitializeSubscriber, PostDungeonInitializeSubscriber, AddCustomModeModsSubscriber, OnStartBattleSubscriber, OnPlayerLoseBlockSubscriber, RelicGetSubscriber, OnCardUseSubscriber{
 
     public static final Color CvetPink = CardHelper.getColor(249, 218, 212);
     private static final String attackCard = "cvetmod/images/512/bg_attack_cvet.png";
@@ -152,7 +153,9 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     }
 
     @Override
-    public void receivePostBattle(final AbstractRoom p0) {}
+    public void receivePostBattle(final AbstractRoom p0) {
+        stringCount = 0;
+    }
 
     @Override
     public void receiveRelicGet(AbstractRelic r) {}
@@ -193,6 +196,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Struggle()); // 抗争
         cards.add(new AriseTreadingThroughFlames()); // 昂首，足践烈焰
         cards.add(new WrathfulCeruleanFlame()); // 青色怒火
+        cards.add(new YingXiaoFleetingNight()); // 影霄·奔夜
 
         // Rare.
         cards.add(new Terminate()); // 停止

@@ -26,6 +26,8 @@ public abstract class AbstractCvetCard extends CustomCard {
     public boolean isSecondCostModified;
     public int secondEnergyOnUse;
     public boolean originiumAfterPlay;
+    public int secondCostReduce = 0;
+    public int secondCostEqual = -1;
 
     public AbstractCvetCard(String id, String name, String img, int cost, int secondCost,
                             String rawDescription, AbstractCard.CardType type,
@@ -137,7 +139,9 @@ public abstract class AbstractCvetCard extends CustomCard {
         t.isInnate = s.isInnate;
         t.returnToHand = s.returnToHand;
         t.shuffleBackIntoDrawPile = s.shuffleBackIntoDrawPile;
-        t.cardsToPreview = s.cardsToPreview;
+        if (s.cardsToPreview != null) {
+            t.cardsToPreview = s.cardsToPreview.makeStatEquivalentCopy();
+        }
         t.rawDescription = s.rawDescription;
         t.baseDraw = s.baseDraw;
         t.isInAutoplay = s.isInAutoplay;
@@ -148,6 +152,8 @@ public abstract class AbstractCvetCard extends CustomCard {
             t.textureImg = s.textureImg;
             t.loadCardImage(t.textureImg);
         }
+        t.secondCostEqual = s.secondCostEqual;
+        t.secondCostReduce = s.secondCostReduce;
         t.initializeDescription();
     }
 
@@ -159,13 +165,27 @@ public abstract class AbstractCvetCard extends CustomCard {
     }
 
     public int getSecondCost() {
+        return getSecondCost(false);
+    }
+
+    public int getSecondCost(boolean isPlaying) {
         if ((secondCost == -1) || (secondCost == -2)) {
             return secondCost;
         }
+        if (AbstractDungeon.getCurrRoom() == null) {
+            return secondCost;
+        }
         int realCost = secondCost;
+        if (secondCostEqual != -1) {
+            realCost = secondCostEqual;
+        }
+        realCost -= secondCostReduce;
         if (hasTag(CvetTags.IS_STRING)) {
             realCost -= CvetMod.stringCount;
-            realCost ++;    // 抵消这张卡自己的stringCount
+            if (isPlaying)
+            {
+                realCost ++;    // 抵消打出时本张牌计算的费用。
+            }
         }
         if (realCost < 0) {
             realCost = 0;
@@ -232,7 +252,7 @@ public abstract class AbstractCvetCard extends CustomCard {
         }
     }
 
-    protected void upgradeBaseSecondCost(int newBaseCost) {
+    public void upgradeBaseSecondCost(int newBaseCost) {
         secondCost = newBaseCost;
         upgradedSecondCost = true;
     }
@@ -242,4 +262,18 @@ public abstract class AbstractCvetCard extends CustomCard {
         super.resetAttributes();
     }
 
+    @Override
+    public void setCostForTurn(int amt) {
+        super.setCostForTurn(amt);  // 这个函数就是cost变0
+        setSecondCostThisTurn(0);
+    }
+
+    public void setSecondCostThisTurn(int amt) {
+        secondCostReduce = 0;
+        secondCostEqual = amt;
+    }
+
+    public void reduceSecondCostThisTurn(int amt) {
+        secondCostReduce += amt;
+    }
 }

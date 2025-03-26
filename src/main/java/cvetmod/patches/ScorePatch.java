@@ -21,8 +21,8 @@ public class ScorePatch {
         @SpireInsertPatch(locator = Locator.class, localvars = "points")
         public static void Insert(boolean victory, @ByRef int[] points) {
 //            if (AbstractDungeon.player.hasRelic(Melt.ID)) {
-                IS_MELT = true;
-                points[0] -= 25;
+//                IS_MELT = true;
+//                points[0] -= 25;
 //            }
         }
 

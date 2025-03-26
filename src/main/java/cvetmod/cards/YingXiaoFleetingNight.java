@@ -40,7 +40,7 @@ public class YingXiaoFleetingNight extends AbstractCvetCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage)));
         addToBot(new DamageAction(m, new DamageInfo(p, damage)));
         if (extraTriggered()) {
-            addToBot(new ApplyPowerAction(p, p, new HalfDamagePower(p, secondMagicNumber)));
+            addToBot(new ApplyPowerAction(p, p, new HalfDamagePower(p, magicNumber)));
         }
     }
 
