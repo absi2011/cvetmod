@@ -15,7 +15,7 @@ public class Inhibitor extends AbstractCvetCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/Inhibitor.png";
     public static final int COST = 0;
     public static final int SECOND_COST = 0;
     public Inhibitor() {

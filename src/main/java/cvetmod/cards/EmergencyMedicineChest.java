@@ -1,14 +1,11 @@
 package cvetmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import cvetmod.cards.special.TempInhibitor;
-import cvetmod.patches.CvetTags;
 
 public class EmergencyMedicineChest extends AbstractCvetCard {
     public static final String ID = "cvetmod:EmergencyMedicineChest";
@@ -16,7 +13,7 @@ public class EmergencyMedicineChest extends AbstractCvetCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/EmergencyMedicineChest.png";
     public static final int COST = 0;
     public static final int SECOND_COST = 0;
     public static final int NUM = 2;

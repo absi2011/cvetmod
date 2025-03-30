@@ -11,7 +11,7 @@ public class CvetDefendT extends AbstractCvetCard {
     public static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/CvetDefendA.png";
     public static final int COST = 0;
     public static final int SECOND_COST = 1;
     public static final int BLOCK_AMT = 4;
