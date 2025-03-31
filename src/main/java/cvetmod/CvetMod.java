@@ -140,6 +140,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     public void receiveOnBattleStart(AbstractRoom room) {
         Originium.originiumPile.clear();
         stringCount = 0;
+        Struggle.struggleCnt = 0;
     }
 
     @Override
@@ -155,6 +156,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     @Override
     public void receivePostBattle(final AbstractRoom p0) {
         stringCount = 0;
+        Struggle.struggleCnt = 0;
     }
 
     @Override

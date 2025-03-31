@@ -5,6 +5,7 @@ import basemod.abstracts.DynamicVariable;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import cvetmod.CvetMod;
@@ -275,5 +276,18 @@ public abstract class AbstractCvetCard extends CustomCard {
 
     public void reduceSecondCostThisTurn(int amt) {
         secondCostReduce += amt;
+    }
+
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        if (c == this) {
+            secondCostEqual = -1;
+            secondCostReduce = 0;
+        }
+    }
+
+    public void atTurnStart() {
+        secondCostEqual = -1;
+        secondCostReduce = 0;
     }
 }

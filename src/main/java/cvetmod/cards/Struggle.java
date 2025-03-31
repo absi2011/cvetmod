@@ -23,6 +23,7 @@ public class Struggle extends AbstractCvetCard {
     public static final int DAMAGE_AMT = 3;
     public static final int ADD_AMT = 2;
     public static final int UPG_AMT = 2;
+    static public int struggleCnt = 0;
     public Struggle() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         damage = baseDamage = DAMAGE_AMT;
@@ -38,11 +39,27 @@ public class Struggle extends AbstractCvetCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage)));
-        addToBot(new StruggleAction(this));
+        struggleCnt += magicNumber;
         if (extraTriggered()) {
             AbstractCard c = makeStatEquivalentCopy();
             addToBot(new MakeTempCardInDiscardAndDeckAction(c));
         }
+    }
+
+    @Override
+    public void applyPowers() {
+        baseDamage += struggleCnt;
+        super.applyPowers();
+        baseDamage -= struggleCnt;
+        isDamageModified = (baseDamage != damage);
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        baseDamage += struggleCnt;
+        super.calculateCardDamage(mo);
+        baseDamage -= struggleCnt;
+        isDamageModified = (baseDamage != damage);
     }
 
     @Override
