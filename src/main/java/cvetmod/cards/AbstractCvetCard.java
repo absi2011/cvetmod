@@ -173,7 +173,7 @@ public abstract class AbstractCvetCard extends CustomCard {
         if ((secondCost == -1) || (secondCost == -2)) {
             return secondCost;
         }
-        if (AbstractDungeon.getCurrRoom() == null) {
+        if (AbstractDungeon.getCurrMapNode() == null) {
             return secondCost;
         }
         int realCost = secondCost;

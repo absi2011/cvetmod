@@ -26,6 +26,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import cvetmod.cards.Thread;
 import cvetmod.cards.special.Originium;
 import cvetmod.cards.special.TheRealityOfEnd;
 import cvetmod.characters.CivilightEterna;
@@ -191,6 +192,8 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Wave()); // 编织
         cards.add(new Cropping()); // 裁剪
         cards.add(new Seal()); // 封存
+        cards.add(new Thread()); // 线头
+        cards.add(new EmotionReading()); // 情感读取
 
         // Uncommon.
         cards.add(new SpiritBurst()); // 精神爆发
@@ -199,6 +202,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new AriseTreadingThroughFlames()); // 昂首，足践烈焰
         cards.add(new WrathfulCeruleanFlame()); // 青色怒火
         cards.add(new YingXiaoFleetingNight()); // 影霄·奔夜
+        cards.add(new Missing()); // 思念
 
         // Rare.
         cards.add(new Terminate()); // 停止
@@ -207,6 +211,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new ThePastLingering()); // 往昔萦绕身旁
         cards.add(new MemoryLock()); // 记忆锁定
         cards.add(new Shatter()); // 破碎
+        cards.add(new MasterReality()); // 操纵现实
 
         // Special.
         cards.add(new TheRealityOfEnd()); //终结的实相

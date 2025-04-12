@@ -42,7 +42,7 @@
     },
     "cvetmod:Analyse": {
         "NAME": "解构",
-        "DESCRIPTION": "从 cvetmod:源石区 中取出 !M! 张卡牌。",
+        "DESCRIPTION": "从 cvetmod:源石区 中随机取出 !M! 张卡牌。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Inhibitor": {
@@ -83,7 +83,17 @@
     },
     "cvetmod:Seal": {
         "NAME": "封存",
-        "DESCRIPTION": "将 !M! 张牌从消耗堆移动至 *源石区 。",
+        "DESCRIPTION": "将 !M! 张牌从消耗堆移动至 cvetmod:源石区 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Thread": {
+        "NAME": "线头",
+        "DESCRIPTION": "cvetmod:丝线 ， NL 如果这是第一张 cvetmod:丝线 卡牌，再次打出该卡牌。",
+        "UPGRADE_DESCRIPTION": "保留 ， cvetmod:丝线 ， NL 如果这是第一张 cvetmod:丝线 卡牌，再次打出该卡牌。"
+    },
+    "cvetmod:EmotionReading": {
+        "NAME": "情感读取",
+        "DESCRIPTION": " 获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：抽 !M! 张牌。",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -94,8 +104,8 @@
     },
     "cvetmod:Struggle": {
         "NAME": "抗争",
-        "DESCRIPTION": "造成 !D! 点伤害，你每打出过一张抗争伤害提高 !M! 点。 cvetmod:源石技艺 ：向抽牌堆和弃牌堆各洗入一张 *抗争 。",
-        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，你每打出过一张抗争伤害提高 !M! 点。 cvetmod:源石技艺 ：向抽牌堆和弃牌堆各洗入一张 *抗争+ 。"
+        "DESCRIPTION": "造成 !D! 点伤害。 NL 本场战斗中你的 *抗争 伤害提高 !M! 点。  NL cvetmod:源石技艺 ：向抽牌堆和弃牌堆各洗入一张 *抗争 。",
+        "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 本场战斗中你的 *抗争 伤害提高 !M! 点。 NL cvetmod:源石技艺 ：向抽牌堆和弃牌堆各洗入一张 *抗争+ 。"
     },
     "cvetmod:Saving": {
         "NAME": "拯救",
@@ -117,11 +127,23 @@
         "DESCRIPTION": "造成 !D! 点伤害两次。 cvetmod:源石技艺 ： !M! 回合内，你受到的伤害减半。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Missing": {
+        "NAME": "思念",
+        "DESCRIPTION": "获得 !B! 点 格挡 。 NL 这张牌每被打出过一次，重复一次该效果。",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            " NL （已打出过 !M! 次）"
+        ]
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",
-        "DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
-        "UPGRADE_DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。"
+        "DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
+        "UPGRADE_DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。",
+        "EXTENDED_DESCRIPTION": [
+            "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
+            "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。"
+        ]
     },
     "cvetmod:BreakRing": {
         "NAME": "碎戒",
@@ -147,6 +169,11 @@
     "cvetmod:Shatter": {
         "NAME": "破碎",
         "DESCRIPTION": " cvetmod:丝线 。 NL 在本场对战中，移除 *源石 及 *抑制剂 。 NL 所有 cvetmod:源石技艺 视为满足。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:MasterReality": {
+        "NAME": "操纵现实",
+        "DESCRIPTION": "所有在战斗中临时增加的牌将被 升级 。",
         "UPGRADE_DESCRIPTION": ""
     },
 

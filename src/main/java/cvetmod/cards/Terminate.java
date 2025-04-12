@@ -22,6 +22,7 @@ public class Terminate extends AbstractCvetCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
+    public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
     public static final String IMG = "cvetmod/images/cards/Terminate.png";
     public static final int COST = 3;
     public static final int SECOND_COST = 0;
@@ -34,6 +35,26 @@ public class Terminate extends AbstractCvetCard {
         tags.add(CvetTags.IS_ORIGINIUM_ARTS);
         cardsToPreview = new TheRealityOfEnd();
         isMultiDamage = true;
+    }
+
+    void setDescription(boolean withNumbers) {
+        if (withNumbers) {
+            if (upgraded) {
+                rawDescription = EXTENDED_DESCRIPTION[1];
+            }
+            else {
+                rawDescription = EXTENDED_DESCRIPTION[0];
+            }
+        }
+        else {
+            if (upgraded) {
+                rawDescription = UPGRADE_DESCRIPTION;;
+            }
+            else {
+                rawDescription = DESCRIPTION;
+            }
+        }
+        initializeDescription();
     }
 
     @Override
@@ -53,6 +74,7 @@ public class Terminate extends AbstractCvetCard {
             originiumAfterPlay = true;
         }
         addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
+        setDescription(false);
     }
 
     private int groupCount(CardGroup group) {
@@ -78,6 +100,7 @@ public class Terminate extends AbstractCvetCard {
         }
         super.applyPowers();
         isDamageModified = (baseDamage != damage);
+        setDescription(true);
     }
 
     @Override
@@ -88,6 +111,12 @@ public class Terminate extends AbstractCvetCard {
         }
         super.calculateCardDamage(mo);
         isDamageModified = (baseDamage != damage);
+        setDescription(true);
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        setDescription(false);
     }
 
     @Override
