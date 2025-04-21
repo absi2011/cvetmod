@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import cvetmod.powers.ATTFPower;
 import cvetmod.powers.WCFPower;
 
 public class WrathfulCeruleanFlame extends AbstractCvetCard {
@@ -14,7 +13,7 @@ public class WrathfulCeruleanFlame extends AbstractCvetCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/WrathfulCeruleanFlame.png";
     public static final int COST = 2;
     public static final int SECOND_COST = 0;
     public static final int DMG_AMT = 3;

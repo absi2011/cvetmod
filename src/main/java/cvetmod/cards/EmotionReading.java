@@ -2,15 +2,10 @@ package cvetmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import cvetmod.CvetMod;
 import cvetmod.patches.CvetTags;
 
 public class EmotionReading extends AbstractCvetCard {
@@ -19,7 +14,7 @@ public class EmotionReading extends AbstractCvetCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/EmotionReading.png";
     public static final int COST = 1;
     public static final int SECOND_COST = 0;
     public static final int BLOCK_GAIN = 8;
