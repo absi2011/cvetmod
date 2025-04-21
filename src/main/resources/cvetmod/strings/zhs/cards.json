@@ -176,6 +176,11 @@
         "DESCRIPTION": "所有在战斗中临时增加的牌将被 升级 。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:TheSeaOfFlowers": {
+        "NAME": "花海",
+        "DESCRIPTION": "当你触发 cvetmod:源石技艺 时，将一张随机卡牌置入你的手牌。",
+        "UPGRADE_DESCRIPTION": "固有 。 NL 当你触发 cvetmod:源石技艺 时，将一张随机卡牌置入你的手牌。"
+    },
 
     "cvetmod:TheRealityOfEnd": {
         "NAME": "终结的实相",

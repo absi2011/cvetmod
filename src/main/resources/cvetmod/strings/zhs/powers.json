@@ -30,5 +30,9 @@
   "cvetmod:HalfDamagePower": {
     "NAME": "法术闪避",
     "DESCRIPTIONS": ["受到的伤害减少 #y50% ，持续 #y", " 回合。"]
+  },
+  "cvetmod:FlowersPower": {
+    "NAME": "花海",
+    "DESCRIPTIONS": ["当你触发 #y源石技艺 时，将一张随机卡牌置入你的手牌。"]
   }
 }

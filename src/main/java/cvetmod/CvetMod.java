@@ -212,6 +212,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new MemoryLock()); // 记忆锁定
         cards.add(new Shatter()); // 破碎
         cards.add(new MasterReality()); // 操纵现实
+        cards.add(new TheSeaOfFlowers()); // 花海
 
         // Special.
         cards.add(new TheRealityOfEnd()); //终结的实相

@@ -41,7 +41,10 @@ public class Struggle extends AbstractCvetCard {
         addToBot(new DamageAction(m, new DamageInfo(p, damage)));
         struggleCnt += magicNumber;
         if (extraTriggered()) {
-            AbstractCard c = makeStatEquivalentCopy();
+            AbstractCard c = new Struggle();
+            if (upgraded) {
+                c.upgrade();
+            }
             addToBot(new MakeTempCardInDiscardAndDeckAction(c));
         }
     }
