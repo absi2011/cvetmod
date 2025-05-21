@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import cvetmod.powers.ATTFPower;
 import cvetmod.powers.ThePastLingeringPower;
 
 public class ThePastLingering extends AbstractCvetCard {
@@ -14,7 +13,7 @@ public class ThePastLingering extends AbstractCvetCard {
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
-    public static final String IMG = "cvetmod/images/cards/CvetStrikeA.png";
+    public static final String IMG = "cvetmod/images/cards/ThePastLingering.png";
     public static final int COST = 0;
     public static final int SECOND_COST = 2;
     public static final int UPG_COST = 1;

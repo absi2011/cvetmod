@@ -122,7 +122,7 @@
         "DESCRIPTION": "每当你使用一张技能牌后，对随机敌人造成 !M! 点伤害。",
         "UPGRADE_DESCRIPTION": ""
     },
-    "cvetmod:YingXiaoFleetingNight": {
+    "cvetmod:FleetingNight": {
         "NAME": "影霄·奔夜",
         "DESCRIPTION": "造成 !D! 点伤害两次。 cvetmod:源石技艺 ： !M! 回合内，你受到的伤害减半。",
         "UPGRADE_DESCRIPTION": ""
