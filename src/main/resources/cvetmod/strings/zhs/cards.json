@@ -40,6 +40,11 @@
         "DESCRIPTION": "获得 [cvetmod:E2Icon] 。 NL 在本回合中获得 !M! 点 力量 。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Cocoon": {
+        "NAME": "茧缚",
+        "DESCRIPTION": "抽 !M! 张牌。 NL 当这张牌被加入 *源石 的时候，再抽 !M! 张牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
     "cvetmod:Analyse": {
         "NAME": "解构",
         "DESCRIPTION": "从 cvetmod:源石区 中随机取出 !M! 张卡牌。",
@@ -134,6 +139,11 @@
         "EXTENDED_DESCRIPTION": [
             " NL （已打出过 !M! 次）"
         ]
+    },
+    "cvetmod:Convert": {
+        "NAME": "转译",
+        "DESCRIPTION": "选择一张手牌，将其置入 cvetmod:源石区 。 NL 抽 !M! 张牌。",
+        "UPGRADE_DESCRIPTION": ""
     },
 
     "cvetmod:Terminate": {

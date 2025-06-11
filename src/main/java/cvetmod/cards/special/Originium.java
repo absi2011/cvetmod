@@ -31,6 +31,7 @@ public class Originium extends CustomCard implements CustomSavable<String[]> {
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
     public static final String IMG = "cvetmod/images/cards/Originium.png";
     public static final int COST = -2;
+    public static boolean wasOriginiumInHand;
     public static CardGroup originiumPile = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     public Originium() {
@@ -66,6 +67,11 @@ public class Originium extends CustomCard implements CustomSavable<String[]> {
         card.rawDescription = rawDescription;
         card.initializeDescription();
         return card;
+    }
+
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        wasOriginiumInHand = originiumInHand();
     }
 
     public String[] onSave() {
@@ -104,7 +110,7 @@ public class Originium extends CustomCard implements CustomSavable<String[]> {
                 Field field = UseCardAction.class.getDeclaredField("targetCard");
                 field.setAccessible(true);
                 AbstractCard card = (AbstractCard)(field.get(_inst));
-                if (originiumInHand() || ((card instanceof AbstractCvetCard) && ((AbstractCvetCard)card).originiumAfterPlay)) {
+                if (wasOriginiumInHand || ((card instanceof AbstractCvetCard) && ((AbstractCvetCard)card).originiumAfterPlay)) {
                     CardGroup hand = AbstractDungeon.player.hand;
                     if (AbstractDungeon.player.hoveredCard == card) {
                         AbstractDungeon.player.releaseCard();
@@ -142,6 +148,9 @@ public class Originium extends CustomCard implements CustomSavable<String[]> {
     }
 
     public static void addToOriginium(CardGroup group, AbstractCard card) {
+        if (card instanceof AbstractCvetCard) {
+            ((AbstractCvetCard)card).onPutIntoOriginium();
+        }
         group.removeCard(card);
         //TODO: 来个源石吃掉它的特效，souls特效不合适
         if (group.type == CardGroup.CardGroupType.HAND) {

@@ -101,6 +101,10 @@ public abstract class AbstractCvetCard extends CustomCard {
         AbstractDungeon.getCurrRoom().addCardReward(item);
     }
 
+    public void onPutIntoOriginium() {
+
+    }
+
     static public void copyStat(AbstractCvetCard s, AbstractCvetCard t) {
         t.name = s.name;
         t.target = s.target;

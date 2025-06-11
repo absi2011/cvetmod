@@ -24,11 +24,7 @@ public class SealAction extends AbstractGameAction {
     public void update() {
         if (this.duration == Settings.ACTION_DUR_XFAST) {
             CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            for (AbstractCard c: AbstractDungeon.player.exhaustPile.group) {
-                if (!(c instanceof Seal)) {
-                    group.group.add(c);
-                }
-            }
+            group.group.addAll(AbstractDungeon.player.exhaustPile.group);
             if (group.isEmpty()) {
                 this.isDone = true;
                 return;

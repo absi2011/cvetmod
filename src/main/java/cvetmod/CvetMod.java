@@ -30,6 +30,7 @@ import cvetmod.cards.special.TheRealityOfEnd;
 import cvetmod.monsters.Theresis;
 import cvetmod.patches.CvetEnum;
 import cvetmod.patches.CvetTags;
+import cvetmod.relics.DWDB221E;
 import cvetmod.util.SecondEnergyIcon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -177,7 +178,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new CvetDefendT()); // 防御·特蕾西娅
         cards.add(new CvetDefendB()); // 防御·Both
         cards.add(new TacticalChant()); // 战术咏唱
-        cards.add(new Analyse()); // 解构
+        cards.add(new Cocoon()); // 茧缚
         cards.add(new Inhibitor()); // 抑制剂
 
         // Common.
@@ -199,6 +200,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new WrathfulCeruleanFlame()); // 青色怒火
         cards.add(new FleetingNight()); // 影霄·奔夜
         cards.add(new Missing()); // 思念
+        cards.add(new Convert()); // 转译
 
         // Rare.
         cards.add(new Terminate()); // 停止
@@ -245,7 +247,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     @Override
     public void receiveEditRelics() {
         // starter.
-//        BaseMod.addRelicToCustomPool(new TITStudentIdCard(), CVET_PINK);
+        BaseMod.addRelicToCustomPool(new DWDB221E(), CVET_PINK);
 
         // common.
 

@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import cvetmod.cards.*;
 import cvetmod.cards.special.Originium;
 import cvetmod.patches.*;
+import cvetmod.relics.DWDB221E;
 import cvetmod.util.CostReserves;
 import cvetmod.util.CvetEnergyManager;
 
@@ -175,7 +176,7 @@ public class CivilightEterna extends CustomPlayer {
         ret.add(CvetDefendB.ID);
         ret.add(CvetDefendB.ID);
         ret.add(TacticalChant.ID);
-        ret.add(Analyse.ID);
+        ret.add(Cocoon.ID);
         ret.add(Originium.ID);
         ret.add(Inhibitor.ID);
         return ret;
@@ -184,7 +185,7 @@ public class CivilightEterna extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> ret = new ArrayList<>();
-//        ret.add(TITStudentIdCard.ID);
+        ret.add(DWDB221E.ID);
 //        UnlockTracker.markRelicAsSeen(TITStudentIdCard.ID);
         return ret;
     }
@@ -192,7 +193,7 @@ public class CivilightEterna extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAME, TEXT[0],
-                60, 60, 0, 99, 6, //starting hp, max hp, max orbs, starting gold, starting hand size
+                60, 60, 0, 99, 5, //starting hp, max hp, max orbs, starting gold, starting hand size
                 this, getStartingRelics(), getStartingDeck(), false);
     }
 
