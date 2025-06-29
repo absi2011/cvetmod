@@ -4,15 +4,15 @@ public class CostReserves {
     private static int curReserves = 0;
     public static void setReserves(int amount) {
         curReserves = amount;
-        SecondCostEnergyOrb.secondVfxTimer = 2.0F;
-        SecondCostEnergyOrb.fontScale = 2.0F;
+        SecondCostEnergyOrb.vfxTimer = 2.0F;
+        SecondCostEnergyOrb.fontScale = 1.6F;
     }
 
     public static void addReserves(int amount) {
         curReserves += amount;
         if (amount > 0) {
-            SecondCostEnergyOrb.secondVfxTimer = 2.0F;
-            SecondCostEnergyOrb.fontScale = 2.0F;
+            SecondCostEnergyOrb.vfxTimer = 2.0F;
+            SecondCostEnergyOrb.fontScale = 1.6F;
         }
     }
 
@@ -22,7 +22,7 @@ public class CostReserves {
             curReserves = 0;
         }
         if (amount > 0) {
-            SecondCostEnergyOrb.fontScale = 2.0F;
+            SecondCostEnergyOrb.fontScale = 1.6F;
         }
     }
 

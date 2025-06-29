@@ -26,12 +26,14 @@ import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
 import cvetmod.cards.*;
 import cvetmod.cards.special.Originium;
 import cvetmod.patches.*;
 import cvetmod.relics.DWDB221E;
 import cvetmod.util.CostReserves;
 import cvetmod.util.CvetEnergyManager;
+import cvetmod.util.SecondCostEnergyOrb;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,6 +61,7 @@ public class CivilightEterna extends CustomPlayer {
         "cvetmod/images/char/orb/EmptyLayer.png",
     };
     public final HashMap<String, AbstractCharacterSpine> spines = new HashMap<>();
+    private final EnergyOrbInterface secondEnergyOrb = new SecondCostEnergyOrb();
 
     public CivilightEterna(String name) {
         // 参数列表：角色名，角色类枚举，能量面板贴图路径列表，能量面板特效贴图路径，能量面板贴图旋转速度列表，能量面板，模型资源路径，动画资源路径
@@ -149,6 +152,18 @@ public class CivilightEterna extends CustomPlayer {
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
         return "ATTACK_FIRE";
+    }
+
+    @Override
+    public void renderOrb(SpriteBatch sb, boolean enabled, float current_x, float current_y) {
+        energyOrb.renderOrb(sb, enabled, current_x, current_y);
+        secondEnergyOrb.renderOrb(sb, CostReserves.reserveCount() > 0, current_x, current_y);
+    }
+
+    @Override
+    public void updateOrb(int energyCount) {
+        energyOrb.updateOrb(energyCount);
+        secondEnergyOrb.updateOrb(CostReserves.reserveCount());
     }
 
     @Override
