@@ -18,7 +18,7 @@ public class Cocoon extends AbstractCvetCard{
     public static final int COST = 0;
     public static final int SECOND_COST = 1;
     public static final int CARDS = 3;
-    public static final int EXTRA_CARDS = 3;
+    public static final int EXTRA_CARDS = 1;
     public static final int UPG_CARDS = 1;
     public Cocoon() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);

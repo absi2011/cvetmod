@@ -2,6 +2,7 @@ package cvetmod.actions;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -48,7 +49,7 @@ public class CrackAction extends AbstractGameAction {
         }
 
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-            AbstractCard card = AbstractDungeon.gridSelectScreen.selectedCards.get(0).makeStatEquivalentCopy();
+            AbstractCard card = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             crack(card);
             this.isDone = true;
@@ -59,15 +60,17 @@ public class CrackAction extends AbstractGameAction {
 
     private void crack(AbstractCard card) {
         AbstractDungeon.player.hand.refreshHandLayout();
-        card.exhaust = true;
-        if (!card.name.startsWith(TEXT[1]))  {
-            card.name = TEXT[1] + card.name;
-            card.rawDescription += TEXT[2];
-            card.initializeDescription();
+        AbstractCard copies = card.makeStatEquivalentCopy();
+        copies.exhaust = true;
+        if (!copies.name.startsWith(TEXT[1]))  {
+            copies.name = TEXT[1] + copies.name;
+            copies.rawDescription += TEXT[2];
+            copies.initializeDescription();
         }
-        if ((upgraded) && (card instanceof AbstractCvetCard)) {
-            ((AbstractCvetCard)card).reduceSecondCost(1);
+        if ((upgraded) && (copies instanceof AbstractCvetCard)) {
+            ((AbstractCvetCard)copies).reduceSecondCost(1);
         }
-        addToTop(new MakeTempCardInHandAction(card, 2));
+        addToTop(new MakeTempCardInHandAction(copies, 2));
+        addToTop(new ExhaustSpecificCardAction(card, Originium.originiumPile));
     }
 }
