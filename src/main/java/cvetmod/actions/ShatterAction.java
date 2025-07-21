@@ -31,6 +31,7 @@ public class ShatterAction extends AbstractGameAction {
             checkDeck(p.drawPile);
             checkDeck(Originium.originiumPile);
             checkDeck(p.exhaustPile);
+            Originium.wasOriginiumInHand = false;   // 不然打出的所有牌全视为手里有源石了……
             //TODO: 如果可以的话，来个华丽的特效，瓦塔西——
             p.hand.refreshHandLayout();
             tickDuration();

@@ -42,7 +42,7 @@
     },
     "cvetmod:Cocoon": {
         "NAME": "茧缚",
-        "DESCRIPTION": "抽 !M! 张牌。 NL 当这张牌被加入 *源石 的时候，再抽 !M! 张牌。",
+        "DESCRIPTION": "抽 !M! 张牌。 NL 当这张牌被加入 *源石 的时候，再抽 !cvetmod:M2! 张牌。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Analyse": {

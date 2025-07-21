@@ -17,7 +17,7 @@ public class Shatter extends AbstractCvetCard {
     public static final String UPGRADE_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     public static final String IMG = "cvetmod/images/cards/Shatter.png";
     public static final int COST = 2;
-    public static final int SECOND_COST = 4;
+    public static final int SECOND_COST = 5;
     public static final int UPG_COST = 1;
     public Shatter() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.POWER, CardRarity.RARE, CardTarget.SELF);

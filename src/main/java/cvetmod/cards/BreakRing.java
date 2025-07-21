@@ -21,7 +21,7 @@ public class BreakRing extends AbstractCvetCard {
     public static final int COST = 1;
     public static final int SECOND_COST = 0;
     public static final int HP_LOSS = 2;
-    public static final int STR_GAIN = 2;
+    public static final int STR_GAIN = 3;
     public static final int EXTRA_STR = 1;
     public BreakRing() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
