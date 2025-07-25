@@ -187,8 +187,7 @@ public abstract class AbstractCvetCard extends CustomCard {
         realCost -= secondCostReduce;
         if (hasTag(CvetTags.IS_STRING)) {
             realCost -= CvetMod.stringCount;
-            if (isPlaying)
-            {
+            if (isPlaying) {
                 realCost ++;    // 抵消打出时本张牌计算的费用。
             }
         }

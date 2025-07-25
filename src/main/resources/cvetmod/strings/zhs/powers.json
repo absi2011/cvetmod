@@ -5,7 +5,7 @@
   },
   "cvetmod:SpiritBurstPower": {
     "NAME": "阿米娅：精神虚弱",
-    "DESCRIPTIONS": ["下回合无法使用 [E] 。","本回合无法使用 [E] 。","本回合与下回合均无法使用 [E] 。"]
+    "DESCRIPTIONS": ["下回合无法使用 [E] 。","本回合无法使用 [E] 。", "本回合与下回合均无法使用 [E] 。"]
   },
   "cvetmod:ChessPower": {
     "NAME": "棋逢对手",
@@ -13,7 +13,7 @@
   },
   "cvetmod:ATTFPower": {
     "NAME": "昂首，足践烈焰",
-    "DESCRIPTIONS": ["当你受到攻击时，对伤害来源造成 #y"," 倍伤害。","当你受到攻击时，对伤害来源造成等量伤害。"]
+    "DESCRIPTIONS": ["当你受到攻击时，对伤害来源造成 #y", " 倍伤害。", "当你受到攻击时，对伤害来源造成等量伤害。"]
   },
   "cvetmod:WCFPower": {
     "NAME": "青色怒火",
@@ -34,5 +34,13 @@
   "cvetmod:FlowersPower": {
     "NAME": "花海",
     "DESCRIPTIONS": ["当你触发 #y源石技艺 时，将一张随机卡牌置入你的手牌。"]
+  },
+  "cvetmod:ShadowlessPower": {
+    "NAME": "绝影",
+    "DESCRIPTIONS": ["本回合内受到的伤害翻倍。"]
+  },
+  "cvetmod:WISPower": {
+    "NAME": "何谓存续",
+    "DESCRIPTIONS": ["当你打出一张同时消耗 [E] [cvetmod:E2Icon] 的牌时，抽 #y", " 张牌。", " 张牌。"]
   }
 }

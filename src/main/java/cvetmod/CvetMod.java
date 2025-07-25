@@ -145,10 +145,10 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     public void receiveCardUsed(AbstractCard card) {
         if (card.hasTag(CvetTags.IS_STRING)) {
             stringCount ++;
-        }
-        else {
+        } else {
             stringCount = 0;
         }
+        AbstractDungeon.player.hand.applyPowers();
     }
 
     @Override
@@ -191,6 +191,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Seal()); // 封存
         cards.add(new Thread()); // 线头
         cards.add(new EmotionReading()); // 情感读取
+        cards.add(new RashAdvance()); // 冒进
 
         // Uncommon.
         cards.add(new SpiritBurst()); // 精神爆发
@@ -201,6 +202,10 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new FleetingNight()); // 影霄·奔夜
         cards.add(new Missing()); // 思念
         cards.add(new Convert()); // 转译
+        cards.add(new Shadowless()); // 影霄·绝影
+        cards.add(new WhatIsSurvival()); // 何谓存续
+        cards.add(new Companion()); // 陪伴
+        cards.add(new ClosingStitch()); // 收针
 
         // Rare.
         cards.add(new Terminate()); // 停止
@@ -211,6 +216,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Shatter()); // 破碎
         cards.add(new MasterReality()); // 操纵现实
         cards.add(new TheSeaOfFlowers()); // 花海
+        cards.add(new DataAbsence()); // 数据缺失
 
         // Special.
         cards.add(new TheRealityOfEnd()); //终结的实相
