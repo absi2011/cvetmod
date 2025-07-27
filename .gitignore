@@ -8,6 +8,7 @@ target/
 !**/src/test/**/target/
 /src/main/resources/cvetmod/images/**/**/library/
 *.dbproj
+*.spine
 
 ### IntelliJ IDEA ###
 /.idea/*
