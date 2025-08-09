@@ -1,7 +1,7 @@
 {
     "cvetmod:Originium": {
         "NAME": "源石",
-        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [cvetmod:E1] 。 NL 当这张牌在你手里时，打出的其他卡牌将被装入 cvetmod:源石区 。",
+        "DESCRIPTION": "不能被打出 ，这个 诅咒 无法用 *破碎 以外的方式逃脱。 NL 抽到时，获得 [cvetmod:E1] 。 NL 当这张牌在你手里时，打出的其他卡牌将被置入 cvetmod:源石区 。",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -52,8 +52,8 @@
     },
     "cvetmod:Inhibitor": {
         "NAME": "抑制剂",
-        "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。",
-        "UPGRADE_DESCRIPTION": "固有 ， 保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 NL 将一张 *抑制剂+ 加入你的弃牌堆。"
+        "DESCRIPTION": "保留 ， 消耗 。 NL 丢弃你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。",
+        "UPGRADE_DESCRIPTION": "固有 ， 保留 ， 消耗 。 NL 丢弃你手中的 *源石 。 NL 将一张 *抑制剂+ 加入你的弃牌堆。"
     },
 
     "cvetmod:Desperate": {
@@ -68,7 +68,7 @@
     },
     "cvetmod:EmergencyMedicineChest": {
         "NAME": "应急药箱",
-        "DESCRIPTION": "将 !M! 张临时抑制剂加入的手牌。 NL 消耗 。",
+        "DESCRIPTION": "将 !M! 张 *临时抑制剂 加入你的手牌。 NL 消耗 。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Crack": {
@@ -101,6 +101,11 @@
         "DESCRIPTION": " 获得 !B! 点 格挡 。 NL cvetmod:源石技艺 ：抽 !M! 张牌。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:RashAdvance": {
+        "NAME": "冒进",
+        "DESCRIPTION": "抽 !M! 张牌，如果你抽到了 *源石 ，将其他牌置入 cvetmod:源石区 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:SpiritBurst": {
         "NAME": "精神爆发",
@@ -124,7 +129,7 @@
     },
     "cvetmod:WrathfulCeruleanFlame": {
         "NAME": "青色怒火",
-        "DESCRIPTION": "每当你使用一张技能牌后，对随机敌人造成 !M! 点伤害。",
+        "DESCRIPTION": "你每使用一张技能牌后，对随机敌人造成 !M! 点伤害。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:FleetingNight": {
@@ -145,14 +150,34 @@
         "DESCRIPTION": "选择一张手牌，将其置入 cvetmod:源石区 。 NL 抽 !M! 张牌。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Shadowless": {
+        "NAME": "影霄·绝影",
+        "DESCRIPTION": "造成 !D! 点伤害，并使目标本回合受到的伤害翻倍。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:WhatIsSurvival": {
+        "NAME": "何谓存续",
+        "DESCRIPTION": "当你打出一张同时消耗 [E] [cvetmod:E2Icon] 的牌时，抽 !M! 张牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Companion": {
+        "NAME": "陪伴",
+        "DESCRIPTION": "获得等于你手牌总费用的 格挡 。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:ClosingStitch": {
+        "NAME": "收针",
+        "DESCRIPTION": "获得 !B! 点 格挡 ，抽等同于你当前 cvetmod:丝线 数的牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",
-        "DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
-        "UPGRADE_DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。",
+        "DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌置入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
+        "UPGRADE_DESCRIPTION": "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。 NL cvetmod:源石技艺 ：将所有卡牌置入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。",
         "EXTENDED_DESCRIPTION": [
-            "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
-            "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌装入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。"
+            "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌置入 cvetmod:源石区 ，并将一张 *终结的实相 置入手牌。",
+            "你的 cvetmod:源石区 中每有一张卡牌，对所有敌人造成 !M! 点伤害。（ !D! ） NL cvetmod:源石技艺 ：将所有卡牌置入 cvetmod:源石区 ，并将一张 *终结的实相+ 置入手牌。"
         ]
     },
     "cvetmod:BreakRing": {
@@ -190,6 +215,11 @@
         "NAME": "花海",
         "DESCRIPTION": "当你触发 cvetmod:源石技艺 时，将一张随机卡牌置入你的手牌。",
         "UPGRADE_DESCRIPTION": "固有 。 NL 当你触发 cvetmod:源石技艺 时，将一张随机卡牌置入你的手牌。"
+    },
+    "cvetmod:DataAbsence": {
+        "NAME": "数据缺失",
+        "DESCRIPTION": "造成 !D! 点伤害，清除自身的负面效果。 NL 消耗 。",
+        "UPGRADE_DESCRIPTION": ""
     },
 
     "cvetmod:TheRealityOfEnd": {
