@@ -193,6 +193,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new EmotionReading()); // 情感读取
 
         // Uncommon.
+        cards.add(new Analyse()); // 解构
         cards.add(new SpiritBurst()); // 精神爆发
         cards.add(new Saving()); // 拯救
         cards.add(new Struggle()); // 抗争
