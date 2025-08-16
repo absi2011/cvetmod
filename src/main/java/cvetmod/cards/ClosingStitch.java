@@ -26,7 +26,8 @@ public class ClosingStitch extends AbstractCvetCard {
 
     @Override
     public void applyPowers() {
-        magicNumber = CvetMod.stringCount;
+        super.applyPowers();
+        baseMagicNumber = magicNumber = CvetMod.stringCount;
     }
 
     @Override

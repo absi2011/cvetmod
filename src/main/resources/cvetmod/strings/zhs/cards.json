@@ -167,7 +167,7 @@
     },
     "cvetmod:ClosingStitch": {
         "NAME": "收针",
-        "DESCRIPTION": "获得 !B! 点 格挡 ，抽等同于你当前 cvetmod:丝线 数的牌。",
+        "DESCRIPTION": "获得 !B! 点 格挡 ，抽等同于你当前 cvetmod:丝线 数的牌。（ !M! 张）",
         "UPGRADE_DESCRIPTION": ""
     },
 
