@@ -221,6 +221,11 @@
         "DESCRIPTION": "造成 !D! 点伤害，清除自身的负面效果。 NL 消耗 。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:TheMyriadDreams": {
+        "NAME": "万千愿景",
+        "DESCRIPTION": "保留 ， cvetmod:丝线 。 NL 对所有敌人造成 !D! 点伤害，抽 !M! 张牌。 NL 当这张牌打出并进入弃牌堆时，将一张 *万千愿景 置入你的手牌。",
+        "UPGRADE_DESCRIPTION": "保留 ， cvetmod:丝线 。 NL 对所有敌人造成 !D! 点伤害，抽 !M! 张牌。 NL 当这张牌打出并进入弃牌堆时，将一张 *万千愿景+ 置入你的手牌。"
+    },
 
     "cvetmod:TheRealityOfEnd": {
         "NAME": "终结的实相",

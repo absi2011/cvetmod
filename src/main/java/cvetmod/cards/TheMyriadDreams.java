@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -30,10 +31,12 @@ public class TheMyriadDreams extends AbstractCvetCard {
     public static final int COST = 1;
     public static final int SECOND_COST = 7;
     public static final int DAMAGE = 37;
+    public static final int CARD_DRAW = 1;
     public static final int UPG_DAMAGE = 8;
     public TheMyriadDreams() {
-        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
         damage = baseDamage = DAMAGE;
+        magicNumber = baseMagicNumber = CARD_DRAW;
         isMultiDamage = true;
         selfRetain = true;
         tags.add(CvetTags.IS_STRING);
@@ -42,6 +45,7 @@ public class TheMyriadDreams extends AbstractCvetCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DrawCardAction(magicNumber));
     }
 
     @Override
@@ -54,6 +58,7 @@ public class TheMyriadDreams extends AbstractCvetCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPG_DAMAGE);
+            rawDescription = UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
