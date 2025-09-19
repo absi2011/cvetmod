@@ -194,6 +194,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new RashAdvance()); // 冒进
 
         // Uncommon.
+        cards.add(new Analyse()); // 解构
         cards.add(new SpiritBurst()); // 精神爆发
         cards.add(new Saving()); // 拯救
         cards.add(new Struggle()); // 抗争
@@ -217,6 +218,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new MasterReality()); // 操纵现实
         cards.add(new TheSeaOfFlowers()); // 花海
         cards.add(new DataAbsence()); // 数据缺失
+        cards.add(new TheMyriadDreams()); // 万千愿景
 
         // Special.
         cards.add(new TheRealityOfEnd()); //终结的实相

@@ -16,10 +16,9 @@ public class Analyse extends AbstractCvetCard {
     public static final int COST = 0;
     public static final int SECOND_COST = 2;
     public static final int UPG_SECOND_COST = 1;
-    public static final int CARDS = 3;
+    public static final int CARDS = 4;
     public Analyse() {
-        // Not in used, maybe Rarity = COMMON or UNCOMMON soon
-        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         magicNumber = baseMagicNumber = CARDS;
     }
 
