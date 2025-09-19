@@ -18,7 +18,8 @@ public class AbstractCharacterSpine {
     public float deltaX;
     public String idle;
     public String attack;
-    public AbstractCharacterSpine(AbstractPlayer p, float deltaX, String atlasUrl, String skeletonUrl, float scale, String idle, String attack) {
+    public String die;
+    public AbstractCharacterSpine(AbstractPlayer p, float deltaX, String atlasUrl, String skeletonUrl, float scale, String idle, String attack, String die) {
         this.p = p;
         this.deltaX = deltaX;
         atlas = new TextureAtlas(Gdx. files.internal(atlasUrl));
@@ -31,7 +32,8 @@ public class AbstractCharacterSpine {
         state = new AnimationState(stateData);
         this.idle = idle;
         this.attack = attack;
-        stateData.setMix(idle, "Die", 0.1F);
+        this.die = die;
+        stateData.setMix(idle, die, 0.1F);
         state.setAnimation(0, idle, true);
     }
 

@@ -3,7 +3,6 @@ package cvetmod.characters;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.purple.TalkToTheHand;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import basemod.abstracts.CustomPlayer;
@@ -73,13 +72,14 @@ public class CivilightEterna extends CustomPlayer {
         // 参数列表：静态贴图路径，越肩视角2贴图路径，越肩视角贴图路径，失败时贴图路径，角色选择界面信息，碰撞箱XY宽高，初始能量数
         initializeClass(IDLE, SHOULDER, SHOULDER, DIE, getLoadout(), 20.0F, -10.0F, 320.0F, 290.0F, new CvetEnergyManager(2, 2));
 
-//        spines.put("M", new AbstractCharacterSpine(this, -170.0F * Settings.scale, "cvetmod/images/char/char_249_mlyss_1/char_249_mlyss.atlas", "cvetmod/images/char/char_249_mlyss_1/char_249_mlyss.json", 1.5F, "Skill_3_Idle", "Skill_3_loop"));
+        spines.put("Theresia", new AbstractCharacterSpine(this, -90.0F * Settings.scale, "cvetmod/images/char/enemy_1554_lrtsia/enemy_1554_lrtsia.atlas", "cvetmod/images/char/enemy_1554_lrtsia/enemy_1554_lrtsia.json", 1.5F, "C2_Idle", "C2_Skill_3", "C3_Revive"));
+        spines.put("Amiya", new AbstractCharacterSpine(this, 90.0F * Settings.scale, "cvetmod/images/char/char_1037_amiya3/char_1037_amiya333.atlas", "cvetmod/images/char/char_1037_amiya3/char_1037_amiya333.json", 1.5F, "Skill_1_Loop", "Skill_1_Attack", "Die"));
     }
 
     @Override
     public void playDeathAnimation() {
         for (AbstractCharacterSpine s : spines.values())
-            s.state.setAnimation(0, "Die", false);
+            s.state.setAnimation(0, s.die, false);
     }
 
     @Override
@@ -240,6 +240,7 @@ public class CivilightEterna extends CustomPlayer {
         }
     }
 
+    // TODO: deprecate before publish if not used
     public void draw(AbstractCard c) {
         if (!(drawPile.group.contains(c))) {
             Logger.getLogger(cvetmod.characters.CivilightEterna.class.getName()).info("ERROR: card not in draw pile!");
@@ -262,7 +263,8 @@ public class CivilightEterna extends CustomPlayer {
     @Override
     public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
         if (c.type == AbstractCard.CardType.ATTACK) {
-            // TODO:attack animation
+            spines.get("Amiya").setAttack();
+            // TODO: check attack from Amiya or Theresia
         }
         c.calculateCardDamage(monster);
         if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
