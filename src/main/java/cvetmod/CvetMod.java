@@ -25,12 +25,12 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import cvetmod.cards.Thread;
-import cvetmod.cards.special.Originium;
-import cvetmod.cards.special.TheRealityOfEnd;
+import cvetmod.cards.special.*;
 import cvetmod.monsters.Theresis;
 import cvetmod.patches.CvetEnum;
 import cvetmod.patches.CvetTags;
 import cvetmod.relics.DWDB221E;
+import cvetmod.relics.ProcessionOfKings;
 import cvetmod.util.SecondEnergyIcon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -145,7 +145,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     public void receiveCardUsed(AbstractCard card) {
         if (card.hasTag(CvetTags.IS_STRING)) {
             stringCount ++;
-        } else {
+        } else if (!(card instanceof EnergyTransfer)){
             stringCount = 0;
         }
         AbstractDungeon.player.hand.applyPowers();
@@ -207,6 +207,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new WhatIsSurvival()); // 何谓存续
         cards.add(new Companion()); // 陪伴
         cards.add(new ClosingStitch()); // 收针
+        cards.add(new Amnannam()); // 阿喃那
 
         // Rare.
         cards.add(new Terminate()); // 停止
@@ -219,9 +220,15 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new TheSeaOfFlowers()); // 花海
         cards.add(new DataAbsence()); // 数据缺失
         cards.add(new TheMyriadDreams()); // 万千愿景
+        cards.add(new RhythmBetweenDeathAndLife()); // 非调协回响的诗
 
         // Special.
-        cards.add(new TheRealityOfEnd()); //终结的实相
+        cards.add(new TheRealityOfEnd()); // 终结的实相
+        cards.add(new TempInhibitor()); // 临时抑制剂
+        cards.add(new EnergyTransfer()); // 能量传输
+        cards.add(new Patriot()); // 爱国者
+        cards.add(new SarkazCenturion()); // 萨卡兹百夫长
+        cards.add(new SanguinarchOfVampires()); // 血魔大君
 
         // Colourless
 
@@ -263,6 +270,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
 //        BaseMod.addRelic(new PittsAssortedFruits(), RelicType.SHARED);
 
         // rare.
+        BaseMod.addRelicToCustomPool(new ProcessionOfKings(), CVET_PINK);
 
         // boss.
 

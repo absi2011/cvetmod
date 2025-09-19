@@ -3,5 +3,10 @@
     "NAME": "DWDB-221E",
     "FLAVOR": "起点。",
     "DESCRIPTIONS": ["每回合额外抽 #y1 张牌。你的手牌上限为 #y12 。"]
+  },
+  "cvetmod:ProcessionOfKings": {
+    "NAME": "列王行迹",
+    "FLAVOR": "灵魂的长河奔流不息，平息它的怒火。",
+    "DESCRIPTIONS": ["对战开始时，向源石中加入三张特殊卡牌。"]
   }
 }

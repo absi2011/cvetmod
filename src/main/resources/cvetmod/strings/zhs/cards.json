@@ -170,6 +170,11 @@
         "DESCRIPTION": "获得 !B! 点 格挡 ，抽等同于你当前 cvetmod:丝线 数的牌。（ !M! 张）",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Amnannam": {
+        "NAME": "阿喃那",
+        "DESCRIPTION": "拾取时，减少 9 点生命上限。当这张牌在手中时， cvetmod:源石技艺 视为已满足。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",
@@ -226,6 +231,11 @@
         "DESCRIPTION": "保留 ， cvetmod:丝线 。 NL 对所有敌人造成 !D! 点伤害，抽 !M! 张牌。 NL 当这张牌打出并进入弃牌堆时，将一张 *万千愿景 置入你的手牌。",
         "UPGRADE_DESCRIPTION": "保留 ， cvetmod:丝线 。 NL 对所有敌人造成 !D! 点伤害，抽 !M! 张牌。 NL 当这张牌打出并进入弃牌堆时，将一张 *万千愿景+ 置入你的手牌。"
     },
+    "cvetmod:RhythmBetweenDeathAndLife": {
+        "NAME": "非调协回响的诗",
+        "DESCRIPTION": "保留 ， 消耗 。 NL 将一张 *能量传输+ 置入你的手牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:TheRealityOfEnd": {
         "NAME": "终结的实相",
@@ -236,5 +246,25 @@
         "NAME": "临时抑制剂",
         "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 ",
         "UPGRADE_DESCRIPTION": "保留 。 NL 弃置 你手中的 *源石 。 "
+    },
+    "cvetmod:EnergyTransfer": {
+        "NAME": "能量传输",
+        "DESCRIPTION": "虚无 ， 消耗 。 NL 获得 [E] 。 将一张能 *能量传输 置入你的手牌。 这张牌不会中断 cvetmod:丝线 。",
+        "UPGRADE_DESCRIPTION": "虚无 。 NL 获得 [E] 。 将一张能 *能量传输 置入你的手牌。 这张牌不会中断 cvetmod:丝线 。"
+    },
+    "cvetmod:Patriot": {
+        "NAME": "爱国者",
+        "DESCRIPTION": "消耗 。 NL 造成 !D! 点伤害 !M! 次。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:SarkazCenturion": {
+        "NAME": "萨卡兹百夫长",
+        "DESCRIPTION": "消耗 。 NL 对所有敌人造成 !D! 点伤害。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:SanguinarchOfVampires": {
+        "NAME": "血魔大君",
+        "DESCRIPTION": "消耗 。 NL 使目标每回合结束时失去 !M! 点生命值，你恢复等量生命值。",
+        "UPGRADE_DESCRIPTION": ""
     }
 }

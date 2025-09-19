@@ -42,5 +42,9 @@
   "cvetmod:WISPower": {
     "NAME": "何谓存续",
     "DESCRIPTIONS": ["当你打出一张同时消耗 [E] [cvetmod:E2Icon] 的牌时，抽 #y", " 张牌。", " 张牌。"]
+  },
+  "cvetmod:BloodSurge": {
+    "NAME": "血涌",
+    "DESCRIPTIONS": ["回合结束时，失去 #y", " 点生命值，你恢复等量生命值。"]
   }
 }

@@ -69,7 +69,7 @@ public abstract class AbstractCvetCard extends CustomCard {
             return true;
         }
         for (AbstractCard c: AbstractDungeon.player.hand.group) {
-            if (c instanceof Originium) {
+            if (c instanceof Originium || c instanceof Amnannam) {
                 return true;
             }
         }
