@@ -208,6 +208,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Companion()); // 陪伴
         cards.add(new ClosingStitch()); // 收针
         cards.add(new Amnannam()); // 阿喃那
+        cards.add(new Catastrophe()); // 天灾
 
         // Rare.
         cards.add(new Terminate()); // 停止

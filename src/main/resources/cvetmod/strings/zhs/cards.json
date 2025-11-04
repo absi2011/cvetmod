@@ -172,8 +172,13 @@
     },
     "cvetmod:Amnannam": {
         "NAME": "阿喃那",
-        "DESCRIPTION": "拾取时，减少 9 点生命上限。当这张牌在手中时， cvetmod:源石技艺 视为已满足。",
+        "DESCRIPTION": "拾取时，减少 9 点生命上限。 NL 当这张牌在手中时， cvetmod:源石技艺 视为已满足。",
         "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Catastrophe": {
+        "NAME": "天灾",
+        "DESCRIPTION": "无法被打出 。 回合结束时，抽取并复制一张 *源石 。下回合获得 [E] [cvetmod:E2Icon] 。",
+        "UPGRADE_DESCRIPTION": "无法被打出 。 回合结束时，抽取并复制一张 *源石 。下回合获得 [E] [E] [cvetmod:E2Icon] [cvetmod:E2Icon] 。"
     },
 
     "cvetmod:Terminate": {
