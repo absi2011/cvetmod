@@ -29,6 +29,7 @@ import cvetmod.cards.special.*;
 import cvetmod.monsters.Theresis;
 import cvetmod.patches.CvetEnum;
 import cvetmod.patches.CvetTags;
+import cvetmod.powers.SuccessionPower;
 import cvetmod.relics.DWDB221E;
 import cvetmod.relics.ProcessionOfKings;
 import cvetmod.util.SecondEnergyIcon;
@@ -145,9 +146,10 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     public void receiveCardUsed(AbstractCard card) {
         if (card.hasTag(CvetTags.IS_STRING)) {
             stringCount ++;
-        } else if (!(card instanceof EnergyTransfer)){
+        } else if ((!(card instanceof EnergyTransfer)) && (!AbstractDungeon.player.hasPower(SuccessionPower.POWER_ID))) {
             stringCount = 0;
         }
+
         AbstractDungeon.player.hand.applyPowers();
     }
 
@@ -210,6 +212,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Amnannam()); // 阿喃那
         cards.add(new Catastrophe()); // 天灾
         cards.add(new RebuildKazdel()); // 重建卡兹戴尔
+        cards.add(new Succession()); // 传承
 
         // Rare.
         cards.add(new Terminate()); // 停止
