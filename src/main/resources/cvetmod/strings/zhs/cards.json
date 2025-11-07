@@ -167,8 +167,8 @@
     },
     "cvetmod:ClosingStitch": {
         "NAME": "收针",
-        "DESCRIPTION": "获得 !B! 点 格挡 ，抽等同于你当前 cvetmod:丝线 数的牌。（ !M! 张）",
-        "UPGRADE_DESCRIPTION": ""
+        "DESCRIPTION": "获得 !B! 点 格挡 ， NL 抽等同于你当前 cvetmod:丝线 数的牌。",
+        "UPGRADE_DESCRIPTION": "（ !M! 张）"
     },
     "cvetmod:Amnannam": {
         "NAME": "阿喃那",
@@ -177,8 +177,8 @@
     },
     "cvetmod:Catastrophe": {
         "NAME": "天灾",
-        "DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取并复制一张 *源石 。 NL 下回合获得 [E] [cvetmod:E2Icon] 。",
-        "UPGRADE_DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取并复制一张 *源石 。 NL 下回合获得 [E] [E] [cvetmod:E2Icon] [cvetmod:E2Icon] 。"
+        "DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取（即使在弃牌堆）并复制一张 *源石 。 NL 下回合获得 [E] [cvetmod:E2Icon] 。",
+        "UPGRADE_DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取（即使在弃牌堆）并复制一张 *源石 。 NL 下回合获得 [E] [E] [cvetmod:E2Icon] [cvetmod:E2Icon] 。"
     },
     "cvetmod:RebuildKazdel": {
         "NAME": "重建卡兹戴尔",

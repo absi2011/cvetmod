@@ -170,10 +170,6 @@ public abstract class AbstractCvetCard extends CustomCard {
     }
 
     public int getSecondCost() {
-        return getSecondCost(false);
-    }
-
-    public int getSecondCost(boolean isPlaying) {
         if ((secondCost == -1) || (secondCost == -2)) {
             return secondCost;
         }
@@ -186,10 +182,7 @@ public abstract class AbstractCvetCard extends CustomCard {
         }
         realCost -= secondCostReduce;
         if (hasTag(CvetTags.IS_STRING)) {
-            realCost -= CvetMod.stringCount;
-            if (isPlaying) {
-                realCost ++;    // 抵消打出时本张牌计算的费用。
-            }
+            realCost -= CvetMod.stringCountBeforePlay;
         }
         if (realCost < 0) {
             realCost = 0;

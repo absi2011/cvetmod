@@ -27,12 +27,12 @@ public class Thread extends AbstractCvetCard {
 
     @Override
     public boolean extraTriggered() {
-        return CvetMod.stringCount == 0;
+        return CvetMod.stringCountBeforePlay == 0;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (CvetMod.stringCount == 1) {
+        if (extraTriggered()) {
             AbstractCard tmp = makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = current_x;

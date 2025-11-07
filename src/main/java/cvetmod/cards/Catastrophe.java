@@ -3,9 +3,11 @@ package cvetmod.cards;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.green.Reflex;
 import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.cards.status.VoidCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,6 +16,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.EnergyDownPower;
+import cvetmod.actions.AddCardInHandAction;
 import cvetmod.actions.DrawSpecificCardAction;
 import cvetmod.actions.GainSecondEnergyAction;
 import cvetmod.cards.special.Originium;
@@ -37,6 +40,12 @@ public class Catastrophe extends AbstractCvetCard {
     }
 
     @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        cantUseMessage = CardCrawlGame.languagePack.getCardStrings(Reflex.ID).EXTENDED_DESCRIPTION[0];
+        return false;
+    }
+
+    @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (dontTriggerOnUseCard) {
             AbstractCard card = null;
@@ -47,8 +56,26 @@ public class Catastrophe extends AbstractCvetCard {
                 }
             }
             if (card != null) {
-                addToBot(new DrawSpecificCardAction(AbstractDungeon.player.drawPile, Originium.ID));
-                addToBot(new MakeTempCardInHandAction(card.makeStatEquivalentCopy()));
+                card.retain = true;
+                AbstractCard copy = card.makeStatEquivalentCopy();
+                copy.retain = true;
+                addToBot(new DrawSpecificCardAction(AbstractDungeon.player.drawPile, card));
+                addToBot(new AddCardInHandAction(copy));
+            }
+            else {
+                for (AbstractCard c : p.discardPile.group) {
+                    if (c instanceof Originium) {
+                        card = c;
+                        break;
+                    }
+                }
+                if (card != null) {
+                    card.retain = true;
+                    AbstractCard copy = card.makeStatEquivalentCopy();
+                    copy.retain = true;
+                    addToBot(new DrawSpecificCardAction(AbstractDungeon.player.discardPile, card));
+                    addToBot(new AddCardInHandAction(copy));
+                }
             }
             int energy = ENERGY_GAIN;
             if (upgraded) {

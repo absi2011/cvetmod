@@ -4,34 +4,46 @@ import basemod.*;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.mod.stslib.icons.CustomIconHelper;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.helpers.*;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.custom.CustomMod;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import cvetmod.actions.RefreshStringCountAction;
 import cvetmod.cards.Thread;
 import cvetmod.cards.special.*;
+import cvetmod.characters.CivilightEterna;
 import cvetmod.monsters.Theresis;
 import cvetmod.patches.CvetEnum;
 import cvetmod.patches.CvetTags;
 import cvetmod.powers.SuccessionPower;
 import cvetmod.relics.DWDB221E;
 import cvetmod.relics.ProcessionOfKings;
+import cvetmod.util.CostReserves;
+import cvetmod.util.CvetEnergyManager;
+import cvetmod.util.SecondCostEnergyOrb;
 import cvetmod.util.SecondEnergyIcon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -67,6 +79,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     public static String[] ORIGINIUM_TIP_TEXT;
     public static String[] ORIGINIUM_TIP_LABEL;
     public static int stringCount = 0;
+    public static int stringCountBeforePlay = 0;
 
     public CvetMod() {
         BaseMod.subscribe(this);
@@ -139,16 +152,19 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     public void receiveOnBattleStart(AbstractRoom room) {
         Originium.originiumPile.clear();
         stringCount = 0;
+        stringCountBeforePlay = 0;
         Struggle.struggleCnt = 0;
     }
 
     @Override
     public void receiveCardUsed(AbstractCard card) {
+        stringCountBeforePlay = stringCount;
         if (card.hasTag(CvetTags.IS_STRING)) {
             stringCount ++;
-        } else if ((!(card instanceof EnergyTransfer)) && (!AbstractDungeon.player.hasPower(SuccessionPower.POWER_ID))) {
+        } else if ((!(card instanceof Succession)) && (!(card instanceof EnergyTransfer)) && (!AbstractDungeon.player.hasPower(SuccessionPower.POWER_ID))) {
             stringCount = 0;
         }
+        AbstractDungeon.actionManager.addToBottom(new RefreshStringCountAction());
 
         AbstractDungeon.player.hand.applyPowers();
     }
@@ -156,6 +172,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
     @Override
     public void receivePostBattle(final AbstractRoom p0) {
         stringCount = 0;
+        stringCountBeforePlay = 0;
         Struggle.struggleCnt = 0;
     }
 

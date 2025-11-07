@@ -1,6 +1,8 @@
 package cvetmod.cards;
 
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
+import com.megacrit.cardcrawl.cards.green.Reflex;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,6 +24,14 @@ public class Amnannam extends AbstractCvetCard implements OnObtainCard {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
     }
 
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if ((cost == -2) || (secondCost == -2)) {
+            cantUseMessage = CardCrawlGame.languagePack.getCardStrings(Reflex.ID).EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+        return super.canUse(p,m);
+    }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {}
 

@@ -2,6 +2,7 @@ package cvetmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.red.BodySlam;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -27,13 +28,30 @@ public class ClosingStitch extends AbstractCvetCard {
     @Override
     public void applyPowers() {
         super.applyPowers();
-        baseMagicNumber = magicNumber = CvetMod.stringCount;
+        baseMagicNumber = magicNumber = CvetMod.stringCountBeforePlay;
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        baseMagicNumber = magicNumber = CvetMod.stringCountBeforePlay;
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.UPGRADE_DESCRIPTION;
+        initializeDescription();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
         addToBot(new DrawCardAction(magicNumber));
+        rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
+    }
+
+    public void onMoveToDiscard() {
+        rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
     }
 
     @Override

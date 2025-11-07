@@ -16,7 +16,7 @@ public class RhythmBetweenDeathAndLife extends AbstractCvetCard {
     public static final String IMG = "cvetmod/images/cards/RashAdvance.png";
     public static final int COST = 0;
     public static final int SECOND_COST = 1;
-    public static final int UPGRADE_SECOND_COST = 1;
+    public static final int UPGRADE_SECOND_COST = 0;
     public RhythmBetweenDeathAndLife() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         selfRetain = true;
