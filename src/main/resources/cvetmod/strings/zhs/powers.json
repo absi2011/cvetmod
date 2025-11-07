@@ -1,4 +1,9 @@
 {
+  "cvetmod:ChessPower": {
+    "NAME": "棋逢对手",
+    "DESCRIPTIONS": ["每当你打出一张牌，这名敌人 #y立即 行动一次。"]
+  },
+
   "cvetmod:ChimeraPower": {
     "NAME": "急性源石反应",
     "DESCRIPTIONS": ["#r", " 回合后，失去 #r", " 点 生命值（可以用 #y抑制剂 或 #临时抑制剂 延长一回合，但再次打出 #y奇美拉 时将变为 #r1 回合。）"]
@@ -6,10 +11,6 @@
   "cvetmod:SpiritBurstPower": {
     "NAME": "阿米娅：精神虚弱",
     "DESCRIPTIONS": ["下回合无法使用 [E] 。","本回合无法使用 [E] 。", "本回合与下回合均无法使用 [E] 。"]
-  },
-  "cvetmod:ChessPower": {
-    "NAME": "棋逢对手",
-    "DESCRIPTIONS": ["每当你打出一张牌，这名敌人 #y立即 行动一次。"]
   },
   "cvetmod:ATTFPower": {
     "NAME": "昂首，足践烈焰",
@@ -43,6 +44,11 @@
     "NAME": "何谓存续",
     "DESCRIPTIONS": ["当你打出一张同时消耗 [E] [cvetmod:E2Icon] 的牌时，抽 #y", " 张牌。", " 张牌。"]
   },
+  "cvetmod:EnergyNextTurnPower": {
+    "NAME": "能量提高",
+    "DESCRIPTIONS": ["下回合开始时，获得 ", " 。"]
+  },
+
   "cvetmod:BloodSurge": {
     "NAME": "血涌",
     "DESCRIPTIONS": ["回合结束时，失去 #y", " 点生命值，你恢复等量生命值。"]

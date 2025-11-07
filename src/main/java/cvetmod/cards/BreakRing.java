@@ -2,12 +2,14 @@ package cvetmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import cvetmod.actions.DrawSpecificCardAction;
 import cvetmod.cards.special.Originium;
 
@@ -33,8 +35,17 @@ public class BreakRing extends AbstractCvetCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(p, new DamageInfo(p, magicNumber, DamageInfo.DamageType.HP_LOSS)));
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, secondMagicNumber)));
-        addToBot(new DrawSpecificCardAction(p.drawPile, Originium.ID));
-        addToBot(new DrawSpecificCardAction(p.discardPile, Originium.ID));
+        boolean inDrawPile = false;
+        for (AbstractCard c : p.drawPile.group) {
+            if (c instanceof Originium) {
+                addToBot(new DrawSpecificCardAction(p.drawPile, Originium.ID));
+                inDrawPile = true;
+                break;
+            }
+        }
+        if (!inDrawPile) {
+            addToBot(new DrawSpecificCardAction(p.discardPile, Originium.ID));
+        }
     }
 
     @Override

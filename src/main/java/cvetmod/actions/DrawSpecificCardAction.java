@@ -30,13 +30,12 @@ public class DrawSpecificCardAction extends AbstractGameAction {
                     cards.add(c);
                 }
             }
-            for (AbstractCard c:cards) {
-                group.removeCard(c);
+            if (!cards.isEmpty()) {
+                AbstractCard card = cards.get(0);
+                group.removeCard(card);
+                AbstractDungeon.player.drawPile.addToTop(card);
+                addToTop(new DrawCardAction(1));
             }
-            for (AbstractCard c:cards) {
-                AbstractDungeon.player.drawPile.addToTop(c);
-            }
-            addToTop(new DrawCardAction(cards.size()));
         }
         this.tickDuration();
     }

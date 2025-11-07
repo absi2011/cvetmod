@@ -177,8 +177,8 @@
     },
     "cvetmod:Catastrophe": {
         "NAME": "天灾",
-        "DESCRIPTION": "无法被打出 。 回合结束时，抽取并复制一张 *源石 。下回合获得 [E] [cvetmod:E2Icon] 。",
-        "UPGRADE_DESCRIPTION": "无法被打出 。 回合结束时，抽取并复制一张 *源石 。下回合获得 [E] [E] [cvetmod:E2Icon] [cvetmod:E2Icon] 。"
+        "DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取并复制一张 *源石 。 NL 下回合获得 [E] [cvetmod:E2Icon] 。",
+        "UPGRADE_DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取并复制一张 *源石 。 NL 下回合获得 [E] [E] [cvetmod:E2Icon] [cvetmod:E2Icon] 。"
     },
 
     "cvetmod:Terminate": {
@@ -192,7 +192,7 @@
     },
     "cvetmod:BreakRing": {
         "NAME": "碎戒",
-        "DESCRIPTION": "失去 !M! 点生命， NL 获得 !cvetmod:M2! 点力量， NL 将 *源石 抽到手中。",
+        "DESCRIPTION": "失去 !M! 点生命， NL 获得 !cvetmod:M2! 点力量， NL 抽一张 *源石 （即使它在弃牌堆）。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Chimera": {
@@ -239,6 +239,11 @@
     "cvetmod:RhythmBetweenDeathAndLife": {
         "NAME": "非调协回响的诗",
         "DESCRIPTION": "保留 ， 消耗 。 NL 将一张 *能量传输+ 置入你的手牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:HaltAttack": {
+        "NAME": "影霄·止袭",
+        "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL cvetmod:源石技艺 ：对本回合意图为攻击的敌人额外造成 !M! 点伤害。",
         "UPGRADE_DESCRIPTION": ""
     },
 

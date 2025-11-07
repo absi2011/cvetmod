@@ -222,6 +222,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new DataAbsence()); // 数据缺失
         cards.add(new TheMyriadDreams()); // 万千愿景
         cards.add(new RhythmBetweenDeathAndLife()); // 非调协回响的诗
+        cards.add(new HaltAttack()); // 影霄·止袭
 
         // Special.
         cards.add(new TheRealityOfEnd()); // 终结的实相

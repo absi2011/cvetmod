@@ -47,9 +47,7 @@ public class Catastrophe extends AbstractCvetCard {
                 }
             }
             if (card != null) {
-                p.drawPile.removeCard(card);
-                p.drawPile.addToTop(card);
-                addToBot(new DrawCardAction(1));
+                addToBot(new DrawSpecificCardAction(AbstractDungeon.player.drawPile, Originium.ID));
                 addToBot(new MakeTempCardInHandAction(card.makeStatEquivalentCopy()));
             }
             int energy = ENERGY_GAIN;
