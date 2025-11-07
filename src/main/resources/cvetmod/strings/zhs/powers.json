@@ -48,6 +48,10 @@
     "NAME": "能量提高",
     "DESCRIPTIONS": ["下回合开始时，获得 ", " 。"]
   },
+  "cvetmod:NoAttackPower": {
+    "NAME": "和平",
+    "DESCRIPTIONS": ["本回合内，不得打出攻击牌。"]
+  },
 
   "cvetmod:BloodSurge": {
     "NAME": "血涌",

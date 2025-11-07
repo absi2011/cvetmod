@@ -209,6 +209,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new ClosingStitch()); // 收针
         cards.add(new Amnannam()); // 阿喃那
         cards.add(new Catastrophe()); // 天灾
+        cards.add(new RebuildKazdel()); // 重建卡兹戴尔
 
         // Rare.
         cards.add(new Terminate()); // 停止
@@ -314,6 +315,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
 //        return lang;
         return "zhs";
     }
+
 
     public static void applyEnemyPowersOnly(DamageInfo info, AbstractCreature target) {
         info.isModified = false;

@@ -180,6 +180,11 @@
         "DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取并复制一张 *源石 。 NL 下回合获得 [E] [cvetmod:E2Icon] 。",
         "UPGRADE_DESCRIPTION": "无法被打出 。 NL 回合结束时，抽取并复制一张 *源石 。 NL 下回合获得 [E] [E] [cvetmod:E2Icon] [cvetmod:E2Icon] 。"
     },
+    "cvetmod:RebuildKazdel": {
+        "NAME": "重建卡兹戴尔",
+        "DESCRIPTION": "获得 !B! 点 格挡 ，本回合内不得再使用攻击牌。 NL 本回合中，每使用过一张攻击牌，减少 !M! 点 格挡 。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",
