@@ -190,6 +190,11 @@
         "DESCRIPTION": "获得 !B! 点 格挡 ， NL 本回合内 cvetmod:丝线 不会中断。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Growth": {
+        "NAME": "成长",
+        "DESCRIPTION": "造成 !D! 点伤害。 NL cvetmod:源石技艺 ：将这张牌返回你的手牌，它的消耗增加 [E] 且伤害变为 !M! 倍。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",

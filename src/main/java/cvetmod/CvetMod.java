@@ -230,6 +230,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Catastrophe()); // 天灾
         cards.add(new RebuildKazdel()); // 重建卡兹戴尔
         cards.add(new Succession()); // 传承
+        cards.add(new Growth()); // 成长
 
         // Rare.
         cards.add(new Terminate()); // 停止
