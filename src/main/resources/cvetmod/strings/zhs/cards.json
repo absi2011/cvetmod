@@ -205,6 +205,11 @@
         "DESCRIPTION": "选择一张 cvetmod:源石 中的卡牌，将其打出并 消耗 。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:AnchorPoint": {
+        "NAME": "锚点",
+        "DESCRIPTION": "cvetmod:丝线 。记录当前的生命值。 NL 每回合结束时，获得等同于你当前生命值与记录生命值之差的格挡。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",

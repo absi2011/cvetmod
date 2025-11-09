@@ -233,6 +233,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Succession()); // 传承
         cards.add(new Growth()); // 成长
         cards.add(new AssimilatedUniverse()); // 内化宇宙
+        cards.add(new AnchorPoint()); // 锚点
 
         // Rare.
         cards.add(new Terminate()); // 停止
