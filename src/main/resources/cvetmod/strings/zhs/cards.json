@@ -111,6 +111,11 @@
         "DESCRIPTION": "造成 !D! 点伤害， NL 本回合你的 *能量 可以存储到下回合使用。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:DustOfThePast": {
+        "NAME": "过往尘埃",
+        "DESCRIPTION": "抽 !M! 张牌。 NL 每有一张使用过的牌，获得 !B! 点格挡。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:SpiritBurst": {
         "NAME": "精神爆发",
