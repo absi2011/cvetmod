@@ -64,6 +64,10 @@
     "NAME": "特蕾西娅的幻影",
     "DESCRIPTIONS": ["你本回合的下 #b", " 张消耗 [E] 的牌将会被打出两次。"]
   },
+  "cvetmod:AnchorPointPower": {
+    "NAME": "锚点",
+    "DESCRIPTIONS": ["你的回合结束时，获得你此刻生命与 #b", " 之差（ #b"," 点）格挡"]
+  },
 
 
   "cvetmod:BloodSurge": {

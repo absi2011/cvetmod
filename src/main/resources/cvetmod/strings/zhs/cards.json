@@ -207,7 +207,7 @@
     },
     "cvetmod:AnchorPoint": {
         "NAME": "锚点",
-        "DESCRIPTION": "cvetmod:丝线 。记录当前的生命值。 NL 每回合结束时，获得等同于你当前生命值与记录生命值之差的格挡。",
+        "DESCRIPTION": "cvetmod:丝线 。 NL 记录当前的生命值。 NL 每回合结束时，获得等同于你当前生命值与记录生命值之差的格挡。",
         "UPGRADE_DESCRIPTION": ""
     },
 
@@ -278,7 +278,7 @@
     },
     "cvetmod:YouTheFuture": {
         "NAME": "赠予未来",
-        "DESCRIPTION": "cvetmod:丝线 。NL 打出 cvetmod:源石 中所有卡牌，并将它们 消耗 。 NL 消耗。",
+        "DESCRIPTION": "cvetmod:丝线 。NL 打出 cvetmod:源石区 中所有卡牌，并将它们 消耗 。 NL 消耗。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Echo": {

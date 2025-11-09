@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,11 +32,27 @@ public class AnchorPointPower extends AbstractCvetPower implements NonStackableP
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + calc() + DESCRIPTIONS[2];
+    }
+
+    @Override
+    public void wasHPLost(DamageInfo info, int damageAmount) {
+        updateDescription();
+    }
+
+    @Override
+    public void update(int slot) {
+        super.update(slot);
+        updateDescription();
+    }
+
+    private int calc()
+    {
+        return Math.abs(owner.currentHealth - amount);
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        addToBot(new GainBlockAction(owner, owner, Math.abs(owner.currentHealth - amount)));
+        addToBot(new GainBlockAction(owner, owner, calc()));
     }
 }

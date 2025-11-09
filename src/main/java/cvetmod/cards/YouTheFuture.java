@@ -38,6 +38,7 @@ public class YouTheFuture extends AbstractCvetCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
+            exhaust = true;
             upgradeName();
             upgradeBaseSecondCost(UPG_SECOND_COST);
         }
