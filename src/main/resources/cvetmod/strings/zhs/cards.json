@@ -261,6 +261,11 @@
         "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL cvetmod:源石技艺 ：对本回合意图为攻击的敌人额外造成 !M! 点伤害。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:YouTheFuture": {
+        "NAME": "赠予未来",
+        "DESCRIPTION": "cvetmod:丝线 。NL 打出 cvetmod:源石 中所有卡牌，并将它们 消耗 。 NL 消耗。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:TheRealityOfEnd": {
         "NAME": "终结的实相",
