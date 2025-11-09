@@ -56,6 +56,14 @@
     "NAME": "传承",
     "DESCRIPTIONS": ["本回合内 #y丝线 不会中断。"]
   },
+  "cvetmod:EchoPower": {
+    "NAME": "回响",
+    "DESCRIPTIONS": ["每当你打出一张 #y已打出过的牌 ，你本回合的下一张消耗 [E] 的牌将会被打出两次。"]
+  },
+  "cvetmod:AmiyaTwicePower": {
+    "NAME": "特蕾西娅的幻影",
+    "DESCRIPTIONS": ["你本回合的下 #b", " 张消耗 [E] 的牌将会被打出两次。"]
+  },
 
 
   "cvetmod:BloodSurge": {

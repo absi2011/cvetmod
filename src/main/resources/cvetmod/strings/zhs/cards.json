@@ -276,6 +276,11 @@
         "DESCRIPTION": "cvetmod:丝线 。NL 打出 cvetmod:源石 中所有卡牌，并将它们 消耗 。 NL 消耗。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Echo": {
+        "NAME": "回响",
+        "DESCRIPTION": "每当你打出一张已被打出过的卡牌后，本回合你打出下一张消耗 [E] 的牌时，额外打出一张它的复制。",
+        "UPGRADE_DESCRIPTION": ""
+    },
 
     "cvetmod:TheRealityOfEnd": {
         "NAME": "终结的实相",
