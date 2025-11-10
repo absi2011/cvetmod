@@ -207,7 +207,7 @@
     },
     "cvetmod:AssimilatedUniverse": {
         "NAME": "内化宇宙",
-        "DESCRIPTION": "选择一张 cvetmod:源石 中的卡牌，将其打出并 消耗 。",
+        "DESCRIPTION": "选择一张 cvetmod:源石区 中的卡牌，将其打出并 消耗 。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:AnchorPoint": {

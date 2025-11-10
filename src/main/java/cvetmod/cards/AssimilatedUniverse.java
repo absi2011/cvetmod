@@ -29,7 +29,7 @@ public class AssimilatedUniverse extends AbstractCvetCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
-            upgradeSecondMagicNumber(UPG_SECOND_COST);
+            upgradeBaseSecondCost(UPG_SECOND_COST);
             upgradeName();
             initializeDescription();
         }
