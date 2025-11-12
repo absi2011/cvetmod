@@ -66,4 +66,9 @@ public class AmiyaTwicePower extends AbstractCvetPower {
 
     }
 
+    @Override
+    public void atStartOfTurn() {
+        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    }
+
 }
