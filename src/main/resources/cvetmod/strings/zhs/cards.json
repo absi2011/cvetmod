@@ -73,8 +73,8 @@
     },
     "cvetmod:Crack": {
         "NAME": "破译",
-        "DESCRIPTION": "从 cvetmod:源石区 中选择一张牌，获得它的两张带有 消耗 的复制。",
-        "UPGRADE_DESCRIPTION": "从 cvetmod:源石区 中选择一张牌，获得它的两张带有 消耗 的复制，且它们的耗能减少 [cvetmod:E2Icon] 。"
+        "DESCRIPTION": "从 cvetmod:源石区 中选择一张牌，将其 消耗 。 NL 获得它的两张带有 消耗 的复制。",
+        "UPGRADE_DESCRIPTION": "从 cvetmod:源石区 中选择一张牌，将其 消耗 。 NL 获得它的两张带有 消耗 的复制，且它们的耗能减少 [cvetmod:E2Icon] 。"
     },
     "cvetmod:Wave": {
         "NAME": "编织",

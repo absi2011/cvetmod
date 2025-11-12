@@ -6,7 +6,7 @@
 
   "cvetmod:ChimeraPower": {
     "NAME": "急性源石反应",
-    "DESCRIPTIONS": ["#r", " 回合后，失去 #r", " 点 生命值（可以用 #y抑制剂 或 #临时抑制剂 延长一回合，但再次打出 #y奇美拉 时将变为 #r1 回合。）"]
+    "DESCRIPTIONS": ["#r", " 回合后，失去 #r", " 点 生命值（可以用 #y抑制剂 或 #y临时抑制剂 延长一回合，但再次打出 #y奇美拉 时将变为 #r1 回合。）"]
   },
   "cvetmod:SpiritBurstPower": {
     "NAME": "阿米娅：精神虚弱",

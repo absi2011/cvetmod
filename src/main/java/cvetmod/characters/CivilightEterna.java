@@ -263,8 +263,16 @@ public class CivilightEterna extends CustomPlayer {
     @Override
     public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
         if (c.type == AbstractCard.CardType.ATTACK) {
-            spines.get("Amiya").setAttack();
-            // TODO: check attack from Amiya or Theresia
+            if ((c instanceof AbstractCvetCard) && ((AbstractCvetCard)c).secondCost > 0)
+            {
+                spines.get("Theresia").setAttack();
+                if (c.cost > 0) {
+                    spines.get("Amiya").setAttack();
+                }
+            }
+            else {
+                spines.get("Amiya").setAttack();
+            }
         }
         c.calculateCardDamage(monster);
         if (c.cost == -1 && EnergyPanel.totalCount < energyOnUse && !c.ignoreEnergyOnUse) {
@@ -282,6 +290,10 @@ public class CivilightEterna extends CustomPlayer {
             c.freeToPlayOnce = true;
         }
         c.use(this, monster);
+        int secondCost = 0;
+        if (c instanceof AbstractCvetCard) {
+            secondCost = ((AbstractCvetCard) c).getSecondCost();
+        }
         AbstractDungeon.actionManager.addToBottom(new UseCardAction(c, monster));
         if (!c.dontTriggerOnUseCard) {
             hand.triggerOnOtherCardPlayed(c);
@@ -294,7 +306,7 @@ public class CivilightEterna extends CustomPlayer {
         if (!c.freeToPlay() && !c.isInAutoplay && (!hasPower("Corruption") || c.type != AbstractCard.CardType.SKILL)) {
             energy.use(c.costForTurn);
             if (c instanceof AbstractCvetCard) {
-                CostReserves.useReserves(((AbstractCvetCard) c).getSecondCost());
+                CostReserves.useReserves(secondCost);
             }
         }
 

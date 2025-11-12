@@ -26,7 +26,7 @@ public class RashAdvance extends AbstractCvetCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(magicNumber, new RashAdvanceAction(), false));
+        addToBot(new DrawCardAction(magicNumber, new RashAdvanceAction()));
     }
 
     @Override

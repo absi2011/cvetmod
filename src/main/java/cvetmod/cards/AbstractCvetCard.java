@@ -275,7 +275,7 @@ public abstract class AbstractCvetCard extends CustomCard {
     }
 
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+    public void triggerOnCardPlayed(AbstractCard c) {
         if (c == this) {
             secondCostEqual = -1;
             secondCostReduce = 0;
