@@ -173,7 +173,8 @@
     "cvetmod:Companion": {
         "NAME": "陪伴",
         "DESCRIPTION": "获得等于你手牌总费用的 格挡 。 NL 消耗 。",
-        "UPGRADE_DESCRIPTION": ""
+        "UPGRADE_DESCRIPTION": "获得等于你手牌总费用的 格挡 。 NL 保留 ， 消耗 。",
+        "EXTENDED_DESCRIPTION": "（共 !B! 点）"
     },
     "cvetmod:ClosingStitch": {
         "NAME": "收针",
@@ -283,7 +284,7 @@
     },
     "cvetmod:YouTheFuture": {
         "NAME": "赠予未来",
-        "DESCRIPTION": "cvetmod:丝线 。NL 打出 cvetmod:源石区 中所有卡牌，并将它们 消耗 。 NL 消耗。",
+        "DESCRIPTION": "cvetmod:丝线 。 NL 打出 cvetmod:源石区 中所有卡牌，并将它们 消耗 。 NL 消耗 。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:Echo": {
