@@ -45,11 +45,6 @@
         "DESCRIPTION": "抽 !M! 张牌。 NL 当这张牌被加入 *源石 的时候，再抽 !cvetmod:M2! 张牌。",
         "UPGRADE_DESCRIPTION": ""
     },
-    "cvetmod:Analyse": {
-        "NAME": "解构",
-        "DESCRIPTION": "从 cvetmod:源石区 中随机取出 !M! 张卡牌。",
-        "UPGRADE_DESCRIPTION": ""
-    },
     "cvetmod:Inhibitor": {
         "NAME": "抑制剂",
         "DESCRIPTION": "保留 ， 消耗 。 NL 丢弃你手中的 *源石 。 NL 将一张 *抑制剂 加入你的弃牌堆。",
@@ -117,6 +112,11 @@
         "UPGRADE_DESCRIPTION": ""
     },
 
+    "cvetmod:Analyse": {
+        "NAME": "解构",
+        "DESCRIPTION": "从 cvetmod:源石区 中随机取出 !M! 张卡牌。",
+        "UPGRADE_DESCRIPTION": ""
+    },
     "cvetmod:SpiritBurst": {
         "NAME": "精神爆发",
         "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 下回合你不能使用 [E] 。",
@@ -279,7 +279,7 @@
     },
     "cvetmod:HaltAttack": {
         "NAME": "影霄·止袭",
-        "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL cvetmod:源石技艺 ：对本回合意图为攻击的敌人额外造成 !M! 点伤害。",
+        "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL cvetmod:源石技艺 ：这张牌的消耗增加 [E] ，对本回合意图为攻击的敌人额外造成 !M! 点伤害。",
         "UPGRADE_DESCRIPTION": ""
     },
     "cvetmod:YouTheFuture": {
@@ -301,7 +301,7 @@
     "cvetmod:TempInhibitor": {
         "NAME": "临时抑制剂",
         "DESCRIPTION": "保留 ， 消耗 。 NL 弃置 你手中的 *源石 。 ",
-        "UPGRADE_DESCRIPTION": "保留 。 NL 弃置 你手中的 *源石 。 "
+        "UPGRADE_DESCRIPTION": "保留 ， 消耗。 NL 弃置 你手中的 *源石 ，若没有 *源石 则恢复 !M! 点生命值。"
     },
     "cvetmod:EnergyTransfer": {
         "NAME": "能量传输",

@@ -28,6 +28,7 @@ public class HaltAttack extends AbstractCvetCard {
     public static final int ADD_DMG = 60;
     public static final int ADD_UPG_DMG = 15;
     public int[] extraMultiDamage;
+    boolean triggerExtraCost = false;
     public HaltAttack() {
         super(ID, NAME, IMG, COST, SECOND_COST, DESCRIPTION, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
         isMultiDamage = true;
@@ -54,6 +55,14 @@ public class HaltAttack extends AbstractCvetCard {
         extraMultiDamage = multiDamage;
         baseDamage = temp;
         super.applyPowers();
+        if ((!extraTriggered()) && (triggerExtraCost)) {
+            triggerExtraCost = false;
+            updateCost(-1);
+        }
+        if ((extraTriggered()) && (!triggerExtraCost)) {
+            triggerExtraCost = true;
+            updateCost(1);
+        }
     }
 
     @Override
