@@ -1,16 +1,12 @@
 package cvetmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import cvetmod.cards.Inhibitor;
-import cvetmod.cards.special.TempInhibitor;
 
 public class HalfDamagePower extends AbstractCvetPower {
     public static final String POWER_ID = "cvetmod:HalfDamagePower";
@@ -23,9 +19,8 @@ public class HalfDamagePower extends AbstractCvetPower {
         this.type = PowerType.DEBUFF;
         this.owner = owner;
         this.amount = amount;
-        //TODO: 找个机会创建个模板吧，别非要让我用cards的
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/HalfDamagePower.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/HalfDamagePower.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/HalfDamagePower_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/HalfDamagePower_32.png"), 0, 0, 32, 32);
         updateDescription();
     }
 

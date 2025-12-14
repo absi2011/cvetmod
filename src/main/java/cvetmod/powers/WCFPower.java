@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class WCFPower extends AbstractPower {
@@ -24,9 +23,8 @@ public class WCFPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.owner = owner;
         this.amount = amount;
-        //TODO: 找个机会创建个模板吧，别非要让我用cards的
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/WCFPower.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/WCFPower.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/WCFPower_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/WCFPower_32.png"), 0, 0, 32, 32);
         updateDescription();
     }
     @Override

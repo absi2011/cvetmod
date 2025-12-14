@@ -20,8 +20,8 @@ public class BloodSurge extends AbstractCvetPower {
         this.type = PowerType.DEBUFF;
         this.owner = owner;
         this.amount = amount;
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/BloodSurge.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/BloodSurge.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/BloodSurge_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/BloodSurge_32.png"), 0, 0, 32, 32);
         updateDescription();
     }
 

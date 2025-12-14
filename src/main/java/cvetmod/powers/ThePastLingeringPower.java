@@ -1,14 +1,9 @@
 package cvetmod.powers;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -16,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DoubleTapPower;
 
 public class ThePastLingeringPower extends AbstractCvetPower {
     public static final String POWER_ID = "cvetmod:ThePastLingering";
@@ -28,8 +22,8 @@ public class ThePastLingeringPower extends AbstractCvetPower {
         this.name = NAME;
         this.type = PowerType.BUFF;
         this.owner = owner;
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ThePastLingering_84.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ThePastLingering_32.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ThePastLingering_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ThePastLingering_32.png"), 0, 0, 32, 32);
         updateDescription();
     }
 
@@ -44,6 +38,7 @@ public class ThePastLingeringPower extends AbstractCvetPower {
             AbstractCard c = AbstractDungeon.actionManager.cardsPlayedThisCombat.get(i);
             if (c.uuid.equals(card.uuid)) {
                 usedBefore = true;
+                break;
             }
         }
         return usedBefore;

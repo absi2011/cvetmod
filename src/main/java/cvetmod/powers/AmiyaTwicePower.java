@@ -1,7 +1,6 @@
 package cvetmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +12,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DoubleTapPower;
 
 public class AmiyaTwicePower extends AbstractCvetPower {
     public static final String POWER_ID = "cvetmod:AmiyaTwicePower";
@@ -26,9 +24,8 @@ public class AmiyaTwicePower extends AbstractCvetPower {
         this.type = PowerType.BUFF;
         this.owner = owner;
         this.amount = amount;
-        //TODO: 找个机会创建个模板吧，别非要让我用cards的
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/AmiyaTwicePower.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/AmiyaTwicePower.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/AmiyaTwicePower_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/AmiyaTwicePower_32.png"), 0, 0, 32, 32);
         updateDescription();
     }
 

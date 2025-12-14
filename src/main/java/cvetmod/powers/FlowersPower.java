@@ -8,9 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import cvetmod.CvetMod;
 import cvetmod.cards.AbstractCvetCard;
-import cvetmod.cards.special.Originium;
 import cvetmod.patches.CvetTags;
 
 public class FlowersPower extends AbstractCvetPower {
@@ -23,8 +21,8 @@ public class FlowersPower extends AbstractCvetPower {
         this.name = NAME;
         this.type = PowerType.BUFF;
         this.owner = owner;
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/FlowersPower.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/FlowersPower.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/FlowersPower_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/FlowersPower_32.png"), 0, 0, 32, 32);
         updateDescription();
     }
 

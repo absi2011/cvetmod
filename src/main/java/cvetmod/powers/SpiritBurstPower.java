@@ -20,9 +20,8 @@ public class SpiritBurstPower extends AbstractCvetPower {
         this.name = NAME;
         this.type = PowerType.DEBUFF;
         this.owner = owner;
-        //TODO: 找个机会创建个模板吧，别非要让我用cards的
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/SpiritBurstPower.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/SpiritBurstPower.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/SpiritBurstPower_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/SpiritBurstPower_32.png"), 0, 0, 32, 32);
         updateDescription();
         nextTurn = true;
     }

@@ -1,8 +1,6 @@
 package cvetmod.powers;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.IntentFlashAction;
-import com.megacrit.cardcrawl.actions.common.MonsterStartTurnAction;
 import com.megacrit.cardcrawl.actions.common.ShowMoveNameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
@@ -23,9 +21,8 @@ public class ChessPower extends AbstractCvetPower {
         this.name = NAME;
         this.type = PowerType.BUFF;
         this.owner = owner;
-        //TODO: 找个机会创建个模板吧，别非要让我用cards的
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ChessPower_84.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ChessPower_32.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ChessPower_84.png"), 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ChessPower_32.png"), 0, 0, 32, 32);
         updateDescription();
     }
 
