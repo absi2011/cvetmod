@@ -68,6 +68,10 @@
     "NAME": "锚点",
     "DESCRIPTIONS": ["你的回合结束时，获得你此刻生命与 #b", " 之差（ #b"," 点）格挡"]
   },
+  "cvetmod:AppealPower": {
+    "NAME": "待调弦的怒火",
+    "DESCRIPTIONS": ["回合开始时，结束当前 #y姿态 。"]
+  },
 
 
   "cvetmod:BloodSurge": {

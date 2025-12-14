@@ -226,6 +226,14 @@
         "DESCRIPTION": "抽取能量消耗互不相同的卡牌各一张。 NL （ [E] [cvetmod:E2icon] 中任意一个不相同即为不同）",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Appeal": {
+        "NAME": "影霄·鸣冤",
+        "DESCRIPTION": "造成 !D! 点伤害 X 次， NL 进入 愤怒 。 NL 下回合开始时离开该 姿态 。",
+        "UPGRADE_DESCRIPTION": "",
+        "EXTENDED_DESCRIPTION": [
+            "我该用什么回敬你的不义？"
+        ]
+    },
 
     "cvetmod:Terminate": {
         "NAME": "停止",
