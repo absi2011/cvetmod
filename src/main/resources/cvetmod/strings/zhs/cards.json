@@ -111,6 +111,11 @@
         "DESCRIPTION": "抽 !M! 张牌。 NL 每有一张使用过的牌，获得 !B! 点格挡。",
         "UPGRADE_DESCRIPTION": ""
     },
+    "cvetmod:Connection": {
+        "NAME": "连线",
+        "DESCRIPTION": "cvetmod:丝线 ， NL 造成 !D! 点伤害。 NL 你当前每有一层 cvetmod:丝线 ，重复一次该效果。",
+        "UPGRADE_DESCRIPTION": " NL （共 !M! 次）"
+    },
 
     "cvetmod:Analyse": {
         "NAME": "解构",
