@@ -213,6 +213,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new RashAdvance()); // 冒进
         cards.add(new EmotionExceed()); // 情绪外溢
         cards.add(new DustOfThePast()); // 过往尘埃
+        cards.add(new Connection()); // 连线
 
         // Uncommon.
         cards.add(new Analyse()); // 解构

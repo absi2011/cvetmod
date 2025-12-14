@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import cvetmod.actions.DrawSpecificCardAction;
 import cvetmod.cards.special.Originium;
 
