@@ -28,8 +28,8 @@ public class ThePastLingeringPower extends AbstractCvetPower {
         this.name = NAME;
         this.type = PowerType.BUFF;
         this.owner = owner;
-        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/cards/CvetStrikeA.png"), 0, 0, 128, 128);
-        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/cards/CvetStrikeA.png"), 0, 0, 48, 48);
+        region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ThePastLingering_84.png"), 0, 0, 128, 128);
+        region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("cvetmod/images/powers/ThePastLingering_32.png"), 0, 0, 48, 48);
         updateDescription();
     }
 

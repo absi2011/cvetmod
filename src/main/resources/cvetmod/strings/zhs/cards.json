@@ -174,7 +174,7 @@
         "NAME": "陪伴",
         "DESCRIPTION": "获得等于你手牌总费用的 格挡 。 NL 消耗 。",
         "UPGRADE_DESCRIPTION": "获得等于你手牌总费用的 格挡 。 NL 保留 ， 消耗 。",
-        "EXTENDED_DESCRIPTION": "（共 !B! 点）"
+        "EXTENDED_DESCRIPTION": ["（共 !B! 点）"]
     },
     "cvetmod:ClosingStitch": {
         "NAME": "收针",
@@ -214,6 +214,11 @@
     "cvetmod:AnchorPoint": {
         "NAME": "锚点",
         "DESCRIPTION": "cvetmod:丝线 。 NL 记录当前的生命值。 NL 每回合结束时，获得等同于你当前生命值与记录生命值之差的格挡。",
+        "UPGRADE_DESCRIPTION": ""
+    },
+    "cvetmod:Babel": {
+        "NAME": "巴别塔",
+        "DESCRIPTION": "抽取能量消耗互不相同的卡牌各一张。 NL （ [E] [cvetmod:E2icon] 中任意一个不相同即为不同）",
         "UPGRADE_DESCRIPTION": ""
     },
 

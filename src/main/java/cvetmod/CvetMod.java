@@ -235,6 +235,7 @@ public class CvetMod implements EditCardsSubscriber, EditCharactersSubscriber, E
         cards.add(new Growth()); // 成长
         cards.add(new AssimilatedUniverse()); // 内化宇宙
         cards.add(new AnchorPoint()); // 锚点
+        cards.add(new Babel()); // 巴别塔
 
         // Rare.
         cards.add(new Terminate()); // 停止
